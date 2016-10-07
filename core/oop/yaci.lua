@@ -46,6 +46,24 @@ local global = function ( class, bGlobal )
    return lide.__store_classes[class:name()]
 end
 
+-- auxiliary function, which creates constants for classes
+--
+-- Usage:
+--
+--  "Class_Name" : enum {
+--     CONSTANT    = 0,
+--     ANOTHER_VAL = 1,  
+--  }
+--
+--  print(Class_Name.CONSTANT)
+--
+
+local function class_enum ( class, enums_tbl )
+   mt = getmetatable(class);
+   mt.__index = table.join(mt.__index, enums_tbl);
+   setmetatable(class, mt);
+end
+
 
 -- associations between an BaseObject an its meta-informations
 -- e.g its class, its "lower" BaseObject (if any), ...
@@ -240,6 +258,7 @@ local function subclass(baseClass, name)
    
    function inst_stuff.class() return theClass end
    function inst_stuff.__index(inst, key) -- Look for field 'key' in instance 'inst'
+
       -- 1. Si el entorno permite acceder a valores privados:
       --    - El constructor de una clase
       --       1 - La llamada al constructor de una superclase dentro de la definicion de un constructor
@@ -250,7 +269,7 @@ local function subclass(baseClass, name)
       -- Si estamos dentro del constructor de una clase:
       do
          -- Para cuando hagamos [ self.super:init ]  
-         if key == 'init' or key == 'new' and getmetatable(inst).__init then
+         if (key == 'init' or key == 'new') and getmetatable(inst).__init then
             function protected ( tFields )
               local _, self = debug.getlocal(2,1) -- get 'self'
               for field, value in next, tFields do
@@ -347,11 +366,13 @@ local function subclass(baseClass, name)
       return res
    end
  
-  local class_stuff = { 
- 
-  subclassof = subclassof, global = global,
-  static = inst_stuff, made = classMade, new = newInstance,
-  subclass = subclass, virtual = makeVirtual, cast = secureCast, trycast = tryCast }
+  local class_stuff = {
+    enum = class_enum,
+    subclassof = subclassof, global = global,
+    static = inst_stuff, made = classMade, new = newInstance,
+    subclass = subclass, virtual = makeVirtual, cast = secureCast, trycast = tryCast 
+  }
+
   metaObj[theClass] = { virtuals = duplicate(metaObj[baseClass].virtuals) }
 
   function class_stuff.name(class) return name end
@@ -406,8 +427,6 @@ function newclass(name, baseClass)
    return  baseClass:subclass(name)
 end
 end 
--->>> Esto ya no sucede:: 2 global things remain: 'BaseObject' and 'newclass' 
--->>> Esto si: 1 global thing remain: 'newclass'
 
 local new_class = newclass; newclass = nil
 

@@ -6,28 +6,9 @@
 -- // Copyright:   (c) 2014 Dario Cano
 -- // License:     lide license
 -- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Grid:new ( string sControlName, object oParent, number nPosX, number nPosY, number nWidth, number nHeight, number nID )
---
---  	string sControlName    	The control's name
---		object oParent  		The control's parent
---		number nPosX			Position related to X
---		number nPosY			Position related to Y
---		number nWidth			Width of the widget
---		number nHeight			Height of the widget
---		number nID 				The object identificator
---
--- Class methods:
---
--- 		string   getText() 		Gets the control's text.
---		nil		 setText()		Sets the control's text.
---
-
 
 --- Grid selection modes:
----
+--- deprecated by line:73 Grid:enum
 enum {
 	GRID_SELMODE_CELLS   = wx.wxGrid.wxGridSelectCells,
 	GRID_SELMODE_ROWS    = wx.wxGrid.wxGridSelectRows,
@@ -51,6 +32,32 @@ local Control = lide.classes.control
 
 local Grid = class 'Grid' : subclassof 'Control' : global ( false )
 
+Grid : enum {
+
+	ALIGN_NOT    = wx.wxALIGN_NOT,
+	ALIGN_LEFT   = wx.wxALIGN_LEFT,
+	ALIGN_TOP    = wx.wxALIGN_TOP,
+	ALIGN_RIGHT  = wx.wxALIGN_RIGHT,
+	ALIGN_BOTTOM = wx.wxALIGN_BOTTOM,
+	ALIGN_CENTER = wx.wxALIGN_CENTER,
+	ALIGN_CENTRE = wx.wxALIGN_CENTRE,
+	ALIGN_MASK   = wx.wxALIGN_MASK,
+
+	ALIGN_CENTER_HORIZONTAL = wx.wxALIGN_CENTER_HORIZONTAL, 
+	ALIGN_CENTRE_HORIZONTAL = wx.wxALIGN_CENTRE_HORIZONTAL, 
+	ALIGN_CENTER_VERTICAL   = wx.wxALIGN_CENTER_VERTICAL, 
+	ALIGN_CENTRE_VERTICAL   = wx.wxALIGN_CENTRE_VERTICAL, 
+
+}
+
+--- Grid selection modes:
+Grid : enum {
+	
+	GRID_SELMODE_CELLS   = wx.wxGrid.wxGridSelectCells,
+	GRID_SELMODE_ROWS    = wx.wxGrid.wxGridSelectRows,
+	GRID_SELMODE_COLUMNS = wx.wxGrid.wxGridSelectColumns,
+}
+
 function Grid:Grid ( fields )
 	 
 	fields.Flags      = fields.Flags or 0
@@ -59,14 +66,10 @@ function Grid:Grid ( fields )
 	fields.ResizeRows = fields.ResizeRows or false
 	fields.GridLines  = (fields.GridLines == nil) or fields.GridLines
 
----	fields.SelectMode = fields.SelectMode or GRID_SELMODE_CELLS
-
-
 	-- check for fields required by constructor:
 	check.fields { 
 	 	'string Name', 'object Parent'
 	}
-
 
 	--self:Nofields "Control.Text Control.Font"
 		-- define class fields
@@ -76,7 +79,6 @@ function Grid:Grid ( fields )
 
 		Flags = isNumber(fields.Flags) or -1,
 		SelectMode = fields.SelectMode or GRID_SELMODE_CELLS,
-		--wxObj = '.none.'
 	}
 
 	self.super : init ( fields.Name, fields.Parent, fields.PosX or self.DefaultPosition.X, fields.PosY or self.DefaultPosition.Y, fields.Width or self.DefaultSize.Width, fields.Height or self.DefaultSize.Height, fields.ID )

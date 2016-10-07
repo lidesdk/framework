@@ -182,7 +182,7 @@ base.check = {
 		local _, self   = debug.getlocal(2,1) -- get 'self'
 		local _, fields = debug.getlocal(2,2) -- get 'fields'
 		
-		if self and debug.getlocal(2,2):lower() == 'fields' then 
+		if self and debug.getlocal(2,2):lower() == 'fields' then
 			for _, fieldname in pairs(required) do
 				local sp = fieldname:find(' ')
 				local stype = fieldname:sub(1, sp-1)
@@ -193,9 +193,9 @@ base.check = {
 				elseif lide.core.base.type(fields[sname]) ~= stype then
 					lide.core.error.lperr(('%s class constructor: the type of field "%s" must be "%s".'):format(self:class():name(), sname, stype))
 				end
-			end 
+			end
 		end
-	end 
+	end
 }
 
 return base

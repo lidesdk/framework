@@ -11,6 +11,7 @@
 -- Windows x86 Lua version: 5.1.4
 
 lide = require 'lide.core.init'
+app  = { }
 
 if not wx then
 	if lide.platform:getOSName() == 'Linux' then
@@ -21,8 +22,6 @@ if not wx then
 	
 	if not wx then lide.core.error.lperr 'No se pudo cargar wxLua' os.exit(0) end
 end
-
-app = { }
 
 --> lide.core.file is deprecated by lide.file
 lide.file = lide.core.file

@@ -6,10 +6,6 @@
 -- // License:     lide license
 -- ///////////////////////////////////////////////////////////////////////////////
 
--- EXPERIMENTAL FILE.
-
-require 'lide.core.thlua' --> import
-
 lide = lide or {
 	cons   = {}, 	--> This table saves all constants
 	errorf = {}, 	--> This table stores all error functions
@@ -28,6 +24,8 @@ lide = lide or {
 
 	platform = {},
 }
+
+require 'lide.core.thlua'
 
 lide.core.error = require 'lide.core.error' 	--> exceptions control
 lide.core.oop   = require 'lide.core.oop.init'  --> OOP handling

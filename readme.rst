@@ -1,12 +1,13 @@
-Lide framework
+Lide Framework
 ==============
-
-.. image:: https://travis-ci.org/lidesdk/framework.svg?branch=master 
-    :target: https://travis-ci.org/lidesdk/framework 
 
 Lide Framework is a library that allows you to create multiplatform graphical interfaces from Lua language.
 Lide uses wxWidgets to build controls and windows, this ensures the integration of your applications 
 with GTK+ on Linux and really native controls in Windows.
+
+.. image:: https://travis-ci.org/lidesdk/framework.svg?branch=master 
+    :target: https://travis-ci.org/lidesdk/framework 
+
 
 Installation
 ============
@@ -103,7 +104,8 @@ Help & Documentation
 
 If you want to know more please read our official framework's documentation:
 
-http://lide-framework.rtfd.io
+
+`- Lide Framework readthedocs <http://lide-framework.rtfd.io>`_
 
 Credits and Authors
 ===================
