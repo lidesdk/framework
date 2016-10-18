@@ -35,6 +35,10 @@ lide.core.file   = require 'lide.core.file'		--> File Handling
 lide.core.folder = require 'lide.core.folder'   --> Folders related
 
 ------------------------------------------
+lide.folder = lide.core.folder;
+lide.file   = lide.core.file;
+
+------------------------------------------
 -- base values:
 
 class = lide.core.oop.class
