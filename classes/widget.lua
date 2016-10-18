@@ -109,6 +109,7 @@ end
 
 function Widget:setPosY ( nPosY )
 	self.PosY = isNumber(nPosY)
+	self.wxObj:Move( wx.wxPoint( self.wxObj:GetPosition().X, nPosY ) )
 	if ( self.PosY == nPosY ) then return true else return false end
 end
 
@@ -166,6 +167,13 @@ function Widget:setEnabled( bEnabled )
 	return self:getwxObj():Enable( bEnabled )
 end
 
+Widget:virtual 'setFocus'
+function Widget:setFocus( )
+	self:getwxObj():SetFocus()
+
+	return self:getwxObj():GetParent():FindFocus():GetHandle() == self:getwxObj():GetHandle() or false
+end
+
 Widget:virtual 'initializeEvents'
 
 function Widget:initializeEvents ( toLoad )
@@ -178,7 +186,7 @@ function Widget:initializeEvents ( toLoad )
 	
 	getmetatable(self) .__events['onEnter'] = {
 		data = wx.wxEVT_ENTER_WINDOW,
-		args = voidf -- the same as: args = function ( event ) end
+		args = (getXY),
 	}
 	
 	getmetatable(self) .__events['onLeave'] = {--> Cuando el mouse está por encima del widget:{ 

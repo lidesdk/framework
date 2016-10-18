@@ -63,15 +63,17 @@ function Button:Button ( fields )
 	self.wxObj = wx.wxButton(self.Parent:getwxObj(), self.ID, self.Text, wx.wxPoint( self.PosX, self.PosY ), wx.wxSize( self.Width, self.Height ), self.Flags or self.DefaultFlags, wx.wxDefaultValidator, self.Name)
 
 	-- registry event onClick
-	getmetatable(self) .__events['onClick'] = {
-		data = wx.wxEVT_COMMAND_BUTTON_CLICKED,
-		args = lide.core.base.voidf
-	}
+	--getmetatable(self) .__events['onClick'] = {
+	--	data = wx.wxEVT_COMMAND_BUTTON_CLICKED,
+	--	args = lide.core.base.voidf
+	--}
 
 	self:initializeEvents {
-		'onEnter', 'onLeave',
+		'onEnter', 'onLeave', 'onMotion', 'onMoving', 'onMove',
 
-		'onClick' --> Buton Class' onClick
+		'onLeftUp', 'onLeftDown',
+
+	--	'onClick' --> Buton Class' onClick
 	}
 
 end

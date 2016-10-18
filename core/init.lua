@@ -27,10 +27,11 @@ lide = lide or {
 
 require 'lide.core.thlua'
 
-lide.core.error = require 'lide.core.error' 	--> exceptions control
-lide.core.oop   = require 'lide.core.oop.init'  --> OOP handling
-lide.core.base  = require 'lide.core.base'		-->
-lide.core.file  = require 'lide.core.file'		--> File Handling
+lide.core.error  = require 'lide.core.error' 	--> exceptions control
+lide.core.oop    = require 'lide.core.oop.init'  --> OOP handling
+lide.core.base   = require 'lide.core.base'		-->
+lide.core.file   = require 'lide.core.file'		--> File Handling
+lide.core.folder = require 'lide.core.folder'   --> Folders related
 
 ------------------------------------------
 -- base values:

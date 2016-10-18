@@ -92,11 +92,4 @@ function Control:getFont( )
 	return self.Font
 end
 
-Control:virtual 'setFocus'
-function Control:setFocus( )
-	self:getwxObj():SetFocus()
-
-	return self:getwxObj():GetParent():FindFocus():GetHandle() == self:getwxObj():GetHandle() or false
-end
-
 return Control
