@@ -14,7 +14,7 @@ package = "lide"
 version = "0.0-0"
 
 source = { 
-  url = "https://github.com/LideSDK/framework/archive/master.zip",
+  url = "https://github.com/lidesdk/framework/archive/master.zip",
   dir = 'framework-master'
 }
 
@@ -61,6 +61,7 @@ build.install.lua = {
   ['lide.core.thlua']       = 'core/thlua.lua',
   ['lide.core.error']       = 'core/error.lua',
   ['lide.core.file']        = 'core/file.lua',
+  ['lide.core.folder']      = 'core/file.lua',
   ['lide.core.oop.init']    = 'core/oop/init.lua',
   ['lide.core.oop.yaci']    = 'core/oop/yaci.lua',
   ['lide.classes.init']     = 'classes/init.lua',
