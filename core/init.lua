@@ -47,9 +47,9 @@ enum  = lide.core.base.enum
 --- string getOSVersion( nil )
 
 function lide.platform.getOSName( ... )
-	if (io.popen('uname -s'):read '*l' == 'Linux') then
+	if (package.config:sub(1,1) == '/') then
 		return 'Linux';
-	elseif (io.popen('DIR /b %WinDIR%\\Explorer.Exe & Ver & Exit'):read '*l') then
+	elseif (package.config:sub(1,1) == '\\') then
 		return 'Windows';
 	end
 end
