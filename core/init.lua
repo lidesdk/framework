@@ -11,10 +11,11 @@ lide = lide or {
 	errorf = {}, 	--> This table stores all error functions
 	
 	core   = {
-		error = {},	--> stores all variables related to exceptions control
-		base  = {},
-		lua   = { type = type },
-		file  = {},  --> stores all variables related to file handling
+		error  = {},	--> stores all variables related to exceptions control
+		base   = {},
+		lua    = { type = type },
+		file   = {},  --> stores all variables related to file handling
+		folder = {},
 	},
 
 	classes = {
