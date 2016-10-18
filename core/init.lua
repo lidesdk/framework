@@ -11,10 +11,11 @@ lide = lide or {
 	errorf = {}, 	--> This table stores all error functions
 	
 	core   = {
-		error = {},	--> stores all variables related to exceptions control
-		base  = {},
-		lua   = { type = type },
-		file  = {},  --> stores all variables related to file handling
+		error  = {},	--> stores all variables related to exceptions control
+		base   = {},
+		lua    = { type = type },
+		file   = {},  --> stores all variables related to file handling
+		folder = {},
 	},
 
 	classes = {
@@ -32,6 +33,10 @@ lide.core.oop    = require 'lide.core.oop.init'  --> OOP handling
 lide.core.base   = require 'lide.core.base'		-->
 lide.core.file   = require 'lide.core.file'		--> File Handling
 lide.core.folder = require 'lide.core.folder'   --> Folders related
+
+------------------------------------------
+lide.folder = lide.core.folder;
+lide.file   = lide.core.file;
 
 ------------------------------------------
 -- base values:
