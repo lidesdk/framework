@@ -24,7 +24,26 @@ lide = lide or {
 	}, 	--> stores all classes
 
 	platform = {},
+	app = {}
 }
+
+local sf = arg[0]:sub(1, #arg[0] , #arg[0])
+local n  = sf:reverse():find ('/', 1 )
+	  sf = sf:reverse():sub (n+1, # sf:reverse()) : reverse()
+
+lide.app.sourcefolder = sf
+
+local app = lide.app
+
+function app.getWorkDir( ... )
+	if lide.platform.getOSName() == 'Linux' then
+		return io.popen 'echo $PWD' : read '*l'
+	elseif lide.platform.getOSName() == 'Windows' then
+		return io.popen 'CD' : read '*l'
+	else
+		lide.core.error.lperr 'this function is not implemented on this platform.'
+	end
+end
 
 require 'lide.core.thlua'
 
@@ -59,4 +78,4 @@ function lide.platform.getOSName( ... )
 	end
 end
 
-return lide
+return lide, lide.app

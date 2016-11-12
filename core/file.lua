@@ -1,7 +1,10 @@
 lide.core.file = { }
 
+
+
 -- simple test to see if the file exits or not
 function lide.core.file.doesExists( sFilename )
+    lide.core.base.isstring(sFilename)
     local file = io.open(sFilename , 'rb')
     if (file == nil) then return false end
     io.close(file)

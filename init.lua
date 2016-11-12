@@ -11,13 +11,13 @@
 -- Windows x86 Lua version: 5.1.4
 
 lide = require 'lide.core.init'
-app  = { }
+app  = lide.app
 
 if not wx then
 	if lide.platform:getOSName() == 'Linux' then
-		wx = package.loadlib ('lide/bin/x86/wx.so', 'luaopen_wx')()
+		wx = package.loadlib (lide.app.sourcefolder..'/wx.so', 'luaopen_wx')()
 	elseif lide.platform:getOSName() == 'Windows' then
-		wx = package.loadlib ('lide/bin/x86/wx.dll', 'luaopen_wx')()
+		wx = package.loadlib ('./wx.dll', 'luaopen_wx')()
 	end
 	
 	if not wx then lide.core.error.lperr 'No se pudo cargar wxLua' os.exit(0) end
@@ -26,15 +26,9 @@ end
 --> lide.core.file is deprecated by lide.file
 lide.file = lide.core.file
 
-function app.getWorkDir( ... )
-	if lide.platform.getOSName() == 'Linux' then
-		return io.popen 'echo $PWD' : read '*l'
-	elseif lide.platform.getOSName() == 'Windows' then
-		return io.popen 'CD' : read '*l'
-	else
-		lide.core.error.lperr 'this function is not implemented on this platform.'
-	end
-end
+package.path =  app.getWorkDir() .. '/?.lua;' ..
+				app.getWorkDir() .. '/?/init.lua;' ..
+				package.path 
 
 ----------------------------------------------------------------------
 --- Alignment constants:
