@@ -27,15 +27,31 @@ lide = lide or {
 	app = {}
 }
 
-local sf = arg[0]:sub(1, #arg[0] , #arg[0])
-local n  = sf:reverse():find ('/', 1 )
-	  sf = sf:reverse():sub (n+1, # sf:reverse()) : reverse()
-
-lide.app.sourcefolder = sf
-
 local app = lide.app
 
-function app.getWorkDir( ... )
+if not os.getenv 'LIDE_PATH' then
+	print 'Please set LIDE_PATH environment variable.'
+	os.exit()
+end
+
+-- core functions:
+
+--- Get the name of the operating system.
+---		Returns one string: OS Name like "Linux"
+---
+--- string getOSVersion( nil )
+
+function lide.platform.getOSName( ... )
+	if (package.config:sub(1,1) == '/') and io.popen 'uname -s':read '*l' == 'Linux' then
+		return 'Linux';
+	elseif (package.config:sub(1,1) == '\\') and os.getenv 'OS' == 'Windows_NT' then
+		return 'Windows';
+	else
+		return 'Other';
+	end
+end
+
+function lide.app.getWorkDir( ... )
 	if lide.platform.getOSName() == 'Linux' then
 		return io.popen 'echo $PWD' : read '*l'
 	elseif lide.platform.getOSName() == 'Windows' then
@@ -43,6 +59,33 @@ function app.getWorkDir( ... )
 	else
 		lide.core.error.lperr 'this function is not implemented on this platform.'
 	end
+end
+
+-- if interpreter
+if arg and arg[0] then
+	local sf = arg[0]:sub(1, #arg[0] , #arg[0])
+	local n  = sf:reverse():find (package.config:sub(1,1), 1) or 0
+		  sf = sf:reverse():sub (n+1, # sf:reverse()) : reverse()
+
+	_sourcefolder = sf
+end
+
+if lide.platform.getOSName() == 'Linux' then
+	local _lide_path = os.getenv 'LIDE_PATH'
+
+	package.cpath = ';./?.so;' ..
+				    _lide_path .. '/?.so;'
+		
+	lide.lfs = require 'lfs'
+
+	--lide.lfs = package.loadlib (_lide_path .. '/lfs.so', 'luaopen_lfs') ()
+elseif lide.platform.getOSName() == 'Windows' then
+	package.cpath = ';?.dll;.\\?.dll;'
+	package.path  = ';?.lua;.\\?.lua;'
+
+	lide.lfs = package.loadlib ((_sourcefolder or '.') ..'\\lfs.dll', 'luaopen_lfs') ()
+else
+	print 'lide: error fatal: plataforma no soportada.'
 end
 
 require 'lide.core.thlua'
@@ -62,20 +105,5 @@ lide.file   = lide.core.file;
 
 class = lide.core.oop.class
 enum  = lide.core.base.enum
-
--- core functions:
-
---- Get the name of the operating system.
----		Returns one string: OS Name like "Linux"
----
---- string getOSVersion( nil )
-
-function lide.platform.getOSName( ... )
-	if (package.config:sub(1,1) == '/') then
-		return 'Linux';
-	elseif (package.config:sub(1,1) == '\\') then
-		return 'Windows';
-	end
-end
 
 return lide, lide.app

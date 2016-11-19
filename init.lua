@@ -14,21 +14,42 @@ lide = require 'lide.core.init'
 app  = lide.app
 
 if not wx then
-	if lide.platform:getOSName() == 'Linux' then
-		wx = package.loadlib (lide.app.sourcefolder..'/wx.so', 'luaopen_wx')()
-	elseif lide.platform:getOSName() == 'Windows' then
-		wx = package.loadlib ('./wx.dll', 'luaopen_wx')()
+	--if lide.platform:getOSName() == 'Linux' then
+	--	wx = package.loadlib (lide.app.sourcefolder..'/wx.so', 'luaopen_wx')()
+	--elseif lide.platform:getOSName() == 'Windows' then
+	--	wx = package.loadlib ('./wx.dll', 'luaopen_wx')()
+	--end
+	local _lide_path = os.getenv 'LIDE_PATH'
+
+	if lide.platform.getOSName() == 'Linux' then
+		package.cpath = ';./?.so;./clibs/?.so;' ..
+					    _lide_path .. '/?.so;' ..
+					    _lide_path .. '/clibs/?.so;'
+		
+		wx = require 'wx'
+
+	elseif lide.platform.getOSName() == 'Windows' then
+		--package.cpath = ';?.dll;.\\?.dll;'
+		--package.path  = ';?.lua;.\\?.lua;'
+		package.cpath = ';.\\?.dll;' ..
+					    _lide_path .. '\\?.dll;'
+		
+		wx = require 'wx'
+
+		--lide.lfs = package.loadlib ((_sourcefolder or '.') ..'\\lfs.dll', 'luaopen_lfs') ()
+	else
+		print 'lide: error fatal: plataforma no soportada.'
 	end
-	
+
 	if not wx then lide.core.error.lperr 'No se pudo cargar wxLua' os.exit(0) end
 end
 
 --> lide.core.file is deprecated by lide.file
 lide.file = lide.core.file
 
-package.path =  app.getWorkDir() .. '/?.lua;' ..
-				app.getWorkDir() .. '/?/init.lua;' ..
-				package.path 
+--package.path =  app.getWorkDir() .. '/?.lua;' ..
+--				app.getWorkDir() .. '/?/init.lua;' ..
+--				package.path 
 
 ----------------------------------------------------------------------
 --- Alignment constants:
