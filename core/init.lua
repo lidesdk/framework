@@ -80,8 +80,8 @@ if lide.platform.getOSName() == 'Linux' then
 
 	--lide.lfs = package.loadlib (_lide_path .. '/lfs.so', 'luaopen_lfs') ()
 elseif lide.platform.getOSName() == 'Windows' then
-	package.cpath = ';?.dll;.\\?.dll;'
-	package.path  = ';?.lua;.\\?.lua;'
+	--package.cpath = ';?.dll;.\\?.dll;'
+	--package.path  = ';?.lua;.\\?.lua;'
 
 	lide.lfs = package.loadlib ((_sourcefolder or '.') ..'\\lfs.dll', 'luaopen_lfs') ()
 else
