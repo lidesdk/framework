@@ -22,26 +22,33 @@ if not wx then
 	local _lide_path = os.getenv 'LIDE_PATH'
 
 	if lide.platform.getOSName() == 'Linux' then
-		package.cpath = ';./?.so;./clibs/?.so;' ..
-					    _lide_path .. '/?.so;' ..
-					    _lide_path .. '/clibs/?.so;'
-		
-		wx = require 'wx'
+--		package.cpath = --'?.so;./?.so;./clibs/?.so;' ..
+--					    _lide_path .. '/?.so;' ..
+--					    _lide_path .. '/clibs/?.so;' --..
+					    --_lide_path ..'/libraries/?.so;'  ..
+					    --_lide_path ..'/libraries/linux_x86/?.so;'
 
+		wx = require 'wx'
+		
+		--package.path  = _lide_path ..'/libraries/?.lua;'  ..
+		--				_lide_path ..'/libraries/?/init.lua;'  ..
+		--				_lide_path ..'/?.lua;'  ..
+		--				package.path 
+		
 	elseif lide.platform.getOSName() == 'Windows' then
 		--package.cpath = ';?.dll;.\\?.dll;'
 		--package.path  = ';?.lua;.\\?.lua;'
-		package.cpath = ';.\\?.dll;' ..
-					    _lide_path .. '\\?.dll;'
+		--package.cpath = ';.\\?.dll;' ..
+		--			    _lide_path .. '\\?.dll;'
 		
-		wx = require 'wx'
-
-		--lide.lfs = package.loadlib ((_sourcefolder or '.') ..'\\lfs.dll', 'luaopen_lfs') ()
+		--wx = require 'wx'
+		wx = package.loadlib ((_sourcefolder or '.') ..'\\wx.dll', 'luaopen_wx') ()
+		lide.lfs = package.loadlib ((_sourcefolder or '.') ..'\\lfs.dll', 'luaopen_lfs') ()
 	else
 		print 'lide: error fatal: plataforma no soportada.'
 	end
 
-	if not wx then lide.core.error.lperr 'No se pudo cargar wxLua' os.exit(0) end
+	if not wx then lide.core.error.lperr 'No se pudo cargar wxLua' os.exit(1) end
 end
 
 --> lide.core.file is deprecated by lide.file
@@ -122,7 +129,59 @@ function lide.core.base.messagebox ( message, caption, style, pos_x, pos_y, pare
 end
 
 
+local function normalizePath ( path )
+	if lide.platform.getOSName() == 'Linux' then
+		return path:gsub('\\', '/');
+	elseif lide.platform.getOSName() == 'Windows' then
+		return path:gsub('/', '\\');
+	end
+end
+
+
 -- Import classes to the framework:
 lide.classes = require 'lide.classes.init'
+
+local _lide_libs = os.getenv 'LIDE_PATH' .. '/libraries'
+
+
+
+if lide.platform.getOSName() == 'Linux' then
+	package.cpath = '?/init.so;?.so;' ..      -- WORK FOLDER
+					_lide_libs .. '/linux_x86/clibs/?.so;' ..  -- LIDE LIBS
+					_lide_libs .. '/linux_x86/clibs/?/init.so' -- LIDE LIBS
+
+	--package.path  = '?/init.lua;?.lua;' ..      -- WORK FOLDER
+	--			_lide_libs .. '/linux_x86/?.lua;' ..  -- LIDE LIBS
+	--			_lide_libs .. '/linux_x86/?/init.lua;' .. -- LIDE LIBS
+--
+--	--			_lide_libs .. '/?.lua;' ..  -- LIDE LIBS
+	--			_lide_libs .. '/?/init.lua;' -- LIDE LIBS
+
+	package.path  = 
+				_lide_libs .. '/linux_x86/lua/?.lua;' ..  -- LIDE LIBS
+				_lide_libs .. '/linux_x86/lua/?/init.lua;' ..-- LIDE LIBS
+
+				_lide_libs .. '/?.lua;' ..  -- LIDE LIBS
+				_lide_libs .. '/?/init.lua;'-- .. -- LIDE LIBS
+
+elseif lide.platform.getOSName() == 'Windows' then
+	package.cpath = 
+					_lide_libs .. '\\windows_x86\\clibs\\?.dll;' ..  -- LIDE LIBS
+					_lide_libs .. '\\windows_x86\\clibs\\?init.dll;' ..-- LIDE LIBS
+
+					'?\\init.dll;?.dll;' .. ''     -- WORK FOLDER
+	
+	package.path  = 
+				_lide_libs .. '\\windows_x86\\lua\\?.lua;' ..  -- LIDE LIBS
+				_lide_libs .. '\\windows_x86\\lua\\?\\init.lua;' ..-- LIDE LIBS
+
+				_lide_libs .. '\\?.lua;' ..  -- LIDE LIBS
+				_lide_libs .. '\\?\\init.lua;'-- .. -- LIDE LIBS
+
+				--'?\\init.lua;?.lua;' ..     '' -- WORK FOLDER
+	
+	package.path  = normalizePath(package.path)
+	package.cpath = normalizePath(package.cpath)
+end
 
 return lide
