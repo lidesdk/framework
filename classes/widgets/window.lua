@@ -377,6 +377,11 @@ function Window:setStatusBarPane( index )
 	self.wxObj:SetStatusBarPane( index or 0)
 end
 
+-- void Raise( ); 
+function Window:raise()
+	self.wxObj:Raise()
+end
+
 return Window
 -- -- %transpass: Este enumerador podría estar definido en la clase Widget.
 -- enum { -- wxWindow
@@ -1160,7 +1165,7 @@ return Window
 -- -- bool PopupMenu(wxMenu* menu, const wxPoint& pos = wxDefaultPosition ); 
 -- -- bool PopupMenu(wxMenu* menu, int x, int y ); 
 -- -- void PushEventHandler(wxEvtHandler* handler ); 
--- -- void Raise( ); 
+
 -- -- // %win bool RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) - only under WinCE 
 -- -- virtual void ReleaseMouse( ); 
 -- -- virtual void RemoveChild(wxWindow* child ); 
