@@ -29,6 +29,7 @@ lide.classes.controls.progress  = require 'lide.classes.controls.progress'
 lide.classes.controls.htmlview  = require 'lide.classes.controls.htmlview'
 lide.classes.controls.image     = require 'lide.classes.controls.image'
 lide.classes.controls.listbox   = require 'lide.classes.controls.listbox'
+lide.classes.controls.tree      = require 'lide.classes.controls.tree'
 
 --- Set Globals
 return lide.classes
