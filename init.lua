@@ -29,6 +29,11 @@ if not wx then
 		package.cpath = ';.\\?.dll;.\\clibs\\?.dll;' .. '.\\'..osname..'\\'..arch..'\\clibs\\?.dll;' ..
 						_lide_path .. '\\libraries\\'..osname..'_'..arch..'\\?.dll;' ..
 					    _lide_path .. '\\libraries\\'..osname..'_'..arch..'\\clibs\\?.dll;'
+
+	    package.path  = ';.\\?.lua;.\\lua\\?.lua;' .. '.\\'..osname..'\\'..arch..'\\lua\\?.lua;' ..
+	    				_lide_path .. '\\libraries\\'..osname..'_'..arch..'\\?.lua;' ..
+	    			    _lide_path .. '\\libraries\\'..osname..'_'..arch..'\\lua\\?.lua;'
+
 		
 		wx = require 'wx'
 
