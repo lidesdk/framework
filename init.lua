@@ -14,11 +14,6 @@ lide = require 'lide.core.init'
 app  = lide.app
 
 if not wx then
-	--if lide.platform:getOSName() == 'Linux' then
-	--	wx = package.loadlib (lide.app.sourcefolder..'/wx.so', 'luaopen_wx')()
-	--elseif lide.platform:getOSName() == 'Windows' then
-	--	wx = package.loadlib ('./wx.dll', 'luaopen_wx')()
-	--end
 	local _lide_path = os.getenv 'LIDE_PATH'
 
 	if lide.platform.getOSName() == 'Linux' then
@@ -29,10 +24,11 @@ if not wx then
 		wx = require 'wx'
 
 	elseif lide.platform.getOSName() == 'Windows' then
-		--package.cpath = ';?.dll;.\\?.dll;'
-		--package.path  = ';?.lua;.\\?.lua;'
-		package.cpath = ';.\\?.dll;' ..
-					    _lide_path .. '\\?.dll;'
+		local osname, arch = 'windows', 'x86'
+
+		package.cpath = ';.\\?.dll;.\\clibs\\?.dll;' .. '.\\'..osname..'\\'..arch..'\\clibs\\?.dll;' ..
+						_lide_path .. '\\libraries\\'..osname..'_'..arch..'\\?.dll;' ..
+					    _lide_path .. '\\libraries\\'..osname..'_'..arch..'\\clibs\\?.dll;'
 		
 		wx = require 'wx'
 
