@@ -71,7 +71,7 @@ function Image:Image ( fields )
 	-- initialize all events:
 	self:initializeEvents {
 		-- inherited events:
-		'onEnter', 'onLeave', 
+		'onEnter', 'onLeave', 'onLeftDown', 'onMotion'
 	}
 end
 

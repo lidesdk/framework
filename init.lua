@@ -17,40 +17,19 @@ if not wx then
 	local _lide_path = os.getenv 'LIDE_PATH'
 
 	if lide.platform.getOSName() == 'Linux' then
-		package.cpath = ';./?.so;./clibs/?.so;' ..
-					    _lide_path .. '/?.so;' ..
-					    _lide_path .. '/clibs/?.so;'
-		
 		wx = require 'wx'
-
+		
 	elseif lide.platform.getOSName() == 'Windows' then
-		local osname, arch = 'windows', 'x86'
-
-		package.cpath = ';.\\?.dll;.\\clibs\\?.dll;' .. '.\\'..osname..'\\'..arch..'\\clibs\\?.dll;' ..
-						_lide_path .. '\\libraries\\'..osname..'_'..arch..'\\?.dll;' ..
-					    _lide_path .. '\\libraries\\'..osname..'_'..arch..'\\clibs\\?.dll;'
-
-	    package.path  = ';.\\?.lua;.\\lua\\?.lua;' .. '.\\'..osname..'\\'..arch..'\\lua\\?.lua;' ..
-	    				_lide_path .. '\\libraries\\'..osname..'_'..arch..'\\?.lua;' ..
-	    			    _lide_path .. '\\libraries\\'..osname..'_'..arch..'\\lua\\?.lua;'
-
-		
 		wx = require 'wx'
-
-		--lide.lfs = package.loadlib ((_sourcefolder or '.') ..'\\lfs.dll', 'luaopen_lfs') ()
 	else
 		print 'lide: error fatal: plataforma no soportada.'
 	end
 
-	if not wx then lide.core.error.lperr 'No se pudo cargar wxLua' os.exit(0) end
+	if not wx then lide.core.error.lperr 'No se pudo cargar wxLua' os.exit(1) end
 end
 
 --> lide.core.file is deprecated by lide.file
 lide.file = lide.core.file
-
---package.path =  app.getWorkDir() .. '/?.lua;' ..
---				app.getWorkDir() .. '/?/init.lua;' ..
---				package.path 
 
 ----------------------------------------------------------------------
 --- Alignment constants:
@@ -97,13 +76,6 @@ function lide.platform.getArchName( ... )
 	return wx.wxPlatformInfo:Get():GetArchName()
 end
 
---- Get the version of the operating system.
----		Returns two numbers: Major version, Minor version
----
---- number, number getOSVersion( nil )
-function lide.platform.getOSVersion( ... )
-	return wx.wxPlatformInfo:Get():GetOSMajorVersion(), wx.wxPlatformInfo:Get():GetOSMinorVersion()
-end
 
 lide.core.base.enum {
 	HELP        = wx.wxHELP, 
@@ -123,7 +95,39 @@ function lide.core.base.messagebox ( message, caption, style, pos_x, pos_y, pare
 end
 
 
+local function normalizePath ( path )
+	if lide.platform.getOSName() == 'Linux' then
+		return path:gsub('\\', '/');
+	elseif lide.platform.getOSName() == 'Windows' then
+		return path:gsub('/', '\\');
+	end
+end
+
+
 -- Import classes to the framework:
 lide.classes = require 'lide.classes.init'
+
+arch     = lide.platform.getArch ()         --'x86' -- x64, arm7
+platform = lide.platform.getOS () : lower() -- linux, macosx
+
+lua_dir = ( lide.app.getWorkDir() .. '\\lua\\%s\\%s\\?.lua;'):format(platform, arch) ..
+          ( lide.app.getWorkDir() .. '\\lua\\%s\\?.lua;'):format(platform) ..
+          ( lide.app.getWorkDir() .. '\\lua\\?.lua;') .. -- Crossplatform: root\lua\package.lua
+          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\%s\\lua\\?.lua;'):format(platform, arch) ..
+          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\lua\\?.lua;'):format(platform) ..
+          ( os.getenv 'LIDE_PATH' .. '\\libraries\\lua\\?.lua;').. -- Crossplatform: libraries\lua\package.lua
+
+          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\%s\\lua\\?\\init.lua;'):format(platform, arch) ..
+          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\lua\\?\\init.lua;'):format(platform) ..
+          ( os.getenv 'LIDE_PATH' .. '\\libraries\\lua\\?\\init.lua;') -- Crossplatform: libraries\lua\package.lua
+
+clibs_dir=( lide.app.getWorkDir() .. '\\clibs\\%s\\%s\\?.dll;'):format(platform, arch) ..
+          ( lide.app.getWorkDir() .. '\\clibs\\%s\\?.dll;'):format(platform) ..
+          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\%s\\clibs\\?.dll;'):format(platform, arch) ..
+          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\clibs\\?.dll;'):format(platform)
+
+
+package.path   = lua_dir
+package.cpath  = clibs_dir
 
 return lide

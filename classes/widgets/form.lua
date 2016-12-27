@@ -14,7 +14,7 @@ local Panel  = lide.classes.widgets.panel
 
 -- define the class:
 local Form = class 'Form' : subclassof 'Window' 
-	: global(false)
+	--: global(false)
 
 
 function Form:Form( fields )

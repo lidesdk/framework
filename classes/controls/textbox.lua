@@ -55,7 +55,7 @@ function Textbox:Textbox ( fields )
     ---
 
 	self:initializeEvents {
-        'onKeyDown', 'onKeyUp',
+        'onKeyDown', 'onKeyUp', 'onMotion', 'onLeftDown', 'onLeftUp', 'onLeftDoubleClick'
 	}
 
 end

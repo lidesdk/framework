@@ -75,15 +75,17 @@ if lide.platform.getOSName() == 'Linux' then
 
 	package.cpath = ';./?.so;' ..
 				    _lide_path .. '/?.so;'
-		
-	lide.lfs = require 'lfs'
-
-	--lide.lfs = package.loadlib (_lide_path .. '/lfs.so', 'luaopen_lfs') ()
+	
 elseif lide.platform.getOSName() == 'Windows' then
+	local _lide_path = os.getenv 'LIDE_PATH'	
+	
+	package.cpath = _lide_path .. '\\clibs\\windows\\x86\\?.dll'
+	package.path  = _lide_path .. '\\lua\\windows\\x86\\?.lua;' .. package.path
+				    --_lide_path .. '\\?.dll;'
 	--package.cpath = ';?.dll;.\\?.dll;'
 	--package.path  = ';?.lua;.\\?.lua;'
-
-	lide.lfs = package.loadlib ((_sourcefolder or '.') ..'\\lfs.dll', 'luaopen_lfs') ()
+	--print(package.path)
+	--lide.lfs = package.loadlib ((_sourcefolder or '.') ..'\\lfs.dll', 'luaopen_lfs') ()
 else
 	print 'lide: error fatal: plataforma no soportada.'
 end
@@ -93,8 +95,15 @@ require 'lide.core.thlua'
 lide.core.error  = require 'lide.core.error' 	--> exceptions control
 lide.core.oop    = require 'lide.core.oop.init'  --> OOP handling
 lide.core.base   = require 'lide.core.base'		-->
+
+-- lide platform
+lide.platform    = require 'lide.platform.init'
+
+-- lide filesystem:
+lide.lfs 		 = require 'lfs'
 lide.core.file   = require 'lide.core.file'		--> File Handling
 lide.core.folder = require 'lide.core.folder'   --> Folders related
+
 
 ------------------------------------------
 lide.folder = lide.core.folder;

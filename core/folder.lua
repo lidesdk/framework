@@ -17,13 +17,15 @@ end
 
 lide.core.folder = {}
 
-function lide.core.folder.create ( dest )
-	io.popen('mkdir ' .. normalizePath(dest))
+function lide.core.folder.create ( sFolderName )
+	return (lfs.mkdir(sFolderName))
 end
 
 -- simple test to see if the file exits or not
 function lide.core.folder.doesExists( sFolderName )
-    local attr = lfs.attributes(tostring(normalizePath(sFolderName)))
+    sFolderName = tostring(normalizePath(sFolderName))
+    --print(sFolderName)
+    local attr = lfs.attributes(sFolderName)
     if attr then
     	if attr.mode == 'directory' then
     		return true
@@ -34,7 +36,6 @@ function lide.core.folder.doesExists( sFolderName )
 		return false;
 	end
 end
-
 
 function lide.core.folder.delete ( folder_path )
 	local _shell_command
@@ -49,7 +50,7 @@ function lide.core.folder.delete ( folder_path )
 	
 	if lide.core.folder.doesExists(folder_path) then
 		local exc, rst = pcall(
-			os.execute, _shell_command:format(folder_path)
+			io.popen, _shell_command:format(folder_path)
 		) if not exc then
 			print ('error: '.. tostring(rst))
 		end

@@ -105,12 +105,13 @@ function TextCtrl:TextCtrl( fields )
 	end
 	
 	-- registry event onKey
---	self:initializeEvents {
---		'onChar', 
---        'onKeyDown', 'onKeyUp',
---        'onKeyEnter',
---        'onTextEnter'
---	}
+	--self:initializeEvents {
+		--'onLeftUp', 'onLeftDown',
+		--'onChar', 
+        --'onKeyDown', 'onKeyUp',
+        --'onKeyEnter',
+        --'onTextEnter'
+	--}
 end
 
 -- load the whole file to a textctrl

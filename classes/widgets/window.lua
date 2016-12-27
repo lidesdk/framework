@@ -67,15 +67,15 @@ function Window:Window ( fields )
 	}
 
 	protected {
-		Title = fields.Title,
-
+		Title = fields.Title, 
+		Flags = fields.Flags or wx.wxDEFAULT_FRAME_STYLE
 	}
 
 	-- call Widget constructor
 	self.super:init( fields.Name, 'window', fields.PosX or self.DefaultPosition.X, fields.PosY or self.DefaultPosition.Y, fields.Width or self.DefaultSize.Width, fields.Height or self.DefaultSize.Height, fields.ID, fields.Parent or self )
 
 	-- create wxWidgets object and save it on self.wxObj:
-	self.wxObj = wx.wxFrame(wx.NULL, self.ID, self.Title, wx.wxPoint( self.PosX, self.PosY ), wx.wxSize( self.Width, self.Height ), wx.wxDEFAULT_FRAME_STYLE )
+	self.wxObj = wx.wxFrame(wx.NULL, self.ID, self.Title, wx.wxPoint( self.PosX, self.PosY ), wx.wxSize( self.Width, self.Height ), self.Flags)
 	
 	-- declare self events into "__events" metatable:
 
@@ -138,14 +138,23 @@ function Window:Window ( fields )
 		end
 	}
 
+	getmetatable(self) .__events['onIconize'] = {
+		data = wx.wxEVT_ICONIZE,
+		args = function ( event )
+			return event:Iconized()
+		end
+	}
+
 	-- initialize all events:
 	self:initializeEvents {
 		-- inherited events:
-		'onEnter', 'onLeave', 
+		'onEnter', 'onLeave', 'onLeftDown', 'onLeftUp',
 
 		-- self events:
 		'onShow',  'onClose', 'onHide',
-		'onMenuSelected'
+		'onMenuSelected',
+
+		'onIconize'
 	}
 end
 
@@ -375,6 +384,11 @@ end
 -- void SetStatusBarPane(int n ); 
 function Window:setStatusBarPane( index )
 	self.wxObj:SetStatusBarPane( index or 0)
+end
+
+-- void Raise( ); 
+function Window:raise()
+	self.wxObj:Raise()
 end
 
 return Window
@@ -1160,7 +1174,7 @@ return Window
 -- -- bool PopupMenu(wxMenu* menu, const wxPoint& pos = wxDefaultPosition ); 
 -- -- bool PopupMenu(wxMenu* menu, int x, int y ); 
 -- -- void PushEventHandler(wxEvtHandler* handler ); 
--- -- void Raise( ); 
+
 -- -- // %win bool RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) - only under WinCE 
 -- -- virtual void ReleaseMouse( ); 
 -- -- virtual void RemoveChild(wxWindow* child ); 

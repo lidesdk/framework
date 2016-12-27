@@ -91,6 +91,10 @@ function Label:Label ( fields )
 	self:initializeEvents {
 		'onEnter', 'onLeave',
 	}]]
+	self:initializeEvents {
+		'onMotion', 'onLeftDown', 'onLeftUp',
+		'onLeftDoubleClick', 
+	}
 end
 
 function Label:setWrap( nPixels )

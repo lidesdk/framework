@@ -7,10 +7,12 @@
 -- // License:     lide license
 -- ///////////////////////////////////////////////////////////////////////////////
 
+local newclass = require 'lide.core.oop.yaci'
+
 local oop = {
 	class = function ( sClassName )
 		lide.__store_classes = lide.__store_classes or {}		
-		local newclass = require 'lide.core.oop.yaci'
+		local newclass = newclass
 	
 		-- Guardamos una nueva variable global con el nombre de la clase
 		lide.__store_classes[sClassName] = newclass (sClassName)

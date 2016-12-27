@@ -45,8 +45,9 @@ local function eventHandler_error( oEvent, errmsg , level)
 
 	errmsg = '%s\n\n[%s]\n'
 	.. '[line:%d] in event handler execution of event \'%s\''
-
-    lide.core.error.lperr(errmsg:format(t.errordesc, t.filename, t.errorline, eventName, level))
+	print ( errmsg:format(t.errordesc, t.filename, t.errorline, eventName, level)  )
+	error()
+    --lide.core.error.lperr(errmsg:format(t.errordesc, t.filename, t.errorline, eventName, level))
     --error( errmsg:format(t.errordesc, t.filename, t.errorline, eventName, level) , 3)
 end
 

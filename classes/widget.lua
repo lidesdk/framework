@@ -181,7 +181,7 @@ function Widget:initializeEvents ( toLoad )
 	
 	local function getXY ( event )
 		local pos = event:GetPosition()
-		return pos.X, pos.Y
+		return pos.X, pos.Y, event
 	end
 	
 	getmetatable(self) .__events['onEnter'] = {
