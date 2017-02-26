@@ -76,6 +76,10 @@ build.install.lua = {
   ['lide.classes.timer']    = 'classes/timer.lua',
   ['lide.classes.widget']   = 'classes/widget.lua',
 
+  --> PLATFORM
+  ['lide.platform.init'] = 'platform/init.lua',
+
+
   --> Copy Widgets:
   ['lide.classes.widgets.control'] = 'classes/widgets/control.lua',  
   ['lide.classes.widgets.form']    = 'classes/widgets/form.lua',  
