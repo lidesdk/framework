@@ -64,6 +64,7 @@ function Window:Window ( fields )
 	private {
 		DefaultPosition = { X = -1, Y = -1 }, 
 		DefaultSize     = { Width = -1, Height = -1 },
+		__IconFile,
 	}
 
 	protected {
@@ -389,6 +390,25 @@ end
 -- void Raise( ); 
 function Window:raise()
 	self.wxObj:Raise()
+end
+
+ Window:virtual 'setIcon'
+-- void SetIcon(const wxIcon& icon ); 
+-- void SetIcons(const wxIconBundle& icons ); 
+function Window:setIcon( filename )
+	--ver si es string
+	-- ver si el archivo existe
+	local icon = wx.wxIcon(filename, wx.wxBITMAP_TYPE_ICO)
+	self.wxObj:SetIcon(icon)
+
+	self.__IconFile = filename
+
+	icon:delete()
+end
+
+Window:virtual 'getIcon'
+function Window:getIcon ()
+	return self.__IconFile
 end
 
 return Window
