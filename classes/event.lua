@@ -31,7 +31,7 @@ local function format_lua_error ( err_str )
 	local err_str, errordesc = err_str or ''
 	
 	local N1, N2 = err_str:find(':%d+:')
-	if not N1 or not N2 then return {} end
+	if not N1 or not N2 then return { errorline = -3, errordesc = tostring(err_str), filename = 'eventHandeler ERROR: NULFILE'} end --> -3 simplemnte es para identificar que es un error, este numero no tiene nada que ver con nada.
 	return {
 		errorline = err_str:sub(N1 +1, N2 -1),
 		errordesc = err_str:sub(N2 +2, #err_str),
@@ -45,8 +45,8 @@ local function eventHandler_error( oEvent, errmsg , level)
 
 	errmsg = '%s\n\n[%s]\n'
 	.. '[line:%d] in event handler execution of event \'%s\''
-	print ( errmsg:format(t.errordesc, t.filename, t.errorline, eventName, level)  )
-	error()
+	error ( errmsg:format(tostring(t.errordesc), t.filename, t.errorline, eventName, level)  )
+	--error()
     --lide.core.error.lperr(errmsg:format(t.errordesc, t.filename, t.errorline, eventName, level))
     --error( errmsg:format(t.errordesc, t.filename, t.errorline, eventName, level) , 3)
 end

@@ -8,41 +8,23 @@
 
 --local lperr = lide.core.error.lperr
 
-local framework_call_level = 3 -- nivel de llamadas
-
---[[local function istype ( value, ttype, errmsg )
-	local lperr = lide.core.error.lperr
-	local varname, varval 
-	local n = 1 repeat 
-		varname, varval = debug.getlocal(3, n)
-		if (varval == value) then
-			break
-		end
-		n = n +1 until n > debug.getinfo(3).nups 
-		
-		--print(varname, varval)
-		---
-		--- Si el primer upvalue es "self" y la llamada se esta haciendo como un metodo: inst:method()
-		-- entonces restarle un numero al output para que no aparezcan 4 argumentos:
-		--if ( debug.getinfo(3).namewhat == 'method' ) and ( debug.getlocal(3, n- debug.getinfo(3).nups) == 'self' ) then
-		--	n = n-1
-		--end
-		
-		--- Si la llamada de la funcion NO SE HACE DESDE UN METODO... y se hace desde el field de una tabla >> tbl.foo() o una funcion comun >> foo(), 
-			--- entonces obtener los datos del siguiente upvalue ( n+1 ) porque aparece retrasado. en un argumento,(vamos! en vez de decir arg1 dice arg0)
-		--if ( debug.getinfo(3).namewhat ~= 'method') then
-		--	n = n+1
-		--	varname, varval = debug.getlocal(3, n)
-		--end
-
-	errmsg = errmsg or ('arg #%d [@var] must be of type %s.'):format(n, ttype)
-	errmsg = errmsg:gsub('@var', tostring(varname))
-	
-	if lide.core.base.type(value) == ttype then return value else if not errmsg then return false else lperr(errmsg, 3) end end
-end
-]]--
+local framework_call_level = 7 
 
 local function istype( ValueToCompare, TypeToCompare, errmsg, fLevel )
+	errmsg = errmsg or ('arg must be of type %s.'):format(TypeToCompare)
+	
+	if lide.core.base.type(ValueToCompare) == TypeToCompare then 
+		return ValueToCompare 
+	else 
+		if not errmsg then 
+			return false 
+		else 
+			error(errmsg, fLevel)
+		end 
+	end
+end
+
+--[[local function istype( ValueToCompare, TypeToCompare, errmsg, fLevel )
 	local fLevel = fLevel or 1	   --> function level, 1 is the function
 	local tFunc_args = {}  --> to store founded args
 	local nARG, sARGName, ARGValue = 1 repeat 
@@ -64,16 +46,15 @@ local function istype( ValueToCompare, TypeToCompare, errmsg, fLevel )
 		if not errmsg then 
 			return false 
 		else 
-			lide.core.error.lperr(errmsg, 3) 
+			error(errmsg, fLevel)
 		end 
 	end
-end
+end]]
 
 function lide.errorf.update_constant( theConstant )
     -- "attempt to update a constant. *const:"..k)
 	local errorstr = 'attempt to update a constant: "%s" (is a read only value).'
     
-    --assert(false, errorstr:format(theConstant))
     lide.core.error.lperr(errorstr:format(theConstant), 1)
 end
 
@@ -189,9 +170,11 @@ base.check = {
 				local sname = fieldname:gsub(stype..' ', '')
 							
 				if not fields[sname] then
-					lide.core.error.lperr(('the field "%s" is required by the constructor of %s class.'):format(sname, self:class():name()))
+					error(('the field "%s" is required by the constructor of %s class.'):format(sname, self:class():name()), framework_call_level)
+					--lide.core.error.lperr(('the field "%s" is required by the constructor of %s class.'):format(sname, self:class():name()))
 				elseif lide.core.base.type(fields[sname]) ~= stype then
-					lide.core.error.lperr(('%s class constructor: the type of field "%s" must be "%s".'):format(self:class():name(), sname, stype))
+					--lide.core.error.lperr(('%s class constructor: the type of field "%s" must be "%s".'):format(self:class():name(), sname, stype))
+					error(('%s class constructor: the type of field "%s" must be "%s".'):format(self:class():name(), sname, stype), framework_call_level)
 				end
 			end
 		end

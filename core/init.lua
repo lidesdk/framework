@@ -6,6 +6,9 @@
 -- // License:     lide license
 -- ///////////////////////////////////////////////////////////////////////////////
 
+io.stdout:setvbuf 'no'
+io.stderr:setvbuf 'no'
+
 lide = lide or {
 	cons   = {}, 	--> This table saves all constants
 	errorf = {}, 	--> This table stores all error functions
@@ -13,7 +16,7 @@ lide = lide or {
 	core   = {
 		error  = {},	--> stores all variables related to exceptions control
 		base   = {},
-		lua    = { type = type },
+		lua    = { type = type, error = error, require = require },
 		file   = {},  --> stores all variables related to file handling
 		folder = {},
 	},
@@ -42,10 +45,17 @@ end
 --- string getOSVersion( nil )
 
 function lide.platform.getOSName( ... )
-	if (package.config:sub(1,1) == '/') and io.popen 'uname -s':read '*l' == 'Linux' then
-		return 'Linux';
-	elseif (package.config:sub(1,1) == '\\') and os.getenv 'OS' == 'Windows_NT' then
+	--if (package.config:sub(1,1) == '/') and io.popen 'uname -s':read '*l' == 'Linux' then
+	--	return 'Linux';
+	--elseif (package.config:sub(1,1) == '\\') and os.getenv 'OS' == 'Windows_NT' then
+	--	return 'Windows';
+	--else
+	--	return 'Other';
+	--end
+	if (package.config:sub(1,1) == '\\') and os.getenv 'OS' == 'Windows_NT' then
 		return 'Windows';
+	elseif (package.config:sub(1,1) == '/') and io.popen 'uname -s':read '*l' == 'Linux' then
+		return 'Linux';
 	else
 		return 'Other';
 	end
@@ -55,7 +65,8 @@ function lide.app.getWorkDir( ... )
 	if lide.platform.getOSName() == 'Linux' then
 		return io.popen 'echo $PWD' : read '*l'
 	elseif lide.platform.getOSName() == 'Windows' then
-		return io.popen 'CD' : read '*l'
+		--return io.popen 'CD' : read '*l'
+		return lide.lfs.currentdir()
 	else
 		lide.core.error.lperr 'this function is not implemented on this platform.'
 	end
