@@ -32,10 +32,10 @@ lide = lide or {
 
 local app = lide.app
 
-if not os.getenv 'LIDE_PATH' then
-	print 'Please set LIDE_PATH environment variable.'
-	os.exit()
-end
+--if not os.getenv '_lide_FRAMEWORK' then
+--	print 'Please set _lide_FRAMEWORK environment variable.'
+--	os.exit()
+--end
 
 -- core functions:
 
@@ -81,25 +81,25 @@ if arg and arg[0] then
 	_sourcefolder = sf
 end
 
-if lide.platform.getOSName() == 'Linux' then
-	local _lide_path = os.getenv 'LIDE_PATH'
-
-	package.cpath = ';./?.so;' ..
-				    _lide_path .. '/?.so;'
-	
-elseif lide.platform.getOSName() == 'Windows' then
-	local _lide_path = os.getenv 'LIDE_PATH'	
-	
-	package.cpath = _lide_path .. '\\clibs\\windows\\x86\\?.dll'
-	package.path  = _lide_path .. '\\lua\\windows\\x86\\?.lua;' .. package.path
-				    --_lide_path .. '\\?.dll;'
-	--package.cpath = ';?.dll;.\\?.dll;'
-	--package.path  = ';?.lua;.\\?.lua;'
-	--print(package.path)
-	--lide.lfs = package.loadlib ((_sourcefolder or '.') ..'\\lfs.dll', 'luaopen_lfs') ()
-else
-	print 'lide: error fatal: plataforma no soportada.'
-end
+--if lide.platform.getOSName() == 'Linux' then
+--	local _lide_path = os.getenv 'LIDE_PATH'
+--
+--	package.cpath = ';./?.so;' ..
+--				    _lide_path .. '/?.so;'
+--	
+--elseif lide.platform.getOSName() == 'Windows' then
+----	local _lide_path = os.getenv 'LIDE_PATH'	
+----	
+----	package.cpath = _lide_path .. '\\clibs\\windows\\x86\\?.dll'
+----	package.path  = _lide_path .. '\\lua\\windows\\x86\\?.lua;' .. package.path
+--				    --_lide_path .. '\\?.dll;'
+--	--package.cpath = ';?.dll;.\\?.dll;'
+--	--package.path  = ';?.lua;.\\?.lua;'
+--	--print(package.path)
+--	--lide.lfs = package.loadlib ((_sourcefolder or '.') ..'\\lfs.dll', 'luaopen_lfs') ()
+--else
+--	print 'lide: error fatal: plataforma no soportada.'
+--end
 
 require 'lide.core.thlua'
 
