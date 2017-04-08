@@ -5,13 +5,13 @@ Lide Framework is a library that allows you to create multiplatform graphical in
 Lide uses wxWidgets to build controls and windows, this ensures the integration of your applications 
 with GTK+ on Linux and really native controls in Windows.
 
-================  =================  ==============  =========
-  platform          arch               version        build
-================  =================  ==============  =========
-  ``Windows``      ``x86`` ``x86``     ``0.0.01``      .. image:: https://travis-ci.org/lidesdk/framework.svg?branch=master 
-  ``GNU/Linux``    ``x64``             ``0.0.01``      .. image:: https://travis-ci.org/lidesdk/framework.svg?branch=master
-                                                          :target: https://travis-ci.org/lidesdk/framework 
-================  =================  ==============  =========
+================  =================  =========
+  platform          arch              build
+================  =================  =========
+  ``Windows``      ``x86`` ``x86``     .. image:: https://travis-ci.org/lidesdk/framework.svg?branch=master 
+  ``GNU/Linux``    ``x64``             .. image:: https://travis-ci.org/lidesdk/framework.svg?branch=master
+                                          :target: https://travis-ci.org/lidesdk/framework 
+================  =================  =========
 
 
 Installation

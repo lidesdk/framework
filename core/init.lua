@@ -100,14 +100,6 @@ end
 --	print 'lide: error fatal: plataforma no soportada.'
 --end
 
-local _osname = lide.platform.getOSName():lower()
-local _arch   = lide.platform.getArch():lower()
-
-if _osname == 'windows' then _ext = '.dll' end
-if _osname == 'linux'   then _ext = '.so' end
-
-package.cpath = (_lide_path .. '\\clibs\\%s\\%s\\?%s'):format(_osname, _arch, _ext)
-
 require 'lide.core.thlua'
 
 lide.core.error  = require 'lide.core.error' 	--> exceptions control
@@ -117,8 +109,20 @@ lide.core.base   = require 'lide.core.base'		-->
 -- lide platform
 lide.platform    = require 'lide.platform.init'
 
+local _osname = lide.platform.getOSName():lower()
+local _arch   = lide.platform.getArch():lower()
+
+local _LIDE_FRAMEWORK = os.getenv 'LIDE_FRAMEWORK'
+
+if _osname == 'windows' then _ext = '.dll' end
+if _osname == 'linux'   then _ext = '.so' end
+
+package.cpath = (_LIDE_FRAMEWORK .. '\\clibs\\%s\\%s\\?%s'):format(_osname, _arch, _ext)
+
 -- lide filesystem:
 lide.lfs 		 = require 'lfs'
+--------------------------------
+
 lide.core.file   = require 'lide.core.file'		--> File Handling
 lide.core.folder = require 'lide.core.folder'   --> Folders related
 
