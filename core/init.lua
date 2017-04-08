@@ -32,11 +32,10 @@ lide = lide or {
 
 local app = lide.app
 
---if not os.getenv '_lide_FRAMEWORK' then
---	print 'Please set _lide_FRAMEWORK environment variable.'
---	os.exit()
---end
-
+if not os.getenv 'LIDE_FRAMEWORK' then
+	print 'Please set LIDE_FRAMEWORK environment variable.'
+	os.exit()
+end
 -- core functions:
 
 --- Get the name of the operating system.
@@ -100,6 +99,14 @@ end
 --else
 --	print 'lide: error fatal: plataforma no soportada.'
 --end
+
+local _osname = lide.platform.getOSName():lower()
+local _arch   = lide.platform.getarch():lower()
+
+if _osname == 'windows' then _ext = '.dll' end
+if _osname == 'linux'   then _ext = '.so' end
+
+package.cpath = (_lide_path .. '\\clibs\\%s\\%s\\?%s'):format(_osname, _arch, _ext)
 
 require 'lide.core.thlua'
 
