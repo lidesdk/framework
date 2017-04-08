@@ -33,7 +33,7 @@ lide = lide or {
 local app = lide.app
 
 if not os.getenv 'LIDE_FRAMEWORK' then
-	print 'Please set LIDE_FRAMEWORK environment variable.'
+	error 'Please set LIDE_FRAMEWORK environment variable.'
 	os.exit()
 end
 -- core functions:
