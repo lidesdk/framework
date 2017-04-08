@@ -109,15 +109,15 @@ lide.core.base   = require 'lide.core.base'		-->
 -- lide platform
 lide.platform    = require 'lide.platform.init'
 
-local _osname = lide.platform.getOSName():lower()
-local _arch   = lide.platform.getArch():lower()
+--local _osname = lide.platform.getOSName():lower()
+--local _arch   = lide.platform.getArch():lower()
 
-local _LIDE_FRAMEWORK = os.getenv 'LIDE_FRAMEWORK'
+--local _LIDE_FRAMEWORK = os.getenv 'LIDE_FRAMEWORK'
 
-if _osname == 'windows' then _ext = '.dll' end
-if _osname == 'linux'   then _ext = '.so' end
+--if _osname == 'windows' then _ext = '.dll' end
+--if _osname == 'linux'   then _ext = '.so' end
 
-package.cpath = (_LIDE_FRAMEWORK .. '\\clibs\\%s\\%s\\?%s'):format(_osname, _arch, _ext)
+--package.cpath = (_LIDE_FRAMEWORK .. '\\clibs\\%s\\%s\\?%s;'):format(_osname, _arch, _ext) .. package.cpath
 
 -- lide filesystem:
 lide.lfs 		 = require 'lfs'

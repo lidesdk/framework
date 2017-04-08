@@ -64,6 +64,7 @@ install:
 
 build_script:
   - luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.0-0.rockspec
+  - luarocks install luafilesystem
 #- luarocks make rockspecs/foo-scm-0.rockspec --local
 
 #before_test:
@@ -74,7 +75,8 @@ build_script:
 
 test_script:
 - echo "Testing..."
-- set LIDE_FRAMEWORK="c:\lua\x86\5.1.5\LuaRocks\systree\share\lua\5.1\lide"
+- set LIDE_FRAMEWORK=%CD%
+#- set LIDE_FRAMEWORK=c:\lua\x86\5.1.5\LuaRocks\systree\share\lua\5.1\lide
 - lua tests/oop_tests.lua
 #- luacheck --std max+buted src spec
 #- busted --verbose --coverage

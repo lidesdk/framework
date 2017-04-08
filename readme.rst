@@ -8,7 +8,7 @@ with GTK+ on Linux and really native controls in Windows.
 ================  =================  =========
   platform          arch              build
 ================  =================  =========
-  ``Windows``      ``x86`` ``x86``     .. image:: https://travis-ci.org/lidesdk/framework.svg?branch=master 
+  ``Windows``      ``x86`` ``x86``     .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b/branch/master?svg=true
   ``GNU/Linux``    ``x64``             .. image:: https://travis-ci.org/lidesdk/framework.svg?branch=master
                                           :target: https://travis-ci.org/lidesdk/framework 
 ================  =================  =========
