@@ -1,0 +1,10 @@
+dependencies:
+  pre:
+    - sudo apt-get install lua5.1 luarocks
+    - sudo luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.0-0.rockspec
+    - sudo luarocks install luafilesystem
+    - export LIDE_FRAMEWORK="$PWD"
+
+test:
+  override:
+    - lua5.1 tests/oop_tests.lua
