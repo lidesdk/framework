@@ -3,7 +3,7 @@ dependencies:
     - sudo apt-get install lua5.1 luarocks
     - sudo luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.0-0.rockspec
     - sudo luarocks install luafilesystem
-    - export LIDE_FRAMEWORK="$PWD"
+    # - export LIDE_FRAMEWORK="$PWD" # SE AGREGA DESDE LA UI https://circleci.com/gh/lidesdk/framework/edit#env-vars
 
 test:
   override:
