@@ -101,7 +101,7 @@ end
 --end
 
 local _osname = lide.platform.getOSName():lower()
-local _arch   = lide.platform.getarch():lower()
+local _arch   = lide.platform.getArch():lower()
 
 if _osname == 'windows' then _ext = '.dll' end
 if _osname == 'linux'   then _ext = '.so' end
