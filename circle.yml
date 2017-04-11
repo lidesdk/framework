@@ -6,9 +6,6 @@ dependencies:
     - sudo luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.0-0.rockspec
     # install lide dependencis with luarocks
     - sudo luarocks install luafilesystem
-    
-    # Install environment vars:      || not implemented yet 
-    # - export LIDE_FRAMEWORK="$PWD" || not implemented yet
 
 test:
   override:
