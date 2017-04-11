@@ -114,6 +114,6 @@ If you want to know more please read our official framework's documentation:
 Credits and Authors
 ===================
 
-Lide was founded in 2014 by Hernán D. Cano (`@dariocanoh <https://github.com/dariocanoh>`_) and Jesús H. Cano (`@jhernancanom <https://github.com/jhernancanom>`_ ) for private purposes, today is accessible to the public.
+Lide was founded in 2014 by Hernán D. Cano (`@dcanoh <https://github.com/dcanoh>`_) and Jesús H. Cano (`@jhernancanom <https://github.com/jhernancanom>`_ ) for private purposes, today is accessible to the public.
 
-Lide is currently active and developing, today is maintained by (`@dariocanoh <https://github.com/dariocanoh>`_)
+Lide is currently active and developing, today is maintained by (`@dcanoh <https://github.com/dcanoh>`_)
