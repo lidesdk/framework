@@ -58,7 +58,7 @@ function Toolbar:Toolbar ( fields )
 	private {
 		DefaultPosition = { X = -1, Y = -1 }, 
 		DefaultSize     = { Width = -1, Height = -1 },
-		DefaultFlags    = wx.wxTB_HORIZONTAL,			
+		DefaultFlags    = wx.wxTB_HORZ_TEXT,
 	}
 	
 	protected {
