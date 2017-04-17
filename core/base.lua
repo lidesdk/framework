@@ -8,7 +8,7 @@
 
 --local lperr = lide.core.error.lperr
 
-local framework_call_level = 7 
+local framework_call_level = 4
 
 local function istype( ValueToCompare, TypeToCompare, errmsg, fLevel )
 	errmsg = errmsg or ('arg must be of type %s.'):format(TypeToCompare)
