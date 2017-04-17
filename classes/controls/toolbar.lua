@@ -1,7 +1,7 @@
 -- /////////////////////////////////////////////////////////////////////////////
 -- // Name:        objects/panel.lua
 -- // Purpose:     Panel class
--- // Author:      Dario Cano [thdkano@gmail.com]
+-- // Author:      Dario Cano [dcanohdev@gmail.com]
 -- // Created:     2014/09/08
 -- // Copyright:   (c) 2014 Dario Cano
 -- // License:     lide license
