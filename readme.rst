@@ -111,9 +111,16 @@ If you want to know more please read our official framework's documentation:
 
 `- Lide Framework readthedocs <http://lide-framework.rtfd.io>`_
 
+
 Credits and Authors
 ===================
 
 Lide was founded in 2014 by Hernán D. Cano (`@dcanoh <https://github.com/dcanoh>`_) and Jesús H. Cano (`@jhernancanom <https://github.com/jhernancanom>`_ ) for private purposes, today is accessible to the public.
 
 Lide is currently active and developing, today is maintained by (`@dcanoh <https://github.com/dcanoh>`_)
+
+
+License
+===================
+
+Lide is licensed under (`The GNU General Public License <https://github.com/lidesdk/commandline/blob/master/LICENSE>`_). Copyright © 2014 Hernán Dario Cano.
