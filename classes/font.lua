@@ -62,11 +62,13 @@ function Font:Font ( ... )
 				Properties.Flags = Properties.Flags + FONT_UNDERLINED
 			end
 		end
+
 	elseif type(...) == "userdata" then
 		local wxFontObject = (...)
 		self.wxObj = wxFontObject
 	--	self.FontDescription = self:getDescString()
 		return true
+
 	else
 	-- for a complete constructor:
 		Properties = ( ... )
@@ -78,10 +80,13 @@ function Font:Font ( ... )
 	Properties.FaceName   = Properties.FaceName or ""
 	Properties.Encoding   = Properties.Encoding or wx.wxFONTENCODING_DEFAULT
 	
+	-- wxFont Class
+	local bindedObject = wx.wxFont.New(Properties.Size or -1, Properties.Family, Properties.Flags, Properties.FaceName, wx.wxFONTENCODING_DEFAULT)
+	
 	private {
-		wxObj = wx.wxFont.New(Properties.Size or -1, Properties.Family, Properties.Flags, Properties.FaceName, wx.wxFONTENCODING_DEFAULT)
+		wxObj = bindedObject,
 	}
-	--self.FontDescription = self:getDescString()
+
 end
 
 
@@ -117,9 +122,22 @@ function Font:getDescString( )
 	return sFontDesc
 end
 
-function Font:getwxObj()
+function Font:getBind()
 	return self.wxObj
 end
+
+function Font:__tostring()
+	local str_address  = tostring(getmetatable(self)):gsub('table: ', '')
+	local str_facename = self:getBind():GetFaceName()
+	
+	return ("[font: %s] %s"):format(str_address, str_facename)
+end
+
+function Font:getwxObj( ... )
+	return self.wxObj
+end
+
+--Font.getwxObj = Font.getBind
 
 -- -- enum wxFontFamily 
 --  wxFONTFAMILY_DEFAULT
