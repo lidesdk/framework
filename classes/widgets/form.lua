@@ -13,7 +13,7 @@ local Window = lide.classes.widgets.window
 local Panel  = lide.classes.widgets.panel
 
 -- define the class:
-local Form = class 'Form' : subclassof 'Window' 
+local Form = class 'Form' : subclassof 'Window' : global (false)
 	--: global(false)
 
 
