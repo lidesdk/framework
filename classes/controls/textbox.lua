@@ -33,14 +33,7 @@ function Textbox:Textbox ( fields )
 	check.fields { 
 	 	'string Name', 'object Parent', --> text is not required 'string Text'
 	}
-	
-	-- define class fields
-	private {
-		DefaultPosition = { X = -1, Y = -1 }, 
-		DefaultSize     = { Width = -1, Height = -1 },
-		DefaultFlags    = TC_LEFT + TC_PROCESS_ENTER,
-	}
-   
+
     fields.Text = fields.Text or '' --> '' >> text is not required
 	
     --- call TextCtrl constructor

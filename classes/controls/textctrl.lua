@@ -82,7 +82,10 @@ function TextCtrl:TextCtrl( fields )
 	private {
 		DefaultPosition = { X = -1, Y = -1 }, 
 		DefaultSize     = { Width = -1, Height = -1 },
-		DefaultFlags    = wx.wxTE_LEFT,
+
+		-- By default TextCtrl class has TC_PROCESS_ENTER and TC_PROCESS_TAB flags to interview key these key events.
+        --
+		DefaultFlags    = (TC_PROCESS_ENTER + TC_PROCESS_TAB),
 
 		_MaxLength = isNumber(fields.MaxLength or -1 )
 	}
