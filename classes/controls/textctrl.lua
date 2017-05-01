@@ -106,15 +106,6 @@ function TextCtrl:TextCtrl( fields )
 	if fields.Font then
 		self:setFont( fields.Font, -1 )
 	end
-	
-	-- registry event onKey
-	--self:initializeEvents {
-		--'onLeftUp', 'onLeftDown',
-		--'onChar', 
-        --'onKeyDown', 'onKeyUp',
-        --'onKeyEnter',
-        --'onTextEnter'
-	--}
 end
 
 -- load the whole file to a textctrl

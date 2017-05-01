@@ -38,7 +38,9 @@ function Textbox:Textbox ( fields )
 	
     --- call TextCtrl constructor
 	self.super : init ( fields )
-	
+
+    -- binded object (wxObj) now exists.
+
     if fields.Font and isString(fields.Font) then
         self:setFont(fields.Font, -1)
     end
@@ -47,11 +49,39 @@ function Textbox:Textbox ( fields )
     --- initialize object events:
     ---
 
+    ---    %wxEventType wxEVT_KEY_DOWN // EVT_KEY_DOWN(func ); 
+    ---    %wxEventType wxEVT_KEY_UP // EVT_KEY_UP(func ); 
+    ---    %wxEventType wxEVT_CHAR // EVT_CHAR(func ); 
+    ---    %wxEventType wxEVT_CHAR_HOOK // EVT_CHAR_HOOK(func ); 
+    ---    wxUSE_HOTKEY %wxEventType wxEVT_HOTKEY // EVT_HOTKEY(winid, func ); 
+    ---
+    ---    wxKeyEvent(wxEventType keyEventType ); 
+    ---
+    ---    bool AltDown() const; 
+    ---    bool CmdDown() const; 
+    ---    bool ControlDown() const; 
+    ---    int GetKeyCode() const; 
+    ---    %wxchkver_2_8 int GetModifiers() const; 
+    ---    wxPoint GetPosition() const; 
+    ---
+    ---    // %override [long x, long y] wxKeyEvent::GetPositionXY( ); 
+    ---    // C++ Func: void GetPosition(long *x, long *y) const; 
+    ---    %rename GetPositionXY void GetPosition() const; 
+
+    ---    long GetX( ); 
+    ---    long GetY() const; 
+    ---    bool HasModifiers() const; 
+    ---    bool MetaDown() const; 
+    ---    bool ShiftDown() const; 
+    ---    }; 
+    ---
+
 	self:initializeEvents {
-        'onKeyDown', 'onKeyUp', 'onMotion', 'onLeftDown', 'onLeftUp', 'onLeftDoubleClick'
+       'onKeyDown', 'onKeyUp',
 	}
 
 end
+
 
 function Textbox:getText( ... )
     return self:getwxObj():GetRange(0, self:getwxObj():GetLastPosition())
