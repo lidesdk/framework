@@ -9,7 +9,7 @@ with GTK+ on Linux and really native controls in Windows.
   platform          arch               buil log                                            build status
 ================  =================  ===================================================  ================
   ``GNU/Linux``    ``x64``            https://circleci.com/gh/lidesdk/framework            .. image:: https://circleci.com/gh/lidesdk/framework.svg?style=svg
-  ``Windows``      ``x86`` ``x86``    https://ci.appveyor.com/project/dcanoh/framework     .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true
+  ``Windows``      ``x86`` ``x64``    https://ci.appveyor.com/project/dcanoh/framework     .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true
                                                                                               :target: https://ci.appveyor.com/project/dcanoh/framework
 ================  =================  ===================================================  ================
 
