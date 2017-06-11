@@ -1,10 +1,11 @@
+
 -- ///////////////////////////////////////////////////////////////////////////////
 -- // Name:        classes/widgets/form.lua
--- // Purpose:     class Form definition
--- // Author:      Dario Cano [thdkano@gmail.com]
+-- // Purpose:     Class Form definition
+-- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
 -- // Created:     2016/02/15
--- // Copyright:   (c) 2016 Dario Cano
--- // License:     lide license
+-- // Copyright:   (c) 2016 Hernan Dario Cano
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////////////////
 
 

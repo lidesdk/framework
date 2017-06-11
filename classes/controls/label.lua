@@ -1,11 +1,10 @@
 -- /////////////////////////////////////////////////////////////////////////////
 -- // Name:        lide/classes/controls/label.lua
 -- // Purpose:     Label class
--- // Version:     0.0.0.1
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     07/07/2014
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
+-- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
+-- // Created:     2014/07/07
+-- // Copyright:   (c) 2014  Hernan Dario Cano
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- /////////////////////////////////////////////////////////////////////////////
 --
 -- Class constructor:

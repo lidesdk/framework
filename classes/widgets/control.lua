@@ -3,8 +3,8 @@
 -- // Purpose:     Control class
 -- // Author:      Dario Cano [thdkano@gmail.com]
 -- // Created:     2014/07/07
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
+-- // Copyright:   (c) 2014  Hernan Dario Cano
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 --
 -- Class constructor:

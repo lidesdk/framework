@@ -1,6 +1,6 @@
 -- /////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/controls/calendarctrl.lua
--- // Purpose:     CalendarCtrl class
+-- // Name:        classes/controls/calendar.lua
+-- // Purpose:     Calendar class
 -- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
 -- // Created:     2017/05/01
 -- // Copyright:   (c) 2017 Hernan Dario Cano
@@ -32,12 +32,14 @@ local isBoolean = lide.core.base.isboolean
 local Control = lide.classes.widgets.control
 
 -- Define class:
-local CalendarCtrl = class 'CalendarCtrl' : subclassof 'Control' : global (false)
+local Calendar = class 'Calendar' : subclassof 'Control' : global (false)
 
-function CalendarCtrl:CalendarCtrl ( fields )
+function Calendar:Calendar ( fields )
 	-- check for fields required by constructor:
-	check.fields { 
-	 	'string Name', 'object Parent',
+	-- check ( Name, Parent ) ( 'string Name', 'object Parent' )
+	-- check ( fields )
+	check.fields {
+		'string Name', 'object Parent' 
 	}
 	
 	-- define class fields
@@ -48,7 +50,9 @@ function CalendarCtrl:CalendarCtrl ( fields )
 	}
 
 	protected {
-		Flags  = fields.Flags or self.DefaultFlags
+		Flags  = fields.Flags or self.DefaultFlags,
+
+		DateSelected = 0
 	}
 
 --		-- call Control constructor
@@ -57,12 +61,22 @@ function CalendarCtrl:CalendarCtrl ( fields )
 	-- create wxWidgets object and store it on self.wxObj:
 	-- wxCalendarCtrl(wxWindow* parent, wxWindowID id, const wxDateTime& date = wxDefaultDateTime, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxCAL_SHOW_HOLIDAYS, const wxString& name = "wxCalendarCtrl" );
 	self.wxObj = wx.wxCalendarCtrl (self.Parent:getwxObj(), self.ID, wx.wxDefaultDateTime, wx.wxPoint( self.PosX, self.PosY ), wx.wxSize( self.Width, self.Height ), self.Flags or self.DefaultFlags, self.Name)
+	
+	-- define the interface to wxCalendarEvent:
+	local function wxCalendarEventInterface ( event )
+		local date = event:GetDate()
+		local year, month, day = date:GetYear(), date:GetMonth()+1, date:GetDay()
 		
+		self.DateSelected = lide.classes.date (('%s/%s/%s') : format (year, month, day))
+
+		return year, month, day
+	end
+
 	-- registry event onClick
 	-- The selected date changed.
 	getmetatable(self) .__events['onSelChanged'] = {
 		data = wx.wxEVT_CALENDAR_SEL_CHANGED,-- 
-		args = lide.core.base.voidf
+		args = wxCalendarEventInterface
 	}
 
 	getmetatable(self) .__events['onDayChanged'] = {
@@ -82,12 +96,7 @@ function CalendarCtrl:CalendarCtrl ( fields )
 
 	getmetatable(self) .__events['onDoubleClicked'] = {
 		data = wx.wxEVT_CALENDAR_DOUBLECLICKED,
-		args = function ( event )
-			local date = event:GetDate()
-			local year, month, day = date:GetYear(), date:GetMonth()+1, date:GetDay()
-
-			return year, month, day
-		end
+		args = wxCalendarEventInterface,
 	}
 
 	getmetatable(self) .__events['onWeekdayClicked'] = {
@@ -97,13 +106,39 @@ function CalendarCtrl:CalendarCtrl ( fields )
 
 
 	self:initializeEvents {
-		'onDoubleClicked',
+		'onDoubleClicked', 'onSelChanged'
 	}
-
 end
 
+--#if !%wxchkver_2_9_2 
+--void EnableYearChange(bool enable = true ); 
+--#endif 
+function Calendar:enableYearChange ( enable )
+	if enable == nil then enable = true end
+	self.wxObj:EnableYearChange(enable)
+end
 
-return CalendarCtrl
+--void EnableMonthChange(bool enable = true ); 
+function Calendar:enableMonthChange( enable )
+	if enable == nil then enable = true end
+	self.wxObj:EnableMonthChange(enable)
+end
+
+--void EnableHolidayDisplay(bool display = true ); 
+function Calendar:enableHolidayDisplay( display )
+	if display == nil then display = true end
+	self.wxObj:EnableHolidayDisplay(display)
+end
+
+function Calendar:getBind ( ... )
+	return self.wxObj
+end
+
+function Calendar:getSelectedDate( ... )
+	return self.DateSelected
+end
+
+return Calendar
 
 --class wxCalendarCtrl : public wxControl 
 --{
@@ -113,12 +148,9 @@ return CalendarCtrl
 --void SetDate(const wxDateTime& date ); 
 --wxDateTime GetDate() const; 
 --
---#if !%wxchkver_2_9_2 
---void EnableYearChange(bool enable = true ); 
---#endif 
---
---void EnableMonthChange(bool enable = true ); 
---void EnableHolidayDisplay(bool display = true ); 
+
+
+
 --void SetHeaderColours(const wxColour& colFg, const wxColour& colBg ); 
 --wxColour GetHeaderColourFg() const; 
 --wxColour GetHeaderColourBg() const; 
@@ -128,30 +160,30 @@ return CalendarCtrl
 --void SetHolidayColours(const wxColour& colFg, const wxColour& colBg ); 
 --wxColour GetHolidayColourFg() const; 
 --wxColour GetHolidayColourBg() const; 
---wxCalendarDateAttr* GetAttr(size_t day) const; 
---void SetAttr(size_t day, %ungc wxCalendarDateAttr* attr); // will delete previously set attr as well 
+--wxCalendarCtrlDateAttr* GetAttr(size_t day) const; 
+--void SetAttr(size_t day, %ungc wxCalendarCtrlDateAttr* attr); // will delete previously set attr as well 
 --void SetHoliday(size_t day ); 
 --void ResetAttr(size_t day ); 
 ----
-----// %override [wxCalendarHitTestResult, wxDateTime date, wxDateTime::WeekDay wd] wxCalendarCtrl::HitTest(const wxPoint& pos ); 
-----// C++ Func: wxCalendarHitTestResult HitTest(const wxPoint& pos, wxDateTime* date = NULL, wxDateTime::WeekDay* wd = NULL ); 
-----wxCalendarHitTestResult HitTest(const wxPoint& pos ); 
+----// %override [wxCalendarCtrlHitTestResult, wxDateTime date, wxDateTime::WeekDay wd] wxCalendarCtrl::HitTest(const wxPoint& pos ); 
+----// C++ Func: wxCalendarCtrlHitTestResult HitTest(const wxPoint& pos, wxDateTime* date = NULL, wxDateTime::WeekDay* wd = NULL ); 
+----wxCalendarCtrlHitTestResult HitTest(const wxPoint& pos ); 
 ----}; 
 ----
 ----// --------------------------------------------------------------------------- 
-----// wxCalendarDateAttr 
+----// wxCalendarCtrlDateAttr 
 ----
---class %delete wxCalendarDateAttr 
+--class %delete wxCalendarCtrlDateAttr 
 --{
---wxCalendarDateAttr( ); 
---wxCalendarDateAttr(const wxColour& colText, const wxColour& colBack = wxNullColour, const wxColour& colBorder = wxNullColour, const wxFont& font = wxNullFont, wxCalendarDateBorder border = wxCAL_BORDER_NONE ); 
---wxCalendarDateAttr(wxCalendarDateBorder border, const wxColour& colBorder = wxNullColour ); 
+--wxCalendarCtrlDateAttr( ); 
+--wxCalendarCtrlDateAttr(const wxColour& colText, const wxColour& colBack = wxNullColour, const wxColour& colBorder = wxNullColour, const wxFont& font = wxNullFont, wxCalendarCtrlDateBorder border = wxCAL_BORDER_NONE ); 
+--wxCalendarCtrlDateAttr(wxCalendarCtrlDateBorder border, const wxColour& colBorder = wxNullColour ); 
 --
 --void SetTextColour(const wxColour& colText ); 
 --void SetBackgroundColour(const wxColour& colBack ); 
 --void SetBorderColour(const wxColour& col ); 
 --void SetFont(const wxFont& font ); 
---void SetBorder(wxCalendarDateBorder border ); 
+--void SetBorder(wxCalendarCtrlDateBorder border ); 
 --void SetHoliday(bool holiday ); 
 --bool HasTextColour() const; 
 --bool HasBackgroundColour() const; 
@@ -163,7 +195,7 @@ return CalendarCtrl
 --wxColour GetBackgroundColour( ); 
 --wxColour GetBorderColour() const; 
 --wxFont GetFont() const; 
---wxCalendarDateBorder GetBorder( ); 
+--wxCalendarCtrlDateBorder GetBorder( ); 
 --}; 
 --
 
@@ -200,7 +232,9 @@ return CalendarCtrl
 -- void Undo( ); 
 -- }; 
 
--- enum wxCalendarDateBorder 
+
+-- Possible kinds of borders which may be used to decorate a date using wxCalendarDateAttr.
+-- enum wxCalendarCtrlDateBorder 
 -- {
 -- wxCAL_BORDER_NONE, 
 -- wxCAL_BORDER_SQUARE, 

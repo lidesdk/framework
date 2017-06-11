@@ -1,11 +1,11 @@
 -- ///////////////////////////////////////////////////////////////////////////////
--- // Name:        oop.lua
+-- // Name:        lide/core/oop.lua
 -- // Purpose:     OOP Model for Lide
 -- // Author:      Julien Patte [julien.patte AT gmail DOT com]
 -- // Created:     25/02/2007
--- // Modified:    Dario Cano (Lide SDK Compatibility Modifications ) [thdkano@gmail.com]
+-- // Modified:    Hernan Dario Cano (Lide SDK Compatibility Modifications ) [dcanohdev@gmail.com]
 -- // Copyright:   (c) 2007 Julien Patte
--- // License:     lide license
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////////////////
 
 -----------------------------------------------------------------------------------
@@ -101,9 +101,9 @@ local function duplicateAll(t)
 end
 
 -----------------------------------------------------------------------------------
--- internal function 'newInstance'
+-- internal function 'new' makes a newInstance
 
-local function newInstance(class, ...) 
+local function new (class, ...) 
 
    local function makeInstance(class, virtuals)
       local inst = duplicate(virtuals)
@@ -136,9 +136,7 @@ local function newInstance(class, ...)
    local inst = makeInstance(class, metaObj[class].virtuals) 
    
    inst:init (...) -- [Llamada original]
-   
-   --public, private, protected = nil, nil, nil
-    
+      
    return inst -- lide.instances[#lide.instances]
 end
 
@@ -369,7 +367,7 @@ local function subclass(baseClass, name)
   local class_stuff = {
     enum = class_enum,
     subclassof = subclassof, global = global,
-    static = inst_stuff, made = classMade, new = newInstance,
+    static = inst_stuff, made = classMade, new = new,
     subclass = subclass, virtual = makeVirtual, cast = secureCast, trycast = tryCast 
   }
 
@@ -390,7 +388,7 @@ local function subclass(baseClass, name)
   
   local function tos() return ("class "..name) end
   setmetatable(theClass, { __type = 'class', __lideobj = true, __newindex = newmethod, __index = class_stuff, 
-	__tostring = tos, __call = newInstance } )
+	__tostring = tos, __call = new } )
  
   return theClass
 end
@@ -407,7 +405,7 @@ obj_inst_stuff.__newindex = obj_newitem
 function obj_inst_stuff.class() return BaseObject end
 --function obj_inst_stuff.__tostring(inst) return ("a "..inst:class():name()) end
 
-local obj_class_stuff = { static = obj_inst_stuff, made = classMade, new = newInstance,
+local obj_class_stuff = { static = obj_inst_stuff, made = classMade, new = new,
 	subclass = subclass, cast = secureCast, trycast = tryCast }
 
 function obj_class_stuff.name(class) return "BaseObject" end
@@ -417,7 +415,7 @@ metaObj[BaseObject] = { virtuals={} }
 
 local function tos() return ("class BaseObject") end
 setmetatable(BaseObject, { __newindex = obj_newitem, __index = obj_class_stuff, 
-	__tostring = tos, __call = newInstance,
+	__tostring = tos, __call = new,
 })
 
 ----------------------------------------------------------------------
