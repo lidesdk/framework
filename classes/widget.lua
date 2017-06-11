@@ -354,7 +354,7 @@ function Widget:initializeEvents ( toLoad )
 						event:Skip()
 					end
 				end)
-			end			
+			end
 		end
 	end
 end

@@ -47,12 +47,12 @@ end
 
 --- define class methods
 ---
-Object:virtual 'getID'
+--Object:virtual 'getID'
 function Object:getID ()
 	return self.ID
 end
 
-Object:virtual 'setID'
+--Object:virtual 'setID'
 function Object:setID ( nID )	
 	self.ID = isNumber(nID) 
 

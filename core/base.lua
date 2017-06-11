@@ -1,12 +1,11 @@
 -- ///////////////////////////////////////////////////////////////////////////////
--- // Name:        core/base.lua
--- // Purpose:     
+-- // Name:        lide/core/base.lua
+-- // Purpose:     define functions required by framework instances
+-- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
 -- // Created:     2016/01/03
--- // Copyright:   (c) 2016 Dario Cano
--- // License:     lide license
+-- // Copyright:   (c) 2017 Hernan Dario Cano
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////////////////
-
---local lperr = lide.core.error.lperr
 
 local framework_call_level = 4
 
@@ -23,33 +22,6 @@ local function istype( ValueToCompare, TypeToCompare, errmsg, fLevel )
 		end 
 	end
 end
-
---[[local function istype( ValueToCompare, TypeToCompare, errmsg, fLevel )
-	local fLevel = fLevel or 1	   --> function level, 1 is the function
-	local tFunc_args = {}  --> to store founded args
-	local nARG, sARGName, ARGValue = 1 repeat 
-		sARGName, ARGValue = debug.getlocal(fLevel, nARG)
-
-		if (ValueToCompare == ARGValue) 	-- Si este es el que es el que estamos buscando:
-		and (type(ValueToCompare) ~= TypeToCompare) then -- y es diferente al tipo a comparar
-			
-			break
-		end
-	nARG = nARG +1 until not sARGName
-
-	errmsg = errmsg or ('arg #%d [@var] must be of type %s.'):format(nARG, TypeToCompare)
-	errmsg = errmsg:gsub('@var', tostring(sARGName))
-	
-	if lide.core.base.type(ValueToCompare) == TypeToCompare then 
-		return ValueToCompare 
-	else 
-		if not errmsg then 
-			return false 
-		else 
-			error(errmsg, fLevel)
-		end 
-	end
-end]]
 
 function lide.errorf.update_constant( theConstant )
     -- "attempt to update a constant. *const:"..k)

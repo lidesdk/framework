@@ -275,6 +275,7 @@ end
 
 -- virtual void SetTitle(const wxString& title ); 
 function Window:setTitle( sTitle )
+	isString(sTitle);
 	self.wxObj:SetTitle( sTitle )
 end
 

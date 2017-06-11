@@ -120,6 +120,7 @@ lua_dir = ( lide.app.getWorkDir() .. '\\lua\\%s\\%s\\?.lua;'):format(platform, a
           ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\%s\\lua\\?\\init.lua;'):format(platform, arch) ..
           ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\lua\\?\\init.lua;'):format(platform) ..
           ( os.getenv 'LIDE_PATH' .. '\\libraries\\lua\\?\\init.lua;') -- Crossplatform: libraries\lua\package.lua
+        --..( lide.app.getWorkDir() .. '\\?.lua;')
 
 clibs_dir=( lide.app.getWorkDir() .. '\\clibs\\%s\\%s\\?.dll;'):format(platform, arch) ..
           ( lide.app.getWorkDir() .. '\\clibs\\%s\\?.dll;'):format(platform) ..

@@ -1,10 +1,10 @@
 -- /////////////////////////////////////////////////////////////////////////////
 -- // Name:        lide/classes/font.lua
 -- // Purpose:     Font class
--- // Author:      Dario Cano [thdkano@gmail.com]
+-- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
 -- // Created:     07/07/2014
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
+-- // Copyright:   (c) 2014  Hernan Dario Cano
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- /////////////////////////////////////////////////////////////////////////////
 --
 -- Class constructor:
