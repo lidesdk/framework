@@ -54,6 +54,7 @@ local Event    = lide.classes.event
 local Widget = class 'Widget' : subclassof 'Object' : global ( false )
 
 function Widget:Widget ( sWidgetName, sWidgetType, nPosX, nPosY, nWidth, nHeight, nID, oParent )
+	
 	self.super:init( sWidgetName, nID )
 	
 	-- Check if oParent exists, because toplevel windows are widgets without parent

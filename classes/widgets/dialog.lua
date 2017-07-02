@@ -12,7 +12,7 @@ local Window = lide.classes.widgets.window
 
 -- define the class:
 
-local Dialog = class 'Dialog' : subclassof 'Window' : global (false)
+local Dialog = class 'Dialog' : subclassof 'Widget' : global (false)
 
 function Dialog:Dialog ( fields )
 	
@@ -28,7 +28,9 @@ function Dialog:Dialog ( fields )
 		Flags = fields.Flags or wx.wxDEFAULT_FRAME_STYLE,
 	}
 
-	self.super : init (fields)
+	--- Widget ( sWidgetName, sWidgetType, nPosX, nPosY, nWidth, nHeight, nID, oParent )
+	self.super : init (fields.Name, 'window', self.PosX or self.DefaultPosition.X, self.PosY or self.DefaultPosition.Y, 
+		fields.Width or self.DefaultSize.Width, fields.Height or self.DefaultSize.Height, nil, nil);
 
 	--wxDialog( );
 	--wxDialog(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE, const wxString& name = "wxDialog" ); 
