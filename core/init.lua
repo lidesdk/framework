@@ -2,7 +2,7 @@
 -- // Name:        lide.core.init.lua
 -- // Purpose:     Define and initialize framework values
 -- // Created:     2016/01/03
--- // Copyright:   (c) 2016 Dario Cano [hdcano@protonmail.com]
+-- // Copyright:   (c) 2016 Dario Cano [dcanohdev@gmail.com]
 -- // License:     lide license
 -- ///////////////////////////////////////////////////////////////////////////////
 
@@ -14,7 +14,7 @@ lide = lide or {
 	errorf = {}, 	--> This table stores all error functions
 	
 	core   = {
-		error  = {},	--> stores all variables related to exceptions control
+		error  = {},  --> stores all variables related to exceptions control
 		base   = {},
 		lua    = { type = type, error = error, require = require },
 		file   = {},  --> stores all variables related to file handling
@@ -118,7 +118,8 @@ local _LIDE_FRAMEWORK = os.getenv 'LIDE_FRAMEWORK'
 --if _osname == 'linux'   then _ext = '.so' end
 
 --package.cpath = (_LIDE_FRAMEWORK .. '\\clibs\\%s\\%s\\?%s;'):format(_osname, _arch, _ext) .. package.cpath
-package.path = _LIDE_FRAMEWORK .. '\\?.lua;' .. package.path
+package.path  = _LIDE_FRAMEWORK .. '\\?.lua;' .. package.path
+package.cpath = _LIDE_FRAMEWORK .. '\\clibs\\?.dll;' .. package.cpath
 
 -- lide filesystem:
 lide.lfs 		 = require 'lfs'
