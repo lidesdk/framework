@@ -32,33 +32,7 @@ lide = lide or {
 
 local app = lide.app
 
-if not os.getenv 'LIDE_FRAMEWORK' then
-	error 'Please set LIDE_FRAMEWORK environment variable.'
-	os.exit()
-end
 -- core functions:
-
---- Get the name of the operating system.
----		Returns one string: OS Name like "Linux"
----
---- string getOSVersion( nil )
-
-function lide.platform.getOSName( ... )
-	--if (package.config:sub(1,1) == '/') and io.popen 'uname -s':read '*l' == 'Linux' then
-	--	return 'Linux';
-	--elseif (package.config:sub(1,1) == '\\') and os.getenv 'OS' == 'Windows_NT' then
-	--	return 'Windows';
-	--else
-	--	return 'Other';
-	--end
-	if (package.config:sub(1,1) == '\\') and os.getenv 'OS' == 'Windows_NT' then
-		return 'Windows';
-	elseif (package.config:sub(1,1) == '/') and io.popen 'uname -s':read '*l' == 'Linux' then
-		return 'Linux';
-	else
-		return 'Other';
-	end
-end
 
 function lide.app.getWorkDir( ... )
 	if lide.platform.getOSName() == 'Linux' then
@@ -80,26 +54,6 @@ if arg and arg[0] then
 	_sourcefolder = sf
 end
 
---if lide.platform.getOSName() == 'Linux' then
---	local _lide_path = os.getenv 'LIDE_PATH'
---
---	package.cpath = ';./?.so;' ..
---				    _lide_path .. '/?.so;'
---	
---elseif lide.platform.getOSName() == 'Windows' then
-----	local _lide_path = os.getenv 'LIDE_PATH'	
-----	
-----	package.cpath = _lide_path .. '\\clibs\\windows\\x86\\?.dll'
-----	package.path  = _lide_path .. '\\lua\\windows\\x86\\?.lua;' .. package.path
---				    --_lide_path .. '\\?.dll;'
---	--package.cpath = ';?.dll;.\\?.dll;'
---	--package.path  = ';?.lua;.\\?.lua;'
---	--print(package.path)
---	--lide.lfs = package.loadlib ((_sourcefolder or '.') ..'\\lfs.dll', 'luaopen_lfs') ()
---else
---	print 'lide: error fatal: plataforma no soportada.'
---end
-
 require 'lide.core.thlua'
 
 lide.core.error  = require 'lide.core.error' 	--> exceptions control
@@ -109,17 +63,19 @@ lide.core.base   = require 'lide.core.base'		-->
 -- lide platform
 lide.platform    = require 'lide.platform.init'
 
---local _osname = lide.platform.getOSName():lower()
---local _arch   = lide.platform.getArch():lower()
+local os_linux   = lide.platform.getOSName():lower() == 'linux'
+local os_windows = lide.platform.getOSName():lower() == 'windows'
+local os_arch    = lide.platform.getOSArch():lower();
+local _lide_path = os.getenv('LIDE_PATH');
 
-local _LIDE_FRAMEWORK = os.getenv 'LIDE_FRAMEWORK'
+if os_linux then
+	package.cpath = _lide_path .. ('/clibs/linux/x64/?.so;')--:format(os_arch);
+	package.path  = _lide_path .. ('/lua/linux/x64/?.lua;') ..
+					_lide_path .. ('/lua/linux/x64/?/init.lua;') .. package.path
 
---if _osname == 'windows' then _ext = '.dll' end
---if _osname == 'linux'   then _ext = '.so' end
-
---package.cpath = (_LIDE_FRAMEWORK .. '\\clibs\\%s\\%s\\?%s;'):format(_osname, _arch, _ext) .. package.cpath
-package.path  = _LIDE_FRAMEWORK .. '\\?.lua;' .. package.path
-package.cpath = _LIDE_FRAMEWORK .. '\\clibs\\?.dll;' .. package.cpath
+elseif os_windows then
+   ---
+end
 
 -- lide filesystem:
 lide.lfs 		 = require 'lfs'
