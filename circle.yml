@@ -10,5 +10,6 @@ dependencies:
 test:
   override:
     # executing tests:
+    - echo $LIDE_PATH
     - export LIDE_FRAMEWORK="$PWD"
     - lua5.1 tests/oop_tests.lua
