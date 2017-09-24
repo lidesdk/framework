@@ -66,7 +66,7 @@ lide.platform    = require 'lide.platform.init'
 local os_linux   = lide.platform.getOSName():lower() == 'linux'
 local os_windows = lide.platform.getOSName():lower() == 'windows'
 local os_arch    = lide.platform.getOSArch():lower();
-local _lide_path = '.' -- ..os.getenv('LIDE_PATH')
+local _lide_path = os.getenv('LIDE_PATH');
 
 if os_linux then
 	package.cpath = _lide_path .. ('/clibs/linux/x64/?.so;')--:format(os_arch);
