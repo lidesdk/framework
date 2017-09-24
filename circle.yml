@@ -3,13 +3,11 @@ dependencies:
     # install lua interpreter and luarocks
     - sudo apt-get install lua5.1 luarocks
     # install lide using latest rockspeck
-    - sudo luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.0-0.rockspec
+    #- sudo luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.0-0.rockspec
     # install lide dependencis with luarocks
-    - sudo luarocks install luafilesystem
+    # sudo luarocks install luafilesystem
 
 test:
   override:
     # executing tests:
-    - echo $LIDE_PATH
-    - export LIDE_FRAMEWORK="$PWD"
     - lua5.1 tests/oop_tests.lua
