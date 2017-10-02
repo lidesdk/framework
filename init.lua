@@ -128,7 +128,7 @@ clibs_dir=( lide.app.getWorkDir() .. '\\clibs\\%s\\%s\\?.dll;'):format(platform,
           ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\clibs\\?.dll;'):format(platform)
 
 
-package.path   = lua_dir
-package.cpath  = clibs_dir
+package.path   = lua_dir   ..';' .. package.path
+package.cpath  = clibs_dir ..';' .. package.cpath
 
 return lide

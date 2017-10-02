@@ -23,7 +23,7 @@ function lide.platform.getArch ()
 	if (_osname == 'windows') then
 		return os.getenv 'PROCESSOR_ARCHITECTURE' 
 	elseif (_osname == 'linux') then
-		return io.popen 'uname -m' : read '*a' : gsub ('x86_64', 'x64') : gsub ( 'i686', 'x86' );
+		return io.popen 'uname -m' : read '*a' : gsub ('x86_64', 'x64') : gsub ( 'i686', 'x86' ):sub(1,3);
 	end
 end
 

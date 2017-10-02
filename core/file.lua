@@ -33,4 +33,5 @@ function lide.core.file.delete ( file_path )
 		print ('error: '.. err)
 	end
 end
+
 return lide.core.file

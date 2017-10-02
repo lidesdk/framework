@@ -25,8 +25,7 @@ local isBoolean = lide.core.base.isboolean
 local check = lide.core.base.check
 
 -- define class:
-Progress = class 'Progress' : subclassof 'Control' 
-	: global(false)
+local Progress = class 'Progress' : subclassof 'Control' : global(false)
 
 function Progress:Progress( fields )
 	-- check for fields required by constructor:

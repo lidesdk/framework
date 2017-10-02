@@ -43,7 +43,7 @@ function lide.core.folder.delete ( folder_path )
 	if lide.platform.getOSName() == 'Linux' then
 		_shell_command = 'rm -rf "%s"'
 	elseif lide.platform.getOSName() == 'Windows' then
-		_shell_command = 'del /F /Q /S "%s"'
+		_shell_command = 'rmdir /Q /S "%s"'
 	end
 
 	folder_path = normalizePath(folder_path);
@@ -57,4 +57,34 @@ function lide.core.folder.delete ( folder_path )
 	end
 end
 
+function lide.core.folder.list ( strDirectory )
+	local return_tbl = {}
+	for DirItem in lide.lfs.dir(strDirectory) do
+		if DirItem ~= '.' and DirItem ~= '..' then
+			DirItem = strDirectory .. '\\' .. DirItem
+
+			if lide.lfs.attributes(DirItem, 'mode') == 'file' then
+				return_tbl[#return_tbl +1] = DirItem
+			elseif lide.lfs.attributes(DirItem, 'mode') == 'directory' then
+				return_tbl[#return_tbl +1] = DirItem
+			end
+		end
+	end
+
+	return return_tbl
+end
+
+function lide.core.folder.deleteTree ( strDirectory )
+	for _, file in pairs(lide.core.folder.list(strDirectory)) do
+		lide.core.file.delete(file)
+	end
+
+	lide.core.folder.delete(strDirectory)
+
+	if not lide.core.folder.doesExists(strDirectory) then
+		return true
+	else
+		return false, 'error deleteTree'
+	end
+end
 return lide.core.folder

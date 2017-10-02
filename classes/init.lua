@@ -6,6 +6,8 @@ lide.classes.store     = require 'lide.classes.store'
 lide.classes.timer     = require 'lide.classes.timer'
 lide.classes.date      = require 'lide.classes.date'
 
+lide.classes.file      = require 'lide.classes.file'
+
 lide.classes.font      = require 'lide.classes.font'
 lide.classes.event     = require 'lide.classes.event'
 lide.classes.widget    = require 'lide.classes.widget'
