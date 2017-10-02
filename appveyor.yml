@@ -75,9 +75,9 @@ build_script:
 
 test_script:
 - echo "Testing..."
-- set LIDE_FRAMEWORK=%CD%
+- set LIDE_PATH=%CD%
 #- set LIDE_FRAMEWORK=c:\lua\x86\5.1.5\LuaRocks\systree\share\lua\5.1\lide
-- lua tests/oop_tests.lua
+- lua tests/lide_core_oop_tests.lua
 #- luacheck --std max+buted src spec
 #- busted --verbose --coverage
 
