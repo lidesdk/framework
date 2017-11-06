@@ -31,7 +31,6 @@ supported_platforms = {
 
 dependencies = {
   "lua == 5.1",
-  "luafilesystem == 1.7.0-2",
 }
 
 build = { type = 'builtin', modules = {}, install = {},
