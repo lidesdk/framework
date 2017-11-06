@@ -63,22 +63,15 @@ lide.core.base   = require 'lide.core.base'		-->
 -- lide platform
 lide.platform    = require 'lide.platform.init'
 
-local os_linux   = lide.platform.getOSName():lower() == 'linux'
-local os_windows = lide.platform.getOSName():lower() == 'windows'
+--local os_linux   = lide.platform.getOSName():lower() == 'linux'
+--local os_windows = lide.platform.getOSName():lower() == 'windows'
 local os_arch    = lide.platform.getOSArch():lower();
+local os_name    = lide.platform.getOSName():lower();
+
 local _lide_path = os.getenv('LIDE_PATH');
 
 if (not _lide_path) then
     lide.core.error.lperr 'LIDE_PATH is not defined now.'
-end
-
-if os_linux then
-	package.cpath = _lide_path .. ('/clibs/linux/x64/?.so;') .. package.cpath
-	package.path  = _lide_path .. ('/lua/linux/x64/?.lua;') ..
-					_lide_path .. ('/lua/linux/x64/?/init.lua;') .. package.path
-
-elseif os_windows then
-   ---
 end
 
 -- lide filesystem:
@@ -98,5 +91,8 @@ lide.file   = lide.core.file;
 
 class = lide.core.oop.class
 enum  = lide.core.base.enum
+
+--package.path  = package_path
+--package.cpath = package_cpath
 
 return lide, lide.app

@@ -1,9 +1,9 @@
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
 -- // Name:        init.lua
 -- // Purpose:     Initialize framework
--- // Author:      Dario Cano [dario.canohdz@gmail.com]
+-- // Author:      Dario Cano [dcanohdev@gmail.com]
 -- // Created:     2016/01/03
--- // Copyright:   (c) 2014 Dario Cano
+-- // Copyright:   (c) 2014 -2017 Dario Cano
 -- // License:     MIT License/X11 license
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
 --
@@ -106,29 +106,5 @@ end
 
 -- Import classes to the framework:
 lide.classes = require 'lide.classes.init'
-
-arch     = lide.platform.getArch ()         --'x86' -- x64, arm7
-platform = lide.platform.getOS () : lower() -- linux, macosx
-
-lua_dir = ( lide.app.getWorkDir() .. '\\lua\\%s\\%s\\?.lua;'):format(platform, arch) ..
-          ( lide.app.getWorkDir() .. '\\lua\\%s\\?.lua;'):format(platform) ..
-          ( lide.app.getWorkDir() .. '\\lua\\?.lua;') .. -- Crossplatform: root\lua\package.lua
-          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\%s\\lua\\?.lua;'):format(platform, arch) ..
-          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\lua\\?.lua;'):format(platform) ..
-          ( os.getenv 'LIDE_PATH' .. '\\libraries\\lua\\?.lua;').. -- Crossplatform: libraries\lua\package.lua
-
-          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\%s\\lua\\?\\init.lua;'):format(platform, arch) ..
-          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\lua\\?\\init.lua;'):format(platform) ..
-          ( os.getenv 'LIDE_PATH' .. '\\libraries\\lua\\?\\init.lua;') -- Crossplatform: libraries\lua\package.lua
-        --..( lide.app.getWorkDir() .. '\\?.lua;')
-
-clibs_dir=( lide.app.getWorkDir() .. '\\clibs\\%s\\%s\\?.dll;'):format(platform, arch) ..
-          ( lide.app.getWorkDir() .. '\\clibs\\%s\\?.dll;'):format(platform) ..
-          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\%s\\clibs\\?.dll;'):format(platform, arch) ..
-          ( os.getenv 'LIDE_PATH' .. '\\libraries\\%s\\clibs\\?.dll;'):format(platform)
-
-
-package.path   = lua_dir   ..';' .. package.path
-package.cpath  = clibs_dir ..';' .. package.cpath
 
 return lide
