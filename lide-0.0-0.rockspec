@@ -30,7 +30,7 @@ supported_platforms = {
 }
 
 dependencies = {
-  "lua == 5.1",
+  "lua == 5.1"
 }
 
 build = { type = 'builtin', modules = {}, install = {},
