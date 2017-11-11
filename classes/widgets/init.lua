@@ -1,5 +1,5 @@
 -- ///////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/core/init.lua
+-- // Name:        lide/widgets/init.lua
 -- // Purpose:     define functions required by framework graphical interfaces
 -- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
 -- // Created:     2017/11/10
