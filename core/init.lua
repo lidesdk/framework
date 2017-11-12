@@ -56,43 +56,34 @@ end
 
 require 'lide.core.thlua'
 
-lide.core.error  = require 'lide.core.error' 	--> exceptions control
+lide.core.error  = require 'lide.core.error' 	 --> exceptions control
 lide.core.oop    = require 'lide.core.oop.init'  --> OOP handling
-lide.core.base   = require 'lide.core.base'		-->
+lide.core.base   = require 'lide.core.base'		 -->
 
--- lide platform
-lide.platform    = require 'lide.platform.init'
+-- load lide framework depends:
+lide.core.lib = {
+	lfs = require 'lfs', -- depends to lide filesystem:
+}
 
---local os_linux   = lide.platform.getOSName():lower() == 'linux'
---local os_windows = lide.platform.getOSName():lower() == 'windows'
-local os_arch    = lide.platform.getOSArch():lower();
-local os_name    = lide.platform.getOSName():lower();
+-- load lide.platform:
+lide.core.platform = require 'lide.core.platform'; 
+lide.platform = lide.core.platform;
 
-local _lide_path = os.getenv('LIDE_PATH');
+-- load lide.file and lide.folder:
+lide.core.file   = require 'lide.core.file';		--> File Handling
+lide.core.folder = require 'lide.core.folder';      --> Folders related
+lide.file, lide.folder = lide.core.file, lide.core.folder;
 
-if (not _lide_path) then
-    lide.core.error.lperr 'LIDE_PATH is not defined now.'
-end
+-- Backward compatibility:
+lide.lfs    = lide.core.lib.lfs; -- !Deprecated lide.lfs by lide.core.lib.lfs
 
--- lide filesystem:
-lide.lfs 		 = require 'lfs'
---------------------------------
+----------------------------------------------------------------------
+-- define base framework values:
+lide.enum  = lide.core.base.enum;
+lide.class = lide.core.oop.class;
 
-lide.core.file   = require 'lide.core.file'		--> File Handling
-lide.core.folder = require 'lide.core.folder'   --> Folders related
-
-
-------------------------------------------
-lide.folder = lide.core.folder;
-lide.file   = lide.core.file;
-
-------------------------------------------
--- base values:
-
-class = lide.core.oop.class
-enum  = lide.core.base.enum
-
---package.path  = package_path
---package.cpath = package_cpath
+-- Backward compatibility:
+enum  = lide.enum    -- !Deprecated enum by lide.enum 
+class = lide.class   -- !Deprecated class by lide.class
 
 return lide, lide.app
