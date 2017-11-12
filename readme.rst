@@ -14,7 +14,6 @@ controls in Windows.
 ========================================================= ==================================================================================
  Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true
                                                                :target: https://ci.appveyor.com/project/dcanoh/framework
-========================================================= ==================================================================================
  Tests executed in **Ubuntu 14.04** Trusty x64 machine      .. image:: https://circleci.com/gh/lidesdk/framework.svg?style=svg     
                                                                :target: https://circleci.com/gh/lidesdk/framework
 ========================================================= ==================================================================================
