@@ -1,7 +1,18 @@
--- base.lua
--- load lide.file and lide.folder:
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:        lide/base/init.lua
+-- // Purpose:     Load base framework functions
+-- // Created:     2017/11/12
+-- // Copyright:   (c) 2017 Dario Cano [dcanohdev@gmail.com]
+-- // License:     lide license
+-- ///////////////////////////////////////////////////////////////////
 
+-- load lide framework core
 lide = lide or require 'lide.core.init'
+
+-- load depends to filesystem:
+lide.core.lib = {
+	lfs = require 'lfs', -- depends to lide filesystem:
+}
 
 lide.core.file   = require 'lide.base.file';	   --> File Handling
 lide.core.folder = require 'lide.base.folder';     --> Folders related
