@@ -12,15 +12,15 @@ controls in Windows.
 ========================================================= ==================================================================================
  GNU/Linux                                                 Build status
 ========================================================= ==================================================================================
- Tests currently executed in Ubuntu 14.04 (Trusty)         .. image:: https://circleci.com/gh/lidesdk/framework.svg?style=svg     
+ Tests executed in Ubuntu 14.04 (Trusty)                   .. image:: https://circleci.com/gh/lidesdk/framework.svg?style=svg     
  x64 and x86 machines.                                        :target: https://circleci.com/gh/lidesdk/framework
 ========================================================= ==================================================================================
 
 ========================================================= ==================================================================================
  Windows                                                   Build status
 ========================================================= ==================================================================================
- Tests currently executed in Windows 10 x64                .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true
- and x86 machines.                                            :target: https://ci.appveyor.com/project/dcanoh/framework
+ Tests executed in Windows 10 x64 and x86 machines.         .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true
+                                                               :target: https://ci.appveyor.com/project/dcanoh/framework
 ========================================================= ==================================================================================
 
 Installation
