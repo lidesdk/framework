@@ -10,7 +10,7 @@ controls in Windows.
 
 
 ========================================================= ==================================================================================
- branch: master                                             build status
+ branch: ``master``                                         build status
 ========================================================= ==================================================================================
  Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true
                                                                :target: https://ci.appveyor.com/project/dcanoh/framework
