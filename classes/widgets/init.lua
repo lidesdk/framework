@@ -4,7 +4,7 @@
 -- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
 -- // Created:     2017/11/10
 -- // Copyright:   (c) 2017 Hernan Dario Cano
--- // License:     MIT/X11
+-- // License:     lide license
 -- ///////////////////////////////////////////////////////////////////////////////
 
 -- lide.widgets:
