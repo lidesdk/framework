@@ -7,6 +7,19 @@
 -- // License:     GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////////////////
 
+lide.app = lide.app or {};
+
+function lide.app.getWorkDir( ... )
+	if lide.platform.getOSName() == 'Linux' then
+		return io.popen 'echo $PWD' : read '*l'
+	elseif lide.platform.getOSName() == 'Windows' then
+		--return io.popen 'CD' : read '*l'
+		return lide.lfs.currentdir()
+	else
+		error 'this function is not implemented on this platform.'
+	end
+end
+
 local framework_call_level = 4
 
 local function istype( ValueToCompare, TypeToCompare, errmsg, fLevel )
