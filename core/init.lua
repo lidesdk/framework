@@ -1,13 +1,17 @@
--- ///////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
 -- // Name:        lide.core.init.lua
 -- // Purpose:     Define and initialize framework values
 -- // Created:     2016/01/03
 -- // Copyright:   (c) 2016 Dario Cano [dcanohdev@gmail.com]
 -- // License:     lide license
--- ///////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
 
 io.stdout:setvbuf 'no'
 io.stderr:setvbuf 'no'
+
+if (not os.getenv('LIDE_PATH')) then
+    error 'LIDE_PATH is not defined now.'
+end
 
 lide = lide or {
 	cons   = {}, 	--> This table saves all constants
@@ -30,21 +34,6 @@ lide = lide or {
 	app = {}
 }
 
-local app = lide.app
-
--- core functions:
-
-function lide.app.getWorkDir( ... )
-	if lide.platform.getOSName() == 'Linux' then
-		return io.popen 'echo $PWD' : read '*l'
-	elseif lide.platform.getOSName() == 'Windows' then
-		--return io.popen 'CD' : read '*l'
-		return lide.lfs.currentdir()
-	else
-		lide.core.error.lperr 'this function is not implemented on this platform.'
-	end
-end
-
 -- if interpreter
 if arg and arg[0] then
 	local sf = arg[0]:sub(1, #arg[0] , #arg[0])
@@ -56,9 +45,9 @@ end
 
 require 'lide.core.thlua'
 
-lide.core.error  = require 'lide.core.error' 	 --> exceptions control
-lide.core.oop    = require 'lide.core.oop.init'  --> OOP handling
-lide.core.base   = require 'lide.core.base'		 -->
+lide.core.error  = require 'lide.core.error' 	--> Exceptions control
+lide.core.oop    = require 'lide.core.oop.init' --> OOP handling
+lide.core.base   = require 'lide.core.base'		--> Base functions
 
 -- load lide framework depends:
 lide.core.lib = {
@@ -70,14 +59,14 @@ lide.core.platform = require 'lide.core.platform';
 lide.platform = lide.core.platform;
 
 -- load lide.file and lide.folder:
-lide.core.file   = require 'lide.core.file';		--> File Handling
-lide.core.folder = require 'lide.core.folder';      --> Folders related
+lide.core.file   = require 'lide.core.file';	   --> File Handling
+lide.core.folder = require 'lide.core.folder';     --> Folders related
 lide.file, lide.folder = lide.core.file, lide.core.folder;
 
 -- Backward compatibility:
-lide.lfs    = lide.core.lib.lfs; -- !Deprecated lide.lfs by lide.core.lib.lfs
-
+lide.lfs = lide.core.lib.lfs; -- !Deprecated lide.lfs by lide.core.lib.lfs
 ----------------------------------------------------------------------
+
 -- define base framework values:
 lide.enum  = lide.core.base.enum;
 lide.class = lide.core.oop.class;
@@ -85,5 +74,6 @@ lide.class = lide.core.oop.class;
 -- Backward compatibility:
 enum  = lide.enum    -- !Deprecated enum by lide.enum 
 class = lide.class   -- !Deprecated class by lide.class
+----------------------------------------------------------------------
 
 return lide, lide.app
