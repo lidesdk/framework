@@ -25,6 +25,10 @@ lide = lide or {
 		folder = {},
 	},
 
+	base = {
+		file = {},
+	},
+
 	classes = {
 		widgets  = {},
 		controls = {},
@@ -39,7 +43,6 @@ if arg and arg[0] then
 	local sf = arg[0]:sub(1, #arg[0] , #arg[0])
 	local n  = sf:reverse():find (package.config:sub(1,1), 1) or 0
 		  sf = sf:reverse():sub (n+1, # sf:reverse()) : reverse()
-
 	_sourcefolder = sf
 end
 
@@ -58,15 +61,6 @@ lide.core.lib = {
 lide.core.platform = require 'lide.core.platform'; 
 lide.platform = lide.core.platform;
 
--- load lide.file and lide.folder:
-lide.core.file   = require 'lide.core.file';	   --> File Handling
-lide.core.folder = require 'lide.core.folder';     --> Folders related
-lide.file, lide.folder = lide.core.file, lide.core.folder;
-
--- Backward compatibility:
-lide.lfs = lide.core.lib.lfs; -- !Deprecated lide.lfs by lide.core.lib.lfs
-----------------------------------------------------------------------
-
 -- define base framework values:
 lide.enum  = lide.core.base.enum;
 lide.class = lide.core.oop.class;
@@ -74,6 +68,10 @@ lide.class = lide.core.oop.class;
 -- Backward compatibility:
 enum  = lide.enum    -- !Deprecated enum by lide.enum 
 class = lide.class   -- !Deprecated class by lide.class
+----------------------------------------------------------------------
+
+-- Backward compatibility:
+require 'lide.base.init' -- !Deprecated load modules by separate
 ----------------------------------------------------------------------
 
 return lide, lide.app
