@@ -1,18 +1,27 @@
 Lide Framework
 ==============
 
-Lide Framework is a library that allows you to create multiplatform graphical interfaces from Lua language.
-Lide uses wxWidgets to build controls and windows, this ensures the integration of your applications 
-with GTK+ on Linux and really native controls in Windows.
+Lide Framework is a library that allows you to create multiplatform 
+graphical interfaces from Lua language.
+Lide uses wxWidgets to build controls and windows, this ensures the 
+integration of your applications with GTK+ on Linux and really native 
+controls in Windows.
 
-================  =================  ===================================================  ================
-  platform          arch               build log                                            build status
-================  =================  ===================================================  ================
-  ``GNU/Linux``    ``x64``            https://circleci.com/gh/lidesdk/framework            .. image:: https://circleci.com/gh/lidesdk/framework.svg?style=svg
-                                                                                              :target: https://circleci.com/gh/lidesdk/framework
-  ``Windows``      ``x86`` ``x64``    https://ci.appveyor.com/project/dcanoh/framework     .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true
-                                                                                              :target: https://ci.appveyor.com/project/dcanoh/framework
-================  =================  ===================================================  ================
+
+
+===================================================================== ==================================================
+ GNU/Linux                                                             https://ci.appveyor.com/project/dcanoh/framework
+===================================================================== ==================================================
+ .. image:: https://circleci.com/gh/lidesdk/framework.svg?style=svg     Tests currently executed in Ubuntu 14.04 (Trusty) 
+   :target: https://circleci.com/gh/lidesdk/framework                   x64 machine.
+===================================================================== ==================================================
+
+================================================================================== =========================================================
+ Windows                                                                            https://ci.appveyor.com/project/dcanoh/framework
+================================================================================== =========================================================
+ .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true    Tests currently executed in Windows 10 (Trusty) 
+    :target: https://ci.appveyor.com/project/dcanoh/framework                        x64 and x86 machines.
+================================================================================== =========================================================
 
 Installation
 ============
