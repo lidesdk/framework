@@ -12,15 +12,15 @@ controls in Windows.
 ===================================================================== ==================================================
  GNU/Linux                                                             https://ci.appveyor.com/project/dcanoh/framework
 ===================================================================== ==================================================
- .. image:: https://circleci.com/gh/lidesdk/framework.svg?style=svg     Tests currently executed in Ubuntu 14.04 (Trusty) 
-   :target: https://circleci.com/gh/lidesdk/framework                   x64 machine.
+ .. image:: https://circleci.com/gh/lidesdk/framework.svg?style=svg     Tests currently executed in Ubuntu 14.04 (Trusty) x64 machine.
+   :target: https://circleci.com/gh/lidesdk/framework
 ===================================================================== ==================================================
 
 ================================================================================== =========================================================
  Windows                                                                            https://ci.appveyor.com/project/dcanoh/framework
 ================================================================================== =========================================================
- .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true    Tests currently executed in Windows 10 (Trusty) 
-    :target: https://ci.appveyor.com/project/dcanoh/framework                        x64 and x86 machines.
+ .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true    Tests currently executed in Windows 10 (Trusty) x64 and x86 machines.
+    :target: https://ci.appveyor.com/project/dcanoh/framework
 ================================================================================== =========================================================
 
 Installation
