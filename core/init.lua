@@ -25,10 +25,6 @@ lide = lide or {
 		folder = {},
 	},
 
-	base = {
-		file = {},
-	},
-
 	classes = {
 		widgets  = {},
 		controls = {},
@@ -52,11 +48,6 @@ lide.core.error  = require 'lide.core.error' 	--> Exceptions control
 lide.core.oop    = require 'lide.core.oop.init' --> OOP handling
 lide.core.base   = require 'lide.core.base'		--> Base functions
 
--- load lide framework depends:
-lide.core.lib = {
-	lfs = require 'lfs', -- depends to lide filesystem:
-}
-
 -- load lide.platform:
 lide.core.platform = require 'lide.core.platform'; 
 lide.platform = lide.core.platform;
@@ -71,7 +62,9 @@ class = lide.class   -- !Deprecated class by lide.class
 ----------------------------------------------------------------------
 
 -- Backward compatibility:
-require 'lide.base.init' -- !Deprecated load modules by separate
+--- Will be deprecated please load modules by separate because
+---  loading "lide.base.init" then "lide.core.init" is loaded too.
+require 'lide.base.init' -- !Deprecated (by modular framework)
 ----------------------------------------------------------------------
 
 return lide, lide.app

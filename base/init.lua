@@ -9,20 +9,19 @@
 -- load lide framework core
 lide = lide or require 'lide.core.init'
 
--- load depends to filesystem:
-lide.core.lib = {
-	lfs = require 'lfs', -- depends to lide filesystem:
+-- Define lide.base table:
+lide.base = lide.base or { 
+	lib = { lfs = require 'lfs'}, -- depends for lide.file and lide.folder
 }
 
-lide.core.file   = require 'lide.base.file';	   --> File Handling
-lide.core.folder = require 'lide.base.folder';     --> Folders related
-lide.file, lide.folder = lide.core.file, lide.core.folder;
-
-lide.base.file   = lide.core.file
-lide.base.folder = lide.core.folder
+lide.base.file   = require 'lide.base.file';	   --> File Handling
+lide.base.folder = require 'lide.base.folder';     --> Folders related
+lide.file, lide.folder = lide.base.file, lide.base.folder;
 
 -- Backward compatibility:
-lide.lfs = lide.core.lib.lfs; -- !Deprecated lide.lfs by lide.core.lib.lfs
+lide.core.file   = lide.base.file
+lide.core.folder = lide.base.folder
+lide.lfs = lide.base.lib.lfs; -- !Deprecated lide.lfs by lide.base.lib.lfs
 ----------------------------------------------------------------------
 
 return lide
