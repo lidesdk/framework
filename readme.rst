@@ -6,9 +6,10 @@ Lide uses wxWidgets to build controls and windows, this ensures the integration 
 with GTK+ on Linux and really native controls in Windows.
 
 ================  =================  ===================================================  ================
-  platform          arch               buil log                                            build status
+  platform          arch               build log                                            build status
 ================  =================  ===================================================  ================
   ``GNU/Linux``    ``x64``            https://circleci.com/gh/lidesdk/framework            .. image:: https://circleci.com/gh/lidesdk/framework.svg?style=svg
+                                                                                              :target: https://circleci.com/gh/lidesdk/framework
   ``Windows``      ``x86`` ``x64``    https://ci.appveyor.com/project/dcanoh/framework     .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true
                                                                                               :target: https://ci.appveyor.com/project/dcanoh/framework
 ================  =================  ===================================================  ================
@@ -62,13 +63,15 @@ GNU/Linux Installation
 How to use it
 =============
 
-* Create a file ``main.lua`` into the folder lide_app.
+* Create a file ``main.lua`` into the folder ``lide_app``.
 
 .. code-block:: bash
 	
 	$ nano main.lua
 
 .. code-block:: lua
+	
+	lide = require 'lide.widgets.init'
 
 	local Form   = lide.classes.widgets.form
 	local Button = lide.classes.widgets.button
@@ -80,15 +83,14 @@ How to use it
 	};
 
 	button1 = Button:new { Name = 'button1', Parent = form1,
-		PosX = 10, PosY = 30,
-		Text = 'Click me!',
+		PosX = 10, PosY = 30, Text = 'Click me!',
 	};
 
-	button1.onClick : setHandler ( function ( ... )
-		MessageBox 'Hello world!'
+	button1.onClick : setHandler ( function ( event )
+		lide.widgets.messagebox 'Hello world!'
 	end );
 
-	form1:show(true)
+	form1:show(true);
 
 
 With the above code we are creating a new form and putting a button inside it
@@ -103,11 +105,11 @@ at position (10, 30), clicking inside the button a message "Hello World" is disp
 This is all you need to start building applications, **should be noted that these instructions work** 
 similarly to Windows or GNU/Linux.
 
+
 Help & Documentation
 ====================
 
 If you want to know more please read our official framework's documentation:
-
 
 `- Lide Framework readthedocs <http://lide-framework.rtfd.io>`_
 
@@ -117,7 +119,7 @@ Credits and Authors
 
 Lide was founded in 2014 by Hernán D. Cano (`@dcanoh <https://github.com/dcanoh>`_) and Jesús H. Cano (`@jhernancanom <https://github.com/jhernancanom>`_ ) for private purposes, today is accessible to the public.
 
-Lide is currently active and developing, today is maintained by (`@dcanoh <https://github.com/dcanoh>`_)
+Lide is currently active and developing, today is maintained by (`@dcanoh <https://github.com/dcanoh>`_).
 
 
 License
