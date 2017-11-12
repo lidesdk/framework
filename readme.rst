@@ -9,32 +9,33 @@ controls in Windows.
 
 
 
-===================================================================== ==================================================
- GNU/Linux                                                             https://ci.appveyor.com/project/dcanoh/framework
-===================================================================== ==================================================
- .. image:: https://circleci.com/gh/lidesdk/framework.svg?style=svg     Tests currently executed in Ubuntu 14.04 (Trusty) x64 machine.
-   :target: https://circleci.com/gh/lidesdk/framework
-===================================================================== ==================================================
+========================================================= ==================================================================================
+ GNU/Linux                                                 Build status
+========================================================= ==================================================================================
+ Tests currently executed in Ubuntu 14.04 (Trusty)         .. image:: https://circleci.com/gh/lidesdk/framework.svg?style=svg     
+ x64 and x86 machines.                                        :target: https://circleci.com/gh/lidesdk/framework
+========================================================= ==================================================================================
 
-================================================================================== =========================================================
- Windows                                                                            https://ci.appveyor.com/project/dcanoh/framework
-================================================================================== =========================================================
- .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true    Tests currently executed in Windows 10 (Trusty) x64 and x86 machines.
-    :target: https://ci.appveyor.com/project/dcanoh/framework
-================================================================================== =========================================================
+========================================================= ==================================================================================
+ Windows                                                   Build status
+========================================================= ==================================================================================
+ Tests currently executed in Windows 10 x64                .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b?svg=true
+ and x86 machines.                                            :target: https://ci.appveyor.com/project/dcanoh/framework
+========================================================= ==================================================================================
 
 Installation
 ============
 
-* Make sure you have the lua5.1 interpreter and dependencies installed on your machine.
+* Make sure you have the lua5.1 interpreter and dependencies installed 
+on your machine.
 
-============  ======================================================================================
+============  ========================================================
  Platform      Installation
-============  ======================================================================================
+============  ========================================================
  Windows   	   Download `LuaForWindows_v5.1.4-33.exe <http://files.luaforge.net/releases/luaforwindows/luaforwindows/5.1.4-33/LuaForWindows_v5.1.4-33.exe>`_.
  Ubuntu        ``$ sudo apt-get install lua5.1 libwxgtk2.8``
  Archlinux	   ``# pacman -S lua5.1 wxgtk2.8``
-============  ======================================================================================
+============  ========================================================
 
 
 Windows Installation
