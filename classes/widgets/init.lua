@@ -92,4 +92,10 @@ lide.classes.controls.calendar     = require 'lide.classes.controls.calendar'
 
 lide.classes.widgets.controls = lide.classes.controls
 
+-- int wxMessageBox(const wxString& message, const wxString& caption = "Message", int style = wxOK | wxCENTRE, wxWindow *parent = NULL, int x = -1, int y = -1 ); 
+function lide.core.base.messagebox ( message, caption, style, pos_x, pos_y, parent)
+    return wx.wxMessageBox(message or "", caption or "Message", style or wx.wxOK + wx.wxCENTRE, parent or wx.NULL, pos_x or -1, pos_y or -1 )   
+end
+
+
 return lide.classes.widgets, lide.classes.controls
