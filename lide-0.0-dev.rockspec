@@ -11,7 +11,7 @@
 -- Windows x86 LuaRocks version:
 
 package = "lide"
-version = "0.0-dev"
+version = "0.0-1"
 
 source = { 
   url = "https://github.com/lidesdk/framework/archive/feature/modular.zip",

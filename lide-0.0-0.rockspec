@@ -1,14 +1,12 @@
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
--- // Name:        init.lua
--- // Purpose:     Initialize framework
--- // Author:      Dario Cano [dario.canohdz@gmail.com]
+-- // Name:        lide/lide.0.0-0.rockspec
+-- // Purpose:     Lide framework rockspec
+-- // Author:      Dario Cano [dcanohdev@gmail.com]
 -- // Created:     2016/01/03
--- // Copyright:   (c) 2014 Dario Cano
+-- // Copyright:   (c) 2014-2016 Dario Cano
 -- // License:     MIT License/X11 license
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
 --
--- GNU/Linux x86 LuaRocks version: /usr/bin/luarocks-5.1 2.3.0
--- Windows x86 LuaRocks version:
 
 package = "lide"
 version = "0.0-0"
