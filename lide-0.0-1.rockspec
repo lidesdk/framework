@@ -15,7 +15,7 @@ version = "0.0-1"
 
 source = { 
   url = "https://github.com/lidesdk/framework/archive/feature/modular.zip",
-  dir = 'framework-feature/modular'
+  dir = 'framework-feature-modular'
 }
 
 description = {
