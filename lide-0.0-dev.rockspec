@@ -11,11 +11,11 @@
 -- Windows x86 LuaRocks version:
 
 package = "lide"
-version = "develop-branch"
+version = "0.0-dev"
 
 source = { 
   url = "https://github.com/lidesdk/framework/archive/feature/modular.zip",
-  dir = 'framework-feature-modular'
+  dir = 'framework-feature/modular'
 }
 
 description = {

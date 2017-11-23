@@ -38,7 +38,7 @@ install:
 #- echo "Installing external deps"
 
 build_script:
-  - luarocks install https://raw.githubusercontent.com/lidesdk/framework/feature/modular/lide-develop-branch.rockspec
+  - luarocks install https://raw.githubusercontent.com/lidesdk/framework/feature/modular/lide-0.0-dev.rockspec
   - luarocks install luafilesystem
 
 test_script:
