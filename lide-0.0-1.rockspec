@@ -60,8 +60,12 @@ build.install.lua = {
   ['lide.core.base']        = 'core/base.lua',
   ['lide.core.thlua']       = 'core/thlua.lua',
   ['lide.core.error']       = 'core/error.lua',
-  ['lide.core.file']        = 'core/file.lua',
-  ['lide.core.folder']      = 'core/folder.lua',
+  
+--- lide.base module:
+  ['lide.base.init']        = 'base/init.lua',
+  ['lide.base.file']        = 'base/file.lua',
+  ['lide.base.folder']      = 'base/folder.lua',
+  
   ['lide.core.oop.init']    = 'core/oop/init.lua',
   ['lide.core.oop.yaci']    = 'core/oop/yaci.lua',
   ['lide.classes.init']     = 'classes/init.lua',
