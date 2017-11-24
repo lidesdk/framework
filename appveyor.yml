@@ -6,14 +6,14 @@ environment:
   LUAROCKS_VER: 2.4.1
   LUA_VER: 5.1.4
 
-matrix:
-  allow_failures:
-    - configuration: 2010
-      platform: x64
-    - configuration: 2008
-      platform: x64
-    - configuration: MinGW
-      platform: x64
+#matrix:
+#  allow_failures:
+#    - configuration: 2010
+#      platform: x64
+#    - configuration: 2008
+#      platform: x64
+#    - configuration: MinGW
+#      platform: x64
 
 platform:
   - x86
@@ -38,8 +38,8 @@ install:
 #- echo "Installing external deps"
 
 build_script:
-  - luarocks install https://raw.githubusercontent.com/lidesdk/framework/feature/modular/lide-0.0-1.rockspec
   - luarocks install luafilesystem
+  - luarocks install https://raw.githubusercontent.com/lidesdk/framework/develop/lide-0.0-1.rockspec
 
 test_script:
 - echo "Testing..."
