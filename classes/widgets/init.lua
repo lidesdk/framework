@@ -97,5 +97,13 @@ function lide.core.base.messagebox ( message, caption, style, pos_x, pos_y, pare
     return wx.wxMessageBox(message or "", caption or "Message", style or wx.wxOK + wx.wxCENTRE, parent or wx.NULL, pos_x or -1, pos_y or -1 )   
 end
 
+lide.widgets = {
+    window = lide.classes.widgets.window,
+    form   = lide.classes.widgets.form,
+    dialog = lide.classes.widgets.dialog,
+    
+    -- lide.core.base.messagebox is deprecated by lide.widgets.messagebox 'msg'
+    messagebox = lide.core.base.messagebox;
+}
 
 return lide.classes.widgets, lide.classes.controls

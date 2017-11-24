@@ -2,9 +2,9 @@ lide.core.file = { }
 
 -- Convert path to running OS
 local function normalizePath ( path )
-	if lide.platform.getOSName() == 'Linux' then
+	if lide.platform.getOSName() == 'linux' then
 		return path:gsub('\\', '/');
-	elseif lide.platform.getOSName() == 'Windows' then
+	elseif lide.platform.getOSName() == 'windows' then
 		return path:gsub('/', '\\');
 	end
 end

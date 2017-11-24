@@ -11,6 +11,9 @@
 lide = require 'lide.core.init'
 app  = lide.app
 
+
+require 'lide.base.init'
+
 --> lide.core.file is deprecated by lide.file
 lide.file = lide.core.file
 
@@ -20,5 +23,7 @@ lide.core.base.maxid = 1000
 
 -- Import classes to the framework:
 lide.classes = require 'lide.classes.init'
+
+require 'lide.classes.widgets.init'
 
 return lide
