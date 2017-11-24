@@ -62,7 +62,7 @@ build.install.lua = {
   ['lide.core.error']       = 'core/error.lua',
 
 --- lide.platform namespace is part of `lide.core`
-  ['lide.core.platform'] = 'core/platform.lua',
+  ['lide.core.platform']    = 'core/platform.lua',
 
 --- lide.base module:
   ['lide.base.init']        = 'base/init.lua',
