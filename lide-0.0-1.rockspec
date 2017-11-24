@@ -1,19 +1,21 @@
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/lide.0.0-0.rockspec
--- // Purpose:     Lide framework rockspec
--- // Author:      Dario Cano [dcanohdev@gmail.com]
+-- // Name:        init.lua
+-- // Purpose:     Initialize framework
+-- // Author:      Dario Cano [dario.canohdz@gmail.com]
 -- // Created:     2016/01/03
--- // Copyright:   (c) 2014-2016 Dario Cano
+-- // Copyright:   (c) 2014 Dario Cano
 -- // License:     MIT License/X11 license
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
 --
+-- GNU/Linux x86 LuaRocks version: /usr/bin/luarocks-5.1 2.3.0
+-- Windows x86 LuaRocks version:
 
 package = "lide"
-version = "0.0-0"
+version = "0.0-1"
 
 source = { 
-  url = "https://github.com/lidesdk/framework/archive/master.zip",
-  dir = 'framework-master'
+  url = "https://github.com/lidesdk/framework/archive/feature/modular.zip",
+  dir = 'framework-feature-modular'
 }
 
 description = {
@@ -42,7 +44,7 @@ build.platforms.linux.install.lib = {
   ['wx'] = 'bin/x86/wx.so',
 }
 
-build.platforms.linux.arch = 'x86_64'
+--build.platforms.linux.arch = 'x86_64'
 
 --build.platforms.arch.install.lib = {
 --  ['wx'] = 'bin/x86/wx.so',
@@ -58,8 +60,15 @@ build.install.lua = {
   ['lide.core.base']        = 'core/base.lua',
   ['lide.core.thlua']       = 'core/thlua.lua',
   ['lide.core.error']       = 'core/error.lua',
-  ['lide.core.file']        = 'core/file.lua',
-  ['lide.core.folder']      = 'core/folder.lua',
+
+--- lide.platform namespace is part of `lide.core`
+  ['lide.core.platform']    = 'core/platform.lua',
+
+--- lide.base module:
+  ['lide.base.init']        = 'base/init.lua',
+  ['lide.base.file']        = 'base/file.lua',
+  ['lide.base.folder']      = 'base/folder.lua',
+  
   ['lide.core.oop.init']    = 'core/oop/init.lua',
   ['lide.core.oop.yaci']    = 'core/oop/yaci.lua',
   ['lide.classes.init']     = 'classes/init.lua',
@@ -73,10 +82,6 @@ build.install.lua = {
   ['lide.classes.store']    = 'classes/store.lua',
   ['lide.classes.timer']    = 'classes/timer.lua',
   ['lide.classes.widget']   = 'classes/widget.lua',
-
-  --> PLATFORM
-  ['lide.platform.init'] = 'platform/init.lua',
-
 
   --> Copy Widgets:
   ['lide.classes.widgets.control'] = 'classes/widgets/control.lua',  

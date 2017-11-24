@@ -7,7 +7,7 @@ dependencies:
     - sudo luarocks install luafilesystem
 
     # install lide using latest rockspeck: los tests se ejecutaran con esta version:
-    - sudo luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.0-0.rockspec
+    - sudo luarocks install https://raw.githubusercontent.com/lidesdk/framework/feature/modular/lide-0.0-1.rockspec
 
 test:
   override:

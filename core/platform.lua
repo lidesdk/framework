@@ -1,6 +1,12 @@
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/core/platform.lua
+-- // Purpose:   Define and initialize platform specific values
+-- // Created:   2017/11/23
+-- // Copyright: (c) 2014-2017 Hernan Dario Cano [dcanohdev@gmail.com]
+-- // License:   lide license
+-- ///////////////////////////////////////////////////////////////////
+
 lide.platform = lide.platform
---lide.platform.__arch = os.getenv 'PROCESSOR_ARCHITECTURE' 
---					   or io.popen 'uname -m' : read '*a' : gsub ('x64_64', 'x64') : gsub ( 'i686', 'x86' )
 
 --- Get the name of the operating system.
 ---		Returns one string: OS Name like "Linux"
@@ -8,11 +14,11 @@ lide.platform = lide.platform
 --- string getOSVersion( nil )
 function lide.platform.getOSName( ... )
 	if (package.config:sub(1,1) == '\\') and os.getenv 'OS' == 'Windows_NT' then
-		return 'Windows';
+		return 'windows';
 	elseif (package.config:sub(1,1) == '/') and io.popen 'uname -s':read '*l' == 'Linux' then
-		return 'Linux';
+		return 'linux';
 	else
-		return 'Other';
+		return 'other';
 	end
 end
 
