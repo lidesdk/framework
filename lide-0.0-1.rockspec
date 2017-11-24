@@ -44,7 +44,7 @@ build.platforms.linux.install.lib = {
   ['wx'] = 'bin/x86/wx.so',
 }
 
-build.platforms.linux.arch = 'x86_64'
+--build.platforms.linux.arch = 'x86_64'
 
 --build.platforms.arch.install.lib = {
 --  ['wx'] = 'bin/x86/wx.so',
@@ -60,7 +60,10 @@ build.install.lua = {
   ['lide.core.base']        = 'core/base.lua',
   ['lide.core.thlua']       = 'core/thlua.lua',
   ['lide.core.error']       = 'core/error.lua',
-  
+
+--- lide.platform namespace is part of `lide.core`
+  ['lide.core.platform'] = 'core/platform.lua',
+
 --- lide.base module:
   ['lide.base.init']        = 'base/init.lua',
   ['lide.base.file']        = 'base/file.lua',
@@ -79,9 +82,6 @@ build.install.lua = {
   ['lide.classes.store']    = 'classes/store.lua',
   ['lide.classes.timer']    = 'classes/timer.lua',
   ['lide.classes.widget']   = 'classes/widget.lua',
-
-  --- lide.platform namespace is part of `lide.core`
-  ['lide.core.platform'] = 'core/platform.lua',
 
   --> Copy Widgets:
   ['lide.classes.widgets.control'] = 'classes/widgets/control.lua',  
