@@ -81,7 +81,7 @@ build.install.lua = {
   ['lide.classes.widget']   = 'classes/widget.lua',
 
   --> PLATFORM
-  ['lide.platform.init'] = 'platform/init.lua',
+  --['lide.platform.init'] = 'platform/init.lua',
 
 
   --> Copy Widgets:
