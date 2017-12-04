@@ -19,12 +19,24 @@
 
 do	-- keep local things inside
 
-local subclassof = function ( class, baseClass )
-   lide.__store_classes[ class:name() ] = lide.__store_classes[baseClass] : subclass ( class:name() )
+local subclassof = function ( class, baseClass )  
+   local sBaseClassName = baseClass;
+   local sNewClassName  = class:name();
+   
+   lide.classes = lide.classes or {}
+
+   if type(baseClass) == 'table' then
+      sBaseClassName = baseClass:name()
+   end
+   -- reassign:
+   lide.classes[ sNewClassName ] = nil;
+   lide.classes[ sNewClassName ] = lide.classes[sBaseClassName] : subclass ( sNewClassName )
+   
    local _env = getfenv(1)
-   _env[class:name()] = lide.__store_classes[class:name()]
+   _env[sNewClassName] = lide.classes[sNewClassName]
    setfenv(1, _env)
-   return lide.__store_classes[class:name()]
+   
+   return lide.classes[sNewClassName]
 end
 
 local global = function ( class, bGlobal )
@@ -38,12 +50,12 @@ local global = function ( class, bGlobal )
       end
 
    elseif bGlobal == true then
-      _env[class:name()] = lide.__store_classes[class:name()]
+      _env[class:name()] = lide.classes[class:name()]
    end
    
    setfenv(1, _env)
 
-   return lide.__store_classes[class:name()]
+   return lide.classes[class:name()]
 end
 
 -- auxiliary function, which creates constants for classes

@@ -7,20 +7,24 @@
 -- // License:     lide license
 -- ///////////////////////////////////////////////////////////////////////////////
 
-local newclass = require 'lide.core.oop.yaci'
 
-local oop = {
-	class = function ( sClassName )
-		lide.__store_classes = lide.__store_classes or {}		
-		local newclass = newclass
-	
-		-- Guardamos una nueva variable global con el nombre de la clase
-		lide.__store_classes[sClassName] = newclass (sClassName)
-		--_env = getfenv(1) 
-		--_env[sClassName] = lide.__store_classes[sClassName]
-		--setfenv(1, _env)
-		return lide.__store_classes[sClassName]
-	end,
-}
+local yaci_class = require 'lide.core.oop.yaci'
 
-return oop
+local function newclass ( sClassName )	
+	if type(sClassName) == 'string'  then
+		lide.classes [sClassName] = yaci_class (sClassName)
+	else
+		assert('error subclase no es string')
+	end
+
+	return lide.classes[sClassName]
+end
+
+lide.class = newclass
+
+--backward compatibility:
+class = lide.class
+
+lide.classes.object = require 'lide.classes.object'
+
+return class

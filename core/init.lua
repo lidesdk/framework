@@ -13,7 +13,7 @@ if (not os.getenv('LIDE_PATH')) then
     error 'LIDE_PATH is not defined now.'
 end
 
-lide = lide or {
+lide = {
 	cons   = {}, 	--> This table saves all constants
 	errorf = {}, 	--> This table stores all error functions
 	
@@ -26,8 +26,7 @@ lide = lide or {
 	},
 
 	classes = {
-		widgets  = {},
-		controls = {},
+		
 	}, 	--> stores all classes
 
 	platform = {},
@@ -42,29 +41,30 @@ if arg and arg[0] then
 	_sourcefolder = sf
 end
 
+lide.app.folders = { sourcefolder = sf }
+
 require 'lide.core.thlua'
 
-lide.core.error  = require 'lide.core.error' 	--> Exceptions control
-lide.core.oop    = require 'lide.core.oop.init' --> OOP handling
-lide.core.base   = require 'lide.core.base'		--> Base functions
+lide.core.error    = require 'lide.core.error'    	--> EH & Exceptions control
+lide.core.base     = require 'lide.core.base'		--> Lide Core functions
+lide.core.oop      = require 'lide.core.oop.init'   --> Object Oriented Model
+lide.core.platform = require 'lide.core.platform'   --> Operating System 
 
--- load lide.platform:
-lide.core.platform = require 'lide.core.platform'; 
+-- Register lide.platform:
 lide.platform = lide.core.platform;
 
 -- define base framework values:
 lide.enum  = lide.core.base.enum;
-lide.class = lide.core.oop.class;
 
 -- Backward compatibility:
 enum  = lide.enum    -- !Deprecated enum by lide.enum 
 class = lide.class   -- !Deprecated class by lide.class
-----------------------------------------------------------------------
 
+----------------------------------------------------------------------
 -- Backward compatibility:
 --- Will be deprecated please load modules by separate because
 ---  loading "lide.base.init" then "lide.core.init" is loaded too.
-require 'lide.base.init' -- !Deprecated (by modular framework)
+--require 'lide.base.init' -- !Deprecated (by feature/modular c8ca240)
 ----------------------------------------------------------------------
 
 return lide, lide.app
