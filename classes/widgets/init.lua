@@ -10,6 +10,8 @@
 -- lide.widgets:
 -- depends: lide.wx = require 'wx'
 
+lide = lide or require 'lide.base.init'
+
 if not wx then
 	wx = require 'wx'
 
@@ -70,6 +72,8 @@ lide.classes.menu      = require 'lide.classes.menu'
 lide.classes.boxsizer  = require 'lide.classes.boxsizer'
 lide.classes.gridtable = require 'lide.classes.gridtable'
 
+lide.classes.widgets = {}
+lide.classes.controls = {}
 lide.classes.widgets.panel  = require 'lide.classes.widgets.panel'
 lide.classes.widgets.window = require 'lide.classes.widgets.window'
 lide.classes.widgets.form   = require 'lide.classes.widgets.form'
@@ -106,4 +110,4 @@ lide.widgets = {
     messagebox = lide.core.base.messagebox;
 }
 
-return lide.classes.widgets, lide.classes.controls
+return lide

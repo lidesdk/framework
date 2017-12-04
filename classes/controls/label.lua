@@ -38,7 +38,7 @@ local Font  = lide.classes.font
 -- set local variables:
 local DEFAULT_FLAGS
 
-if lide.platform.getOSName() == 'Linux' then
+if lide.platform.getOSName() == 'linux' then
 	DEFAULT_FLAGS = -1
 else
 	DEFAULT_FLAGS = NO_AUTORESIZE

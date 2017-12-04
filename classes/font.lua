@@ -39,7 +39,7 @@ local isString = lide.core.base.isstring
 local isNumber = lide.core.base.isnumber
 
 -- define the class:
-local Font = class 'Font' : subclassof 'Object' : global ( false )
+local Font = lide.class 'Font' : subclassof 'Object' --: global ( false )
 
 
 function Font:Font ( ... )

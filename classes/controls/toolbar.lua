@@ -149,14 +149,14 @@ function Toolbar:addTool( nID, sText, sImage, sTooltip )
 	local wxObj = objItem:get 'wxObj'
 	
 	-- Fue necesario llamarlo despues del constructor para mejorar la compatibilidad entre OS diferentes:
-	if lide.platform.getOSName == 'Windows' then
+	if lide.platform.getOSName == 'windows' then
 		--- Estas dos sentencias son necesaria para que en Windows XP 32 se ejecute correctamente, 
 		--- de lo contrario no se mostrara el bitmap de deshabilitado:
 		-- Reconvertirlo a grayscale:
 		disabled_bmp = disabled_bmp:ConvertToImage():ConvertToGreyscale()
 		wxObj:SetDisabledBitmap( disabled_bmp )
 
-	elseif lide.platform.getOSName == 'Linux' then
+	elseif lide.platform.getOSName == 'linux' then
 		--- Para Linux no es necesario reconvertirlo:
 		wxObj:SetDisabledBitmap( disabled_bmp )
 		

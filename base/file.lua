@@ -1,3 +1,13 @@
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:        lide/base/file.lua
+-- // Purpose:     Filesystem framework
+-- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
+-- // Created:     2017/12/04
+-- // Copyright:   (c) 2014 -2017 Dario Cano
+-- // License:     MIT License/X11 license
+-- ///////////////////////////////////////////////////////////////////
+--
+
 lide.core.file = { }
 
 -- Convert path to running OS
@@ -21,9 +31,9 @@ end
 function lide.core.file.delete ( file_path )
 	local _shell_command
 	
-	if lide.platform.getOSName() == 'Linux' then
+	if lide.platform.getOSName() == 'linux' then
 		_shell_command = 'rm -rf "%s"'
-	elseif lide.platform.getOSName() == 'Windows' then
+	elseif lide.platform.getOSName() == 'windows' then
 		_shell_command = 'del /F /Q /S "%s"'
 	end
 	

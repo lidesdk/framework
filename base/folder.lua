@@ -1,9 +1,19 @@
-lfs = lide.lfs
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:        lide/base/folder.lua
+-- // Purpose:     Directory framework
+-- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
+-- // Created:     2017/12/04
+-- // Copyright:   (c) 2014 -2017 Dario Cano
+-- // License:     MIT License/X11 license
+-- ///////////////////////////////////////////////////////////////////
+--
+
+lfs = lide.base.lib.lfs
 
 local function normalizePath ( path )
-	if lide.platform.getOSName() == 'Linux' then
+	if lide.platform.getOSName() == 'linux' then
 		return tostring(path:gsub('\\', '/'))
-	elseif lide.platform.getOSName() == 'Windows' then
+	elseif lide.platform.getOSName() == 'windows' then
 		return tostring(path:gsub('/', '\\'))
 	end
 end
@@ -40,9 +50,9 @@ end
 function lide.core.folder.delete ( folder_path )
 	local _shell_command
 	
-	if lide.platform.getOSName() == 'Linux' then
+	if lide.platform.getOSName() == 'linux' then
 		_shell_command = 'rm -rf "%s"'
-	elseif lide.platform.getOSName() == 'Windows' then
+	elseif lide.platform.getOSName() == 'windows' then
 		_shell_command = 'rmdir /Q /S "%s"'
 	end
 

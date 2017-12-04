@@ -20,7 +20,7 @@
 
 local Timer = class 'Timer' 
 
-	: global( false )
+	--: global( false )
 
 
 -- define class:

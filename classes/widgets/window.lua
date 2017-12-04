@@ -25,7 +25,7 @@ local Panel  = lide.classes.widgets.panel
 
 
 -- define the class:
-local Window = class 'Window' : subclassof 'Widget' 
+local Window = class 'Window' : subclassof (Widget)
 	: global(false)
 
 -- define class constants:
@@ -86,7 +86,7 @@ function Window:Window ( fields )
 			--- Si el metodo está sobreescrito:
 			if ( self.onClose:getHandler() ~= lide.core.base.voidf ) then
 				-- do anything
-			--elseif lide.platform.getOSName() == 'Linux' and wx.wxGetApp() : GetTopWindow () : GetHandle() == self:getwxObj() : GetHandle() then
+			--elseif lide.platform.getOSName() == 'linux' and wx.wxGetApp() : GetTopWindow () : GetHandle() == self:getwxObj() : GetHandle() then
 			--	--- Si es una ventana de primer nivel cerrar elmainloop
 			--	wx.wxGetApp():ExitMainLoop()
 			else

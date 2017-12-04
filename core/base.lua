@@ -7,18 +7,22 @@
 -- // License:     GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////////////////
 
-lide.app = lide.app or {};
+lide.app = lide.app or { };
 
 function lide.app.getWorkDir( ... )
-	if lide.platform.getOSName() == 'Linux' then
+	if lide.platform.getOSName() == 'linux' then
 		return io.popen 'echo $PWD' : read '*l'
-	elseif lide.platform.getOSName() == 'Windows' then
+	elseif lide.platform.getOSName() == 'windows' then
 		--return io.popen 'CD' : read '*l'
-		return lide.lfs.currentdir()
-	else
+	--	return lide.core.lib.lfs.currentdir()
+	--else
 		error 'this function is not implemented on this platform.'
 	end
 end
+
+lide.app.folders = { 
+	-- sourcefolder = os.getenv 'LIDE_PATH' 
+}
 
 local framework_call_level = 4
 
@@ -96,7 +100,6 @@ local base = {
 		if (stype == 'table') then
 			local mt = getmetatable(value)
 			if mt and mt.__lideobj and mt.__type then
-				--print(mt.__type)
 				return mt.__type
 
 			end

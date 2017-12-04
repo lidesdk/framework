@@ -11,6 +11,7 @@
 lide = require 'lide.core.init'
 app  = lide.app
 
+class = lide.class
 
 require 'lide.base.init'
 
