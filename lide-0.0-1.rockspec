@@ -40,11 +40,11 @@ build = { type = 'builtin', modules = {}, install = {},
   }
 }
 
-build.platforms.linux.install.lib = {
-  ['wx']  = 'bin/x86/wx.so',
-  ['bin/x64/lfs.so'] = 'bin/x64/lfs.so',
-  ['bin/x86/lfs.so'] = 'bin/x86/lfs.so',
-}
+--build.platforms.linux.install.lib = {
+  --wx']  = 'bin/x86/wx.so',
+  --['bin/x64/lfs.so'] = 'bin/x64/lfs.so',
+  --['bin/x86/lfs.so'] = 'bin/x86/lfs.so',
+--}-
 
 --build.platforms.linux.arch = 'x86_64'
 
@@ -52,9 +52,9 @@ build.platforms.linux.install.lib = {
 --  ['wx'] = 'bin/x86/wx.so',
 --}
 
-build.platforms.windows.install.lib = {
-  ['wx'] = 'bin/x86/wx.dll',
-}
+--build.platforms.windows.install.lib = {
+--  ['wx'] = 'bin/x86/wx.dll',
+--}
 
 build.install.lua = {
   ['lide.init'] = 'init.lua',
