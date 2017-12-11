@@ -27,7 +27,7 @@ end
 function lide.platform.getArch ()
 	local _osname = lide.platform.getOSName():lower()
 	if (_osname == 'windows') then
-		return os.getenv 'PROCESSOR_ARCHITECTURE' 
+		return tostring(os.getenv 'PROCESSOR_ARCHITECTURE' : gsub ('AMD64', 'x64')):sub(1,3);
 	elseif (_osname == 'linux') then
 		return io.popen 'uname -m' : read '*a' : gsub ('x86_64', 'x64') : gsub ( 'i686', 'x86' ):sub(1,3);
 	end

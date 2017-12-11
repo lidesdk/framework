@@ -13,10 +13,7 @@ function lide.app.getWorkDir( ... )
 	if lide.platform.getOSName() == 'linux' then
 		return io.popen 'echo $PWD' : read '*l'
 	elseif lide.platform.getOSName() == 'windows' then
-		--return io.popen 'CD' : read '*l'
-	--	return lide.core.lib.lfs.currentdir()
-	--else
-		error 'this function is not implemented on this platform.'
+		return io.popen 'CD' : read '*l'
 	end
 end
 
