@@ -1,10 +1,10 @@
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
 -- // Name:        init.lua
 -- // Purpose:     Initialize framework
--- // Author:      Dario Cano [dario.canohdz@gmail.com]
+-- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
 -- // Created:     2016/01/03
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     MIT License/X11 license
+-- // Copyright:   (c) 2014 Hernan Dario Cano
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
 --
 -- GNU/Linux x86 LuaRocks version: /usr/bin/luarocks-5.1 2.3.0
@@ -14,8 +14,8 @@ package = "lide"
 version = "0.0-1"
 
 source = { 
-  url = "https://github.com/lidesdk/framework/archive/develop.zip",
-  dir = 'framework-develop'
+  url = "https://github.com/lidesdk/framework/archive/master.zip",
+  dir = 'framework-master'
 }
 
 description = {
@@ -39,22 +39,6 @@ build = { type = 'builtin', modules = {}, install = {},
     windows = { install = {} },
   }
 }
-
---build.platforms.linux.install.lib = {
-  --wx']  = 'bin/x86/wx.so',
-  --['bin/x64/lfs.so'] = 'bin/x64/lfs.so',
-  --['bin/x86/lfs.so'] = 'bin/x86/lfs.so',
---}-
-
---build.platforms.linux.arch = 'x86_64'
-
---build.platforms.arch.install.lib = {
---  ['wx'] = 'bin/x86/wx.so',
---}
-
---build.platforms.windows.install.lib = {
---  ['wx'] = 'bin/x86/wx.dll',
---}
 
 build.install.lua = {
   ['lide.init'] = 'init.lua',

@@ -10,12 +10,12 @@ controls in Windows.
 
 
 ========================================================= ==================================================================================
- git branch: ``develop``                                     build status
+ git branch: ``master``                                     build status
 ========================================================= ==================================================================================
- Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b/branch/develop?svg=true
-                                                               :target: https://ci.appveyor.com/project/dcanoh/framework/branch/develop
- Tests executed in **Ubuntu 14.04** Trusty x64 machine      .. image:: https://circleci.com/gh/lidesdk/framework/tree/develop.svg?style=svg
-                                                               :target: https://circleci.com/gh/lidesdk/framework/tree/develop
+ Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b/branch/master?svg=true
+                                                               :target: https://ci.appveyor.com/project/dcanoh/framework/branch/master
+ Tests executed in **Ubuntu 14.04** Trusty x64 machine      .. image:: https://circleci.com/gh/lidesdk/framework/tree/master.svg?style=svg
+                                                               :target: https://circleci.com/gh/lidesdk/framework/tree/master
 ========================================================= ==================================================================================
 
 Installation
@@ -50,7 +50,7 @@ If you have luarocks installed in your machine:
 
 .. code-block:: bash
 	
-	$ luarocks install https://raw.githubusercontent.com/LideSDK/framework/master/lide-0.0-0.rockspec --local
+	$ luarocks install https://raw.githubusercontent.com/LideSDK/framework/master/lide-0.0-1.rockspec --local
 
 
 GNU/Linux Installation

@@ -4,7 +4,7 @@
 -- // Author:      Dario Cano [dcanohdev@gmail.com]
 -- // Created:     2016/01/03
 -- // Copyright:   (c) 2014 -2017 Dario Cano
--- // License:     MIT License/X11 license
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
 --
 

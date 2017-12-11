@@ -3,7 +3,7 @@
 -- // Purpose:     Define and initialize framework values
 -- // Created:     2016/01/03
 -- // Copyright:   (c) 2016 Dario Cano [dcanohdev@gmail.com]
--- // License:     lide license
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
 
 io.stdout:setvbuf 'no'
