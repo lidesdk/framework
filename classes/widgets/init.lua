@@ -12,12 +12,12 @@
 
 lide = lide or require 'lide.base.init'
 
-if not wx then
-	wx = require 'wx'
+--if not wx then
+--	wx = require 'wx'
 
-	if not wx then error 'No se pudo cargar wxLua' os.exit() end
-end
-
+--	if not wx then error 'No se pudo cargar wxLua' os.exit() end
+--end
+--[[
 lide.core.base.enum {
 	HELP        = wx.wxHELP, 
 	CANCEL      = wx.wxCANCEL, 
@@ -63,51 +63,12 @@ enum { -- wxMessageDialog
  	 ICON_STOP  	  = wx.wxICON_STOP,
  	 ICON_WARNING     = wx.wxICON_WARNING,
  }
+]]
 
 lide.classes.timer     = require 'lide.classes.timer'
 lide.classes.font      = require 'lide.classes.font'
 lide.classes.event     = require 'lide.classes.event'
-lide.classes.widget    = require 'lide.classes.widget'
-lide.classes.menu      = require 'lide.classes.menu'
-lide.classes.boxsizer  = require 'lide.classes.boxsizer'
-lide.classes.gridtable = require 'lide.classes.gridtable'
 
-lide.classes.widgets = {}
-lide.classes.controls = {}
-lide.classes.widgets.panel  = require 'lide.classes.widgets.panel'
-lide.classes.widgets.window = require 'lide.classes.widgets.window'
-lide.classes.widgets.form   = require 'lide.classes.widgets.form'
-lide.classes.widgets.dialog = require 'lide.classes.widgets.dialog'
-
-lide.classes.widgets.control       = require 'lide.classes.widgets.control'
-lide.classes.controls.button       = require 'lide.classes.controls.button'
-lide.classes.controls.toolbar      = require 'lide.classes.controls.toolbar'
-lide.classes.controls.label        = require 'lide.classes.controls.label'
-lide.classes.controls.textctrl     = require 'lide.classes.controls.textctrl'
-lide.classes.controls.textbox      = require 'lide.classes.controls.textbox'
-lide.classes.controls.grid         = require 'lide.classes.controls.grid'
-lide.classes.controls.combobox     = require 'lide.classes.controls.combobox'
-lide.classes.controls.progress     = require 'lide.classes.controls.progress'
-lide.classes.controls.htmlview     = require 'lide.classes.controls.htmlview'
-lide.classes.controls.image        = require 'lide.classes.controls.image'
-lide.classes.controls.listbox      = require 'lide.classes.controls.listbox'
-lide.classes.controls.tree         = require 'lide.classes.controls.tree'
-lide.classes.controls.calendar     = require 'lide.classes.controls.calendar'
-
-lide.classes.widgets.controls = lide.classes.controls
-
--- int wxMessageBox(const wxString& message, const wxString& caption = "Message", int style = wxOK | wxCENTRE, wxWindow *parent = NULL, int x = -1, int y = -1 ); 
-function lide.core.base.messagebox ( message, caption, style, pos_x, pos_y, parent)
-    return wx.wxMessageBox(message or "", caption or "Message", style or wx.wxOK + wx.wxCENTRE, parent or wx.NULL, pos_x or -1, pos_y or -1 )   
-end
-
-lide.widgets = {
-    window = lide.classes.widgets.window,
-    form   = lide.classes.widgets.form,
-    dialog = lide.classes.widgets.dialog,
-    
-    -- lide.core.base.messagebox is deprecated by lide.widgets.messagebox 'msg'
-    messagebox = lide.core.base.messagebox;
-}
+lide = require 'lide.widgets.init'
 
 return lide
