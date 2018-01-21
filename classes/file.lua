@@ -13,7 +13,6 @@
 --
 --  	string filePath		The object name
 --
---
 
 -- import local classes:
 local Object   = lide.classes.object
@@ -22,11 +21,12 @@ local Object   = lide.classes.object
 local isString = lide.core.base.isstring
 
 -- define the class:
-local File = class 'File' : subclassof 'Object' : global(false)
+local File = class 'File' : subclassof 'Object'
 
 function File:File ( strFilePath )
 	isString(strFilePath);
-
+	
+	self.lobj = io.open(strFilePath, 'w+b')
 	self._fullPath = strFilePath
 end
 
@@ -42,7 +42,7 @@ function File:getFilename ( ... )
 	return splitPath [2]
 end
 
-function File:getExtension ()
+function File:getExtension (	)
 	local splitPath = { string.match(self._fullPath, "(.-)([^\\/]-%.?([^%.\\/]*))$") }
 
 	return splitPath[3]
@@ -54,6 +54,18 @@ end
 
 function File:getFullPath ( ... )
 	return self._fullPath
+end
+
+function File:read ( ... )
+	return self.lobj:read(...)
+end
+
+function File:write ( content )
+	self.lobj:write( content )
+end
+
+function File:close( ... )
+	self.lobj:close(...)
 end
 
 setmetatable(lide.file, { 
