@@ -49,7 +49,12 @@ lide.file      = lide.core.file
 lide.base.file = lide.file
 
 function lide.file.remove ( ... )
-	lide.core.file.delete(...)
+	return lide.core.file.delete(...)
+end
+
+--- [bool] file.does_exists ( string filePath )
+function lide.file.does_exists ( filePath )
+	return lide.core.file.doesExists( filePath )
 end
 
 return lide.core.file
