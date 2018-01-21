@@ -2,8 +2,8 @@
 -- // Name:        lide/base/init.lua
 -- // Purpose:     Load base framework functions
 -- // Created:     2017/11/12
--- // Copyright:   (c) 2017 Dario Cano [dcanohdev@gmail.com]
--- // License:     lide license
+-- // Copyright:   (c) 2017 Hernan Dario Cano [dcanohdev@gmail.com]
+-- // License:     Lide framework license
 -- ///////////////////////////////////////////////////////////////////
 
 -- load lide framework core
@@ -23,5 +23,8 @@ lide.core.file   = lide.base.file
 lide.core.folder = lide.base.folder
 lide.lfs = lide.base.lib.lfs; -- !Deprecated lide.lfs by lide.base.lib.lfs
 ----------------------------------------------------------------------
+
+-- Load classes:
+lide.classes.file = require 'lide.classes.file'
 
 return lide
