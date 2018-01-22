@@ -1,6 +1,6 @@
 require 'lide.base.init'
 
-pruebasfile = lide.file.open 'D:\\proyectos\\lidesdk\\pruebasfile'
+pruebasfile = lide.file.open 'pruebasfile'
 
 content = 'lorem ipsum, quia dolor sit amet.'
 
