@@ -53,10 +53,12 @@ build.install.lua = {
 --- lide.base module:
   ['lide.base.init']        = 'base/init.lua',
   ['lide.base.file']        = 'base/file.lua',
+  ['lide.classes.file']     = 'classes/file.lua',
   ['lide.base.folder']      = 'base/folder.lua',
   
   ['lide.core.oop.init']    = 'core/oop/init.lua',
   ['lide.core.oop.yaci']    = 'core/oop/yaci.lua',
+  
   ['lide.classes.init']     = 'classes/init.lua',
   ['lide.classes.boxsizer'] = 'classes/boxsizer.lua',
   ['lide.classes.event']    = 'classes/event.lua',
