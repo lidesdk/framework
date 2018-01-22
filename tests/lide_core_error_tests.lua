@@ -12,7 +12,6 @@
 package.path = ';lua/?.lua;' .. package.path
 
 lide  = require 'lide.core.init'
-lide.error = require 'lide.error.init' 
 
 assert(lide.core.lua.type(lide.error) == 'table'   , 'Module lide.error was not loaded.')
 assert(lide.core.lua.type(try)        == 'function', 'try function does not exists.')
