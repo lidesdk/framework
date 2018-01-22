@@ -11,15 +11,14 @@
 --
 --  object Object:new ( string sObjectName, number nObjectID )
 --
---  	sObjectName    	The object name
---		nObjectID     	The object identificator
+--  	_objName    	The object name
+--		_objID       	The object identificator
 --
 --
 -- Class methods:
 --
 -- 		number	  getID( ) 						Gets the object identificator.
 --		boolean	  setID( number nID ) 			Sets the object identificator.
---		string 	  getName( ) 					Returns object's name.
 --		boolean   setName( string Name ) 		Sets object's name.
 --		string 	  __tostring()					Metamethod.
 
@@ -39,8 +38,8 @@ function Object:Object ( sObjectName, nObjectID )
 
 	-- Define class values:
 	protected {
-		Name = sObjectName,
-		ID   = nObjectID,
+		_objName = sObjectName,
+		_objID   = nObjectID,
 	}
 end
 
@@ -49,27 +48,31 @@ end
 ---
 --Object:virtual 'getID'
 function Object:getID ()
-	return self.ID
+	return self._objID
 end
 
 --Object:virtual 'setID'
 function Object:setID ( nID )	
-	self.ID = isNumber(nID) 
+	self._objID = isNumber(nID) 
 
-	if ( self.ID == nID ) then return true else return false end
+	if ( self._objID == nID ) then return true else return false end
 end
 
 Object:virtual 'getName'
 function Object:getName ()
-	return self.Name
+	return self._objName
 end
 
-Object:virtual 'setName'
-function Object:setName ( sName )
-	self.Name = isString(sName)
+-- default lua objects are read only named.
+-- is possible to implement setName on lower level classes using:
 
-	if ( self.Name == sName ) then return true else return false end
-end
+	--Object:virtual 'setName'
+	--function Object:setName ( sName )
+	--	self._objName = isString(sName)
+	--	self._objName = sName
+
+	--	if ( self._objName == sName ) then return true else return false end
+	--end
 
 --- define class meta-methods
 ---
@@ -77,7 +80,7 @@ function Object:__tostring ( )
 	local str   = ('[%s: %s]')
 	local stype = getmetatable(self).__type
 
-	return str:format(stype or 'object', tostring(self.Name))
+	return str:format(stype or 'object', tostring(self._objName))
 end
 
 return Object

@@ -18,6 +18,7 @@ local function normalizePath ( path )
 	end
 end
 
+
 -- simple test to see if the file exits or not
 function lide.core.file.doesExists( sFilename )
     lide.core.base.isstring(sFilename)
@@ -48,6 +49,10 @@ end
 lide.file      = lide.core.file
 lide.base.file = lide.file
 
+function lide.file.open ( strFilePath )
+	return lide.classes.file (strFilePath);
+end
+
 function lide.file.remove ( ... )
 	return lide.core.file.delete(...)
 end
@@ -56,5 +61,8 @@ end
 function lide.file.does_exists ( filePath )
 	return lide.core.file.doesExists( filePath )
 end
+
+
+
 
 return lide.core.file

@@ -23,11 +23,21 @@ local isString = lide.core.base.isstring
 -- define the class:
 local File = class 'File' : subclassof 'Object'
 
-function File:File ( strFilePath )
+function File:File ( strFilePath, argOpen )
 	isString(strFilePath);
 	
-	self.lobj = io.open(strFilePath, 'w+b')
-	self._fullPath = strFilePath
+	protected {
+		_Lobj     = io.open(strFilePath, argOpen or 'rb'),
+		_fullPath = strFilePath,
+	}
+
+	-- set object type on metatable:
+	local mt = getmetatable(self)
+	mt.__type = 'file'
+	setmetatable(self, mt)
+	--------------------------------
+	
+	self._objName = ( strFilePath )
 end
 
 function File:getFolder ( ... )
@@ -48,24 +58,34 @@ function File:getExtension (	)
 	return splitPath[3]
 end
 
-function File:__tostring ( ... )
-	return tostring(self._fullPath)
-end
-
 function File:getFullPath ( ... )
 	return self._fullPath
 end
 
-function File:read ( ... )
-	return self.lobj:read(...)
+function File:read ( argOpen )
+	self._Lobj:close() -- closes current file
+	
+	local localfile = io.open(self._fullPath, 'rb')
+	local localfilecontent = localfile:read ( argOpen or '*all' );
+	localfile:close()
+	
+	return localfilecontent
 end
 
 function File:write ( content )
-	self.lobj:write( content )
+	self._Lobj:close() -- closes current file
+	
+	local localfile = io.open(self._fullPath, 'w+b')
+	localfile:write( content ); localfile:close();
+
+	local localfile = io.open(self._fullPath, 'rb')
+	self._Lobj = localfile
+
+	return (self._Lobj:read '*all' == content)
 end
 
 function File:close( ... )
-	self.lobj:close(...)
+	self._Lobj:close(...)
 end
 
 setmetatable(lide.file, { 
