@@ -14,6 +14,9 @@ lide.base = lide.base or {
 	lib = { lfs = require 'lfs'}, -- depends for lide.file and lide.folder
 }
 
+-- Load classes:
+lide.classes.file = require 'lide.classes.file'
+
 lide.base.file   = require 'lide.base.file';	   --> File Handling
 lide.base.folder = require 'lide.base.folder';     --> Folders related
 lide.file, lide.folder = lide.base.file, lide.base.folder;
@@ -24,7 +27,13 @@ lide.core.folder = lide.base.folder
 lide.lfs = lide.base.lib.lfs; -- !Deprecated lide.lfs by lide.base.lib.lfs
 ----------------------------------------------------------------------
 
--- Load classes:
-lide.classes.file = require 'lide.classes.file'
+-- syntax sugar: newInstanceofFile = lide.file 'aaa.txt'
+--
+setmetatable(lide.base.file, { 
+	__call = function ( self, ... )
+	   return lide.classes.file (...)
+	end
+});
+----------------------------------------------------------------------
 
 return lide

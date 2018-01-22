@@ -73,7 +73,7 @@ function File:read ( argOpen )
 end
 
 function File:write ( content )
-	self._Lobj:close() -- closes current file
+	--self._Lobj:close() -- closes current file
 	
 	local localfile = io.open(self._fullPath, 'w+b')
 	localfile:write( content ); localfile:close();
@@ -87,11 +87,5 @@ end
 function File:close( ... )
 	self._Lobj:close(...)
 end
-
-setmetatable(lide.file, { 
-	__call = function ( self, ... )
-	   return File (...)
-	end
-});
 
 return File

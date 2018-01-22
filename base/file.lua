@@ -7,7 +7,8 @@
 -- ///////////////////////////////////////////////////////////////////
 --
 
-lide.core.file = { }
+lide.file      = {}
+lide.core.file = lide.file -- backward compatibility
 
 -- Convert path to running OS
 local function normalizePath ( path )
@@ -18,9 +19,9 @@ local function normalizePath ( path )
 	end
 end
 
-
+-- backward compatibility
 -- simple test to see if the file exits or not
-function lide.core.file.doesExists( sFilename )
+function lide.file.doesExists( sFilename )
     lide.core.base.isstring(sFilename)
     local file = io.open(normalizePath(sFilename) , 'rb')
     if (file == nil) then return false end
@@ -28,7 +29,13 @@ function lide.core.file.doesExists( sFilename )
     return true
 end
 
-function lide.core.file.delete ( file_path )
+--- [bool] file.does_exists ( string filePath )
+function lide.file.does_exists ( filePath )
+	return lide.file.doesExists( filePath )
+end
+
+
+function lide.file.delete ( file_path )
 	local _shell_command
 	
 	if lide.platform.getOSName() == 'linux' then
@@ -46,23 +53,13 @@ function lide.core.file.delete ( file_path )
 	end
 end
 
-lide.file      = lide.core.file
-lide.base.file = lide.file
-
 function lide.file.open ( strFilePath )
 	return lide.classes.file (strFilePath);
 end
 
 function lide.file.remove ( ... )
-	return lide.core.file.delete(...)
-end
-
---- [bool] file.does_exists ( string filePath )
-function lide.file.does_exists ( filePath )
-	return lide.core.file.doesExists( filePath )
+	return lide.file.delete(...)
 end
 
 
-
-
-return lide.core.file
+return lide.file
