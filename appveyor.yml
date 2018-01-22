@@ -38,3 +38,4 @@ test_script:
 - set LIDE_PATH=%CD%
 - lua tests/lide_core_oop_tests.lua
 - lua tests/lide_base_file_tests.lua
+- lua tests/lide_error_tests.lua
