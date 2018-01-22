@@ -14,8 +14,8 @@ package = "lide"
 version = "0.0-1"
 
 source = { 
-  url = "https://github.com/lidesdk/framework/archive/master.zip",
-  dir = 'framework-master'
+  url = "https://github.com/lidesdk/framework/archive/develop.zip",
+  dir = 'framework-develop'
 }
 
 description = {
