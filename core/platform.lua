@@ -9,7 +9,7 @@
 lide.platform = lide.platform
 
 --- Get the name of the operating system.
----		Returns one string: OS Name like "Linux"
+---		Returns one lowercase string: OS Name like "linux"
 ---
 --- string getOSVersion( nil )
 function lide.platform.getOSName( ... )
@@ -22,7 +22,7 @@ function lide.platform.getOSName( ... )
 	end
 end
 
--- Get architecture of current OS
+-- Get architecture of current binaries (OS)
 -- string 'x86', 'x64'
 function lide.platform.getArch ()
 	local _osname = lide.platform.getOSName():lower()
@@ -36,9 +36,9 @@ end
 lide.platform.getOS     = lide.platform.getOSName
 lide.platform.getOSArch = lide.platform.getArch
 
-if lide.platform.getOS() == 'Windows' then
+if lide.platform.getOS() == 'windows' then
 	windows = true 
-elseif lide.platform.getOS() == 'Linux' then
+elseif lide.platform.getOS() == 'linux' then
 	linux = true
 end
 
@@ -58,5 +58,9 @@ function lide.platform.getOSVersion ()
 		error 'lide.platform.getOSVersion not supported in Linux'
 	end
 end
+
+lide.platform.get_osname    = lide.platform.getOSName
+lide.platform.get_osversion = lide.platform.getOSVersion
+lide.platform.get_osarch    = lide.platform.getOSArch
 
 return lide.platform

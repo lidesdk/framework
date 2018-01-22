@@ -22,10 +22,6 @@
 --		boolean   setName( string Name ) 		Sets object's name.
 --		string 	  __tostring()					Metamethod.
 
--- import functions:
-local isString = lide.core.base.isstring
-local isNumber = lide.core.base.isnumber
-
 -- define the class:
 local Object = class 'Object' : global ( false )
 
@@ -34,7 +30,7 @@ function Object:Object ( sObjectName, nObjectID )
 	nObjectID = nObjectID or lide.core.base.newid ()
 	
 	-- Check if the args are the required type:
-	isString(sObjectName) ; isNumber(nObjectID)
+	assert(type(sObjectName) == 'string', 'Name of Object must be a string') ; assert(type(nObjectID) == 'number', 'ID of object must be numeric.')
 
 	-- Define class values:
 	protected {
