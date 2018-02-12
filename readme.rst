@@ -48,7 +48,7 @@ How to use it
 * Create a file ``main.lua`` into the folder ``lide_app``.
 
 .. code-block:: bash
-	
+	$ mkdir lide_app && cd lide_app
 	$ nano main.lua
 
 .. code-block:: lua
