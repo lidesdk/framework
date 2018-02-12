@@ -34,6 +34,9 @@ function lide.file.does_exists ( filePath )
 	return lide.file.doesExists( filePath )
 end
 
+function lide.file.exists ( filePath )
+	return lide.file.doesExists(filePath)
+end
 
 function lide.file.delete ( file_path )
 	local _shell_command

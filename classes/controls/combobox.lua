@@ -1,7 +1,7 @@
 -- /////////////////////////////////////////////////////////////////////////////
--- // Name:        controls/Combobox.lua
+-- // Name:        classes/controls/combobox.lua
 -- // Purpose:     Combobox class
--- // Author:      Hernán Cano [jhernancanom@gmail.com]
+-- // Author:      Hernan Cano [jhernancanom@gmail.com]
 -- // Created:     2014-07-14
 -- // Copyright:   (c) 2014 Hernán Cano
 -- // License:     lide license

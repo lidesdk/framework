@@ -96,6 +96,34 @@ function Label:Label ( fields )
 	}
 end
 
+function Label:getText( bMnemonic )
+	if bMnemonic == nil then bMnemonic = true end; isBoolean(bMnemonic)
+	
+	local Text if (bMnemonic == true) then
+		-- return the control's label containing mnemonics ("&" characters):
+		return self.wxObj:GetLabel()
+	else
+		-- return the control's label without mnemonics:
+		return self.wxObj:GetLabelText()
+	end
+end
+
+function Label:setText ( sNewText, bMnemonic )
+	if bMnemonic == nil then bMnemonic = true end; isBoolean(bMnemonic)
+
+	if (bMnemonic == true) then
+		-- return the control's label containing mnemonics ("&" characters):
+		self.wxObj:SetLabel(isString(sNewText));
+	else
+		-- return the control's label without mnemonics:
+		self.wxObj:SetLabelText(isString(sNewText));
+	end
+
+	self.Text = self.wxObj:GetLabelText();
+
+	return (self.Text == self.wxObj:GetLabelText())
+end
+
 function Label:setWrap( nPixels )
 	isNumber(nPixels)
 	self:getwxObj():Wrap(nPixels)

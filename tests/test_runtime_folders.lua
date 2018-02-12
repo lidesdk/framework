@@ -4,3 +4,4 @@ assert(app.workingfolder, 'test runtime folders: value app.workingfolder doesn\'
 
 print (('Source folder: %s'):format(app.sourcefolder))
 print (('Working folder: %s'):format(app.workingfolder))
+

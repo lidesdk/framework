@@ -57,13 +57,13 @@ function Widget:Widget ( sWidgetName, sWidgetType, nPosX, nPosY, nWidth, nHeight
 	
 	self.super:init( sWidgetName, nID )
 	
-	-- Check if oParent exists, because toplevel windows are widgets without parent
-	-- Parent check must be in control class
+	-- Check if "oParent" exists, because toplevel windows are widgets without parent.
+	-- Parent check should be in control class
 	if oParent then	isObject(oParent) end
 
 	protected {
 		WidgetType = isString(sWidgetType),
-		PosX  = isNumber(nPosX) , PosY = isNumber(nPosY),
+		PosX  = isNumber(nPosX) , PosY   = isNumber(nPosY),
 		Width = isNumber(nWidth), Height = isNumber(nHeight),
 
 		wxObj  = '.none.', -- initialize the wxObject fied
@@ -190,7 +190,7 @@ function Widget:initializeEvents ( toLoad )
 		args = (getXY),
 	}
 	
-	getmetatable(self) .__events['onLeave'] = {--> Cuando el mouse está por encima del widget:{ 
+	getmetatable(self) .__events['onLeave'] = { --> Cuando el mouse está por encima del widget:{ 
 		data = wx.wxEVT_LEAVE_WINDOW,
 		args = voidf -- the same as: args = function ( event ) end
 	}

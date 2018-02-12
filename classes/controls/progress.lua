@@ -43,7 +43,6 @@ function Progress:Progress( fields )
 		Validator = (fields.Validator or wx.wxDefaultValidator),
 	}
 
-
 	-- call Control constructor
 	self.super : init ( fields.Name, fields.Parent, fields.PosX or self.DefaultPosition.X, fields.PosY or self.DefaultPosition.Y, fields.Width or self.DefaultSize.Width, fields.Height or self.DefaultSize.Height, fields.ID )
 	

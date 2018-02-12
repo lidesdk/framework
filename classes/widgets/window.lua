@@ -1,9 +1,9 @@
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
 -- // Name:        classes/widgets/window.lua
 -- // Purpose:     class Window definition
--- // Author:      Dario Cano [thdkano@gmail.com]
+-- // Author:      Hernan Dario Cano [thdkano@gmail.com]
 -- // Created:     2014/07/07
--- // Copyright:   (c) 2014 Dario Cano
+-- // Copyright:   (c) 2014 Hernan Dario Cano
 -- // License:     lide license
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
 

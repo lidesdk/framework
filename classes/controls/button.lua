@@ -78,4 +78,32 @@ function Button:Button ( fields )
 
 end
 
+function Button:getText( bMnemonic )
+	if bMnemonic == nil then bMnemonic = true end; isBoolean(bMnemonic)
+	
+	local Text if (bMnemonic == true) then
+		-- return the control's label containing mnemonics ("&" characters):
+		return self.wxObj:GetLabel()
+	else
+		-- return the control's label without mnemonics:
+		return self.wxObj:GetLabelText()
+	end
+end
+
+function Button:setText ( sNewText, bMnemonic )
+	if bMnemonic == nil then bMnemonic = true end; isBoolean(bMnemonic)
+
+	if (bMnemonic == true) then
+		-- return the control's label containing mnemonics ("&" characters):
+		self.wxObj:SetLabel(isString(sNewText));
+	else
+		-- return the control's label without mnemonics:
+		self.wxObj:SetLabelText(isString(sNewText));
+	end
+
+	self.Text = self.wxObj:GetLabelText();
+
+	return (self.Text == self.wxObj:GetLabelText())
+end
+
 return Button

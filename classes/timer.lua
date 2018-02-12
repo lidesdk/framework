@@ -44,7 +44,7 @@ function Timer:start( Milliseconds , Oneshot )
 	if (Oneshot == nil) then
 		Oneshot = false
 	end
-	self.wxObj:Start(Milliseconds, Oneshot)	
+	return self.wxObj:Start(Milliseconds, Oneshot)	
 end
 
 function Timer:stop()

@@ -138,8 +138,8 @@ StandardError : enum {
 
 	TypeError = TypeError,
 
-	newException = function ( sExceptionName )
-   		return Exception :new ( sExceptionName );
+	newException = function ( sExceptionName, sDefaultErrMsg )
+   		return Exception :new ( sExceptionName, sDefaultErrMsg );
 	end ,
 
 	is_number = function ( value, errmsg )

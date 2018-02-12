@@ -41,6 +41,8 @@ local months = {
     'sep', 'oct', 'nov', 'dec',
 }
 
+local isNumber = lide.core.base.isnumber
+
 local Date = class 'Date'
 
 local function ftzero (num)
@@ -111,6 +113,16 @@ function Date:setDay ( nDay )
    lide.core.base.isnumber(nDay)
    self.Day = nDay
    return self.Day == nDay
+end
+
+function Date:setMonth ( nMonth )
+   self.Month = isNumber(nMonth)
+   return self.Month == nMonth
+end
+
+function Date:setYear ( nYear )
+   self.Year = isNumber(nYear)
+   return self.Year == nYear
 end
 
 -- by default returns a number

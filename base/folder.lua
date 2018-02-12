@@ -3,8 +3,8 @@
 -- // Purpose:     Directory framework
 -- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
 -- // Created:     2017/12/04
--- // Copyright:   (c) 2014 -2017 Dario Cano
--- // License:     MIT License/X11 license
+-- // Copyright:   (c) 2014 -2017 Hernan Dario Cano
+-- // License:     Lide License
 -- ///////////////////////////////////////////////////////////////////
 --
 
@@ -47,6 +47,10 @@ function lide.core.folder.doesExists( sFolderName )
 	end
 end
 
+function lide.core.folder.exists( sFolderName )
+	lide.core.folder.doesExists(sFolderName)
+end
+
 function lide.core.folder.delete ( folder_path )
 	local _shell_command
 	
@@ -65,6 +69,14 @@ function lide.core.folder.delete ( folder_path )
 			print ('error: '.. tostring(rst))
 		end
 	end
+end
+
+function lide.core.folder.remove ( folder_path )
+	lide.core.folder.delete ( folder_path )
+end
+
+function lide.core.folder.remove_tree( folder_path )
+	lide.core.folder.deleteTree(folder_path)
 end
 
 function lide.core.folder.list ( strDirectory )

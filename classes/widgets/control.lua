@@ -73,6 +73,11 @@ function Control:setText ( sNewText )
 	self.wxObj:SetLabel(  isString(sNewText)  )
 end
 
+Control:virtual 'setTextMarkup'
+function Control:setTextMarkup ( sTextMarkup )
+	self:getwxObj():SetLabelMarkup(isString(sTextMarkup));
+end
+
 -- Set the font to this control: sFontFamily is the name of font, nFontSize is the size in px,  
 -- and FontFlags is a constructor string of Font class.
 Control:virtual 'setFont'
