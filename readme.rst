@@ -8,9 +8,8 @@ integration of your applications with GTK+ on Linux and really native
 controls in Windows.
 
 
-
 ========================================================= ==================================================================================
- git branch: ``develop``                                     build status
+ git branch: ``develop``                                   build status
 ========================================================= ==================================================================================
  Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b/branch/develop?svg=true
                                                                :target: https://ci.appveyor.com/project/dcanoh/framework/branch/develop
@@ -21,49 +20,27 @@ controls in Windows.
 Installation
 ============
 
-* Make sure you have the lua5.1 interpreter and dependencies installed 
-on your machine.
-
-============  ========================================================
- Platform      Installation
-============  ========================================================
- Windows   	   Download `LuaForWindows_v5.1.4-33.exe <http://files.luaforge.net/releases/luaforwindows/luaforwindows/5.1.4-33/LuaForWindows_v5.1.4-33.exe>`_.
- Ubuntu        ``$ sudo apt-get install lua5.1 libwxgtk2.8``
- Archlinux	   ``# pacman -S lua5.1 wxgtk2.8``
-============  ========================================================
-
-
-Windows Installation
-********************
+First install lide shell from github:
 
 .. code-block:: bash
 
-	$ mkdir lide_app
-	$ cd lide_app
-	$ git clone https://github.com/LideSDK/framework.git lide
+	$ mkdir lide
+	$ cd lide
+	$ git clone https://github.com/lidesdk/shell.git --recursive
+
+* If you don't have git installed on your system you can download the
+  last version of lide shell installer: `from here <https://github.com/lidesdk/shell/releases>`_.
 
 
 Luarocks Installation
-*********************
+=====================
 
 If you have luarocks installed in your machine:
 
 .. code-block:: bash
 	
-	$ luarocks install https://raw.githubusercontent.com/LideSDK/framework/master/lide-0.0-1.rockspec --local
+	$ luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.1.rockspec --local
 
-
-GNU/Linux Installation
-**********************
-
-.. code-block:: bash
-
-	$ mkdir lide_app
-	$ cd lide_app
-	$ git clone https://github.com/LideSDK/framework.git lide
-	$ sudo cp ./lide/bin/x86/libwxlua_lua51-wx28gtk2u-2.8.12.3.so /usr/lib/libwxlua_lua51-wx28gtk2u-2.8.12.3.so
-	$ sudo cp ./lide/bin/x86/wx.so /usr/lib/lua/5.1/wx.so
- 
 
 How to use it
 =============
@@ -133,6 +110,6 @@ Lide is currently active and developing, today is maintained by (`@dcanoh <https
 
 
 License
-===================
+=======
 
-Lide is licensed under (`The GNU General Public License <https://github.com/lidesdk/commandline/blob/master/LICENSE>`_). Copyright © 2014 Hernán Dario Cano.
+Lide is licensed under (`The GNU General Public License <https://github.com/lidesdk/commandline/blob/master/LICENSE>`_). Copyright © 2018 Hernán Dario Cano.
