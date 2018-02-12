@@ -38,7 +38,7 @@ Luarocks Installation
 If you have luarocks installed in your machine:
 
 .. code-block:: bash
-	
+	$ luarocks install luafilesystem
 	$ luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.1.rockspec --local
 
 
