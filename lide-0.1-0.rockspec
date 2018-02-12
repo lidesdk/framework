@@ -9,7 +9,7 @@
 --
 
 package = "lide"
-version = "0.0-1"
+version = "0.1-0"
 
 source = { 
   url = "https://github.com/lidesdk/framework/archive/develop.zip",
