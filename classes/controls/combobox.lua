@@ -3,8 +3,8 @@
 -- // Purpose:     Combobox class
 -- // Author:      Hernan Cano [jhernancanom@gmail.com]
 -- // Created:     2014-07-14
--- // Copyright:   (c) 2014 Hernán Cano
--- // License:     lide license
+-- // Copyright:   (c) 2014 Hernan Cano
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- /////////////////////////////////////////////////////////////////////////////
 
 -- set Combobox constants:

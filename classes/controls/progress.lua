@@ -88,4 +88,8 @@ function Progress:isVertical()
 	return self.wxObj:IsVertical()
 end
 
+function Progress:setValue ( ... )
+	-- body
+end
+
 return Progress
