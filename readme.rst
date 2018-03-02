@@ -96,7 +96,7 @@ Help & Documentation
 If you want to know more please read our official framework's 
 documentation:
 
-`- Lide Framework readthedocs <http://lide-framework.rtfd.io>`_
+`- Lide Framework readthedocs <http://lide-framework.readthedocs.io/en/0.1>`_
 
 
 Credits and Authors
