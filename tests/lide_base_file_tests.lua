@@ -1,3 +1,5 @@
+package.path = ';lua/?.lua;' .. package.path
+
 require 'lide.base.init'
 
 pruebasfile = lide.file.open 'pruebasfile'

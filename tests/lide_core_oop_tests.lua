@@ -1,3 +1,5 @@
+package.path = ';lua/?.lua;' .. package.path
+
 -- -x create class
 -- -x instance class
 -- -x getters
