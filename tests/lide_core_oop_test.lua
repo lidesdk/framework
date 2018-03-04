@@ -8,6 +8,8 @@
 -- // License:   GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
 
+package.path = "?.lua;" .. package.path
+
 -- -x create class
 -- -x instance class
 -- -x getters
