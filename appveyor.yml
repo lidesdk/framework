@@ -32,7 +32,7 @@ install:
 
 build_script:
   #- luarocks install luafilesystem
-  - git clone https://github.com/lidesdk/framework.git lide_framework && cd lide_framework && git checkout $CURRENT_BRANCH
+  - git clone https://github.com/lidesdk/framework.git lide_framework && cd lide_framework && git checkout %CURRENT_BRANCH%
 
 test_script:
 - echo "Testing..."
