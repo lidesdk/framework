@@ -1,9 +1,9 @@
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
--- // Name:        init.lua
--- // Purpose:     Initialize framework
+-- // Name:        lide-0.1-0.rockspec
+-- // Purpose:     Lide Rocckspec
 -- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
--- // Created:     2016/01/03
--- // Copyright:   (c) 2014-2018 Hernan Dario Cano
+-- // Created:     2018/03/04
+-- // Copyright:   (c) 2018 Hernan Dario Cano
 -- // License:     GNU GENERAL PUBLIC LICENSE
 -- /////////////////////////////////////////////////////////////////////////////////////////////////
 --
