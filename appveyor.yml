@@ -32,6 +32,7 @@ install:
 #- echo "Installing external deps"
 
 build_script:
+  - echo "Building..."
   #- luarocks install luafilesystem
   #- git clone https://github.com/lidesdk/framework.git lide_framework && cd lide_framework && git checkout %CURRENT_BRANCH%
 
