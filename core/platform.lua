@@ -59,8 +59,17 @@ function lide.platform.getOSVersion ()
 	end
 end
 
-lide.platform.get_osname    = lide.platform.getOSName
-lide.platform.get_osversion = lide.platform.getOSVersion
-lide.platform.get_osarch    = lide.platform.getOSArch
+local function normalize_path ( path )
+	if lide.platform.getOSName() == 'windows' then
+		return (path:gsub('/', '\\'));
+	elseif lide.platform.getOSName() == 'linux' then
+		return tostring(path:gsub('\\', '/'):gsub('//', '/'));
+	end
+end
+
+lide.platform.get_osname     = lide.platform.getOSName
+lide.platform.get_osversion  = lide.platform.getOSVersion
+lide.platform.get_osarch     = lide.platform.getOSArch
+lide.platform.normalize_path = normalize_path
 
 return lide.platform
