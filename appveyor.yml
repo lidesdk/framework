@@ -33,10 +33,10 @@ build_script:
   - luarocks install luafilesystem
 
   # Create lide install directory and go to it (C:\lide):
-  - mkdir C:\lide && cd C:\lide
-
+  - mkdir C:\lide
+  
   # Clone git repository and submodules:
-  - git clone https://github.com/lidesdk/shell.git --recursive shell
+  - git clone https://github.com/lidesdk/shell.git --recursive C:\lide\shell
 
   # Create environment variable named LIDE_PATH:
   - set LIDE_PATH=C:\lide\shell
@@ -44,6 +44,6 @@ build_script:
   #- luarocks install https://raw.githubusercontent.com/lidesdk/framework/develop/lide-0.1-0.rockspec
 
 test_script:
-- lide tests/lide_core_oop_test.lua
-- lide tests/lide_base_file_test.lua
-- lide tests/lide_error_test.lua
+- lide tests\lide_core_oop_test.lua
+- lide tests\lide_base_file_test.lua
+- lide tests\lide_error_test.lua
