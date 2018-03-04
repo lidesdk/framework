@@ -1,7 +1,7 @@
 dependencies:
   pre:
-    export CURRENT_BRANCH=develop
-
+    - export CURRENT_BRANCH=develop
+ 
     # install lua interpreter and luarocks
     - sudo apt-get install lua5.1 luarocks
 
