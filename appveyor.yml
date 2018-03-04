@@ -43,6 +43,6 @@ build_script:
   - set PATH=%LIDE_PATH%;%PATH%
 
 test_script:
-- lide tests\lide_core_oopd_test.lua
+- lide tests\lide_core_oop_test.lua
 - lide tests\lide_base_file_test.lua
 - lide tests\lide_error_test.lua

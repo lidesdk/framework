@@ -27,4 +27,4 @@ dependencies:
 test:
   override:
     # executing tests:
-    - lide tests/lide_core_oop_test.lua
+    - ~/lide/shell/lide.sh tests/lide_core_oop_test.lua
