@@ -31,12 +31,12 @@ install:
 #- echo "Installing external deps"
 
 build_script:
-  - luarocks install luafilesystem
-  - git clone https://github.com/lidesdk/framework.git %CD% && git checkout $CURRENT_BRANCH
+  #- luarocks install luafilesystem
+  - git clone https://github.com/lidesdk/framework.git lide_framework && cd lide_framework && git checkout $CURRENT_BRANCH
 
 test_script:
 - echo "Testing..."
-- set LIDE_PATH=%CD%
+- set LIDE_PATH=%CD%\lide_framework
 - lua tests/lide_core_oop_tests.lua
 - lua tests/lide_base_file_tests.lua
 - lua tests/lide_core_error_tests.lua
