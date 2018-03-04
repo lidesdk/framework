@@ -40,7 +40,7 @@ build_script:
 
   # Create environment variable named LIDE_PATH:
   - set LIDE_PATH=C:\lide\shell
-
+  - set PATH=%LIDE_PATH%;%PATH%
   #- luarocks install https://raw.githubusercontent.com/lidesdk/framework/develop/lide-0.1-0.rockspec
 
 test_script:
