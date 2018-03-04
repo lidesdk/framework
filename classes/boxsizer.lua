@@ -1,27 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/object.lua
--- // Purpose:     Object class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2014/08/24
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Object:new ( string sObjectName, number nObjectID )
---
---  	sObjectName    	The object name
---		nObjectID     	The object identificator
---
---
--- Class methods:
---
--- 		number	  getID( ) 						Gets the object identificator.
---		boolean	  setID( number nID ) 			Sets the object identificator.
---		string 	  getName( ) 					Returns object's name.
---		boolean   setName( string Name ) 		Sets object's name.
---		string 	  __tostring()					Metamethod.
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/boxsizer.lua
+-- // Purpose:   BoxSizer class
+-- // Created:   2014/08/24
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- import functions:
 local isObject = lide.core.base.isobject

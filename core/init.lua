@@ -1,9 +1,9 @@
 -- ///////////////////////////////////////////////////////////////////
--- // Name:        lide.core.init.lua
--- // Purpose:     Define and initialize framework values
--- // Created:     2016/01/03
--- // Copyright:   (c) 2016 Dario Cano [dcanohdev@gmail.com]
--- // License:     GNU GENERAL PUBLIC LICENSE
+-- // Name:      lide.core.init.lua
+-- // Purpose:   Define and initialize framework values
+-- // Created:   2016/01/03
+-- // Copyright: (c) 2016-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
 
 io.stdout:setvbuf 'no'

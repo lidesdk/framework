@@ -1,14 +1,11 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/controls/htmlview.lua
--- // Purpose:     HTMLView class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2014/07/20
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
---
---
---
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/htmlview.lua
+-- // Purpose:   HTMLView class
+-- // Created:   2014/07/20
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev@gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
+
 local HTMLView, Control
 local check, isObject
 

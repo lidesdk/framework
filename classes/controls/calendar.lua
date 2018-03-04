@@ -1,11 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/controls/calendar.lua
--- // Purpose:     Calendar class
--- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
--- // Created:     2017/05/01
--- // Copyright:   (c) 2017 Hernan Dario Cano
--- // License:     GNU GENERAL PUBLIC LICENSE
--- /////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      classes/controls/calendar.lua
+-- // Purpose:   Calendar class
+-- // Created:   2017/05/01
+-- // Copyright: (c) 2017-2018 Hernan Dario Cano [dcanohdev@gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 
 -- set Combobox constants:

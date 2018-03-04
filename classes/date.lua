@@ -1,30 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Purpose:     Date class
--- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
--- // Created:     2017-05-01
--- // Copyright:   (c) 2017 Hernan Dario Cano
--- // License:     GNU GENERAL PUBLIC LICENSE
--- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
----
---- >> Class constructor:
----
----   object Date:new ( string sDateCons ) 
----
----   Arguments:
----
----      sDateCons        This string is used as reference to create the object.
----
----
---- >> Class methods:
----
----      number    setDay()            Sets the day on this date
----      number    getDay()            Gets the day of this date
----      number    getMonth()          Gets the month of this date
----      number    getYear()           Gets the year of this date
----      number    getLastMonthDay()   Gets the last day of the month in this date
----      number    getFirstMonthDay()  Gets the first day of the month in this date
----      string    toString()          Convert Date to string
----
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/date.lua
+-- // Purpose:   Date class
+-- // Created:   2017-05-01
+-- // Copyright: (c) 2017-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 local DATE_TODAY     = 0
 local DATE_YESTERDAY = 1

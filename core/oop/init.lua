@@ -1,12 +1,10 @@
--- ///////////////////////////////////////////////////////////////////////////////
--- // Name:        core/oop/init.lua
--- // Purpose:     OOP Initialization
--- // Author:      Dario Cano [thdkano (at) gmail (dot) com]
--- // Created:     2016/01/03
--- // Copyright:   (c) 2016 Dario Cano
--- // License:     lide license
--- ///////////////////////////////////////////////////////////////////////////////
-
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/core/oop/init.lua
+-- // Purpose:   OOP Initialization
+-- // Created:   2016/01/03
+-- // Copyright: (c) 2016-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 local yaci_class = require 'lide.core.oop.yaci'
 

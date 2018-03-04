@@ -1,11 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/controls/progress.lua
--- // Purpose:     Progress class
--- // Author:      Hernán Cano [jhernancanom@gmail.com]
--- // Created:     2014-07-07
--- // Copyright:   (c) 2014 Hernán Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/progress.lua
+-- // Purpose:   Progress class
+-- // Created:   2014-07-07
+-- // Copyright: (c) 2014-2018 Jesus Hernan Cano [jhernancanom [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- Define local variables:
 local Progress

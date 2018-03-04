@@ -1,11 +1,10 @@
--- ///////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/widgets/init.lua
--- // Purpose:     define functions required by framework graphical interfaces
--- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
--- // Created:     2017/11/10
--- // Copyright:   (c) 2017 Hernan Dario Cano
--- // License:     lide license
--- ///////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/widgets/init.lua
+-- // Purpose:   define functions required by framework graphical interfaces
+-- // Created:   2017/11/10
+-- // Copyright: (c) 2016-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- lide.widgets:
 -- depends: lide.wx = require 'wx'

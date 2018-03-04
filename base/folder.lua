@@ -1,12 +1,11 @@
 -- ///////////////////////////////////////////////////////////////////
--- // Name:        lide/base/folder.lua
--- // Purpose:     Directory framework
--- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
--- // Created:     2017/12/04
--- // Copyright:   (c) 2014 -2017 Hernan Dario Cano
--- // License:     Lide License
+-- // Name:      lide/base/folder.lua
+-- // Purpose:   Directory framework
+-- // Created:   2017/12/04
+-- // Copyright: (c) 2017 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
---
+
 
 lfs = lide.base.lib.lfs
 

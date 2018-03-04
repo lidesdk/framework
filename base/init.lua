@@ -3,7 +3,7 @@
 -- // Purpose:     Load base framework functions
 -- // Created:     2017/11/12
 -- // Copyright:   (c) 2017 Hernan Dario Cano [dcanohdev@gmail.com]
--- // License:     Lide framework license
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
 
 -- load lide framework core

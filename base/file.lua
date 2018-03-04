@@ -3,9 +3,8 @@
 -- // Purpose:     Filesystem framework
 -- // Created:     2017/12/04
 -- // Copyright:   (c) 2017 Hernan Dario Cano [dcanohdev@gmail.com]
--- // License:     Lide framework license
+-- // License:     GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
---
 
 lide.file      = {}
 lide.core.file = lide.file -- backward compatibility

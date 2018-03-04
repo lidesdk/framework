@@ -1,29 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        controls/button.lua
--- // Purpose:     Button class
--- // Version:     0.0.0.1
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     07/07/2014
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Button:new { 
---  	string Name  ,		The control name.
---		object Parent,		The control parent.
---		string Text  , 		The button text.
---	}
--- 
---
--- Class methods:
---
--- 		userdata  getwxObj() 								Gets the wxWidgets object.
---		string	  getWidgetType()	 						Returns the widget type identificator.
---		boolean	  setWidgetType()	 						Sets the widget type identificator.
---		number	  getPosX() 								Returns the position related to X.
-
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      controls/button.lua
+-- // Purpose:   Button class release 1.0
+-- // Created:   07/07/2014
+-- // Copyright:   (c) 2017 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:     GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- import libraries
 local check = lide.core.base.check

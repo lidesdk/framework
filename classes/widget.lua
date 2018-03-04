@@ -1,43 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/widget.lua
--- // Purpose:     Widget class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2014/07/23
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Widget:new ( string sWidgetName, string sWidgetType, number nPosX, number nPosY, number nWidth, number nHeight, number nID )
---
---  	string sWidgetName    	The widget name
---		string sWidgetType  	The widget type identificator
---		number nPosX			Position related to X
---		number nPosY			Position related to Y
---		number nWidth			Width of the widget
---		number nHeight			Height of the widget
---		number nID 				The object identificator
---		object oParent 			The Widget Parent
---
--- Class methods:
---
--- 		userdata  getwxObj() 								Gets the wxWidgets object.
---		string	  getWidgetType()	 						Returns the widget type identificator.
---		boolean	  setWidgetType()	 						Sets the widget type identificator.
---		number	  getPosX() 								Returns the position related to X.
---		boolean	  setPosX( number nPosX )					Sets the position related to X.
---		number	  getPosY() 								Returns the position related to Y.
---		boolean	  setPosY( number nPosY )					Sets the position related to Y.
---		number	  getWidth() 								Returns the width of the widget.
---		boolean	  setWidth( number nWidth )					Sets the width of the widget.
---		number	  getHeight() 								Returns the height of the widget.
---		boolean	  setHeight( number nHeight )				Sets the height of the widget.
--- 		nil 	  initializeEvents( string sEventNames ) 	Copy events from super class Widget to the child class.
---	    boolean   getVisible()								Returns true if the widget is visible, false otherwise.
---		nil		  setVisible( bVisible )					Sets the visibility of the widget.
---		boolean   getEnabled()
---		nil       setEnabled
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/widget.lua
+-- // Purpose:   Widget class
+-- // Created:   2014/07/23
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- import local functions:
 local isString  = lide.core.base.isstring

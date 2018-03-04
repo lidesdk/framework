@@ -1,11 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/widgets/window.lua
--- // Purpose:     class Window definition
--- // Author:      Hernan Dario Cano [thdkano@gmail.com]
--- // Created:     2014/07/07
--- // Copyright:   (c) 2014 Hernan Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/widgets/window.lua
+-- // Purpose:   class Window definition
+-- // Created:   2014/07/07
+-- // Copyright: (c) 2016-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- import functions:
 local isString  = lide.core.base.isstring

@@ -1,11 +1,11 @@
 -- ///////////////////////////////////////////////////////////////////
--- // Name:        widgets/init.lua
+-- // Name:        lide/widgets/init.lua
 -- // Purpose:     Initialize framework
 -- // Created:     2018/01/14
 -- // Copyright:   (c) 2018 Hernan Dario Cano [dcanohdev@gmail.com]
 -- // License:     Lide framework license
 -- ///////////////////////////////////////////////////////////////////
---
+
 
 local wx = require 'wx'
 

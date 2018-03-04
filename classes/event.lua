@@ -1,29 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/event.lua
--- // Purpose:     Event class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2014/08/24
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////////////////////////
-
--- Class constructor:
---
---  object Event:new ( string sEventName, object oEventSender, function fDefEventHandler )
---
---  	sEvtName      	The event name
---		oEvtSender    	The object associated to the event (usually a 'Widget')
---		fEvtHandler   	The event handler function (that is called when you call Event:call(...)).
---
---
--- Class methods:
---
--- 		object 	  getSender( ) 						Gets the object associated to the event.
---		boolean	  setSender( object Sender ) 		Sets the object associated to the event.
---		function  getHandler( ) 					Returns the event handler function.
---		boolean   setHandler( function Handler ) 	Sets the event handler function.
---		...		  call( ... ) 						Call the event handler.
-
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/event.lua
+-- // Purpose:   Event class
+-- // Created:   2014/08/24
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- define local functions:
 

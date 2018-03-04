@@ -1,18 +1,10 @@
 -- /////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/classes/file.lua
--- // Purpose:     File class
--- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
--- // Created:     07/08/2017
--- // Copyright:   (c) 2014 - 2017 Hernan Dario Cano
--- // License:     GNU GENERAL PUBLIC LICENSE
--- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object File:new ( string filePath )
---
---  	string filePath		The object name
---
+-- // Name:      lide/classes/file.lua
+-- // Purpose:   File class
+-- // Created:   07/08/2017
+-- // Copyright: (c) 2017-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- import local classes:
 local Object   = lide.classes.object

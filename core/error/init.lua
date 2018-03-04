@@ -1,3 +1,11 @@
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/core/error/init.lua
+-- // Purpose:   Initialize error handling framework
+-- // Created:   2018/03/04
+-- // Copyright: (c) 2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
+
 assert( class or lide.class, "lide.error: requires lide.class" )
 
 local ltrace = require 'lide.core.error.ltrace'

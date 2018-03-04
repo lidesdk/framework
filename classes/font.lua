@@ -6,21 +6,6 @@
 -- // Copyright:   (c) 2014  Hernan Dario Cano
 -- // License:     GNU GENERAL PUBLIC LICENSE
 -- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Object:new ( string sObjectName, number nObjectID )
---
---  	sObjectName    	The object name
---		nObjectID     	The object identificator
---
---
--- Class methods:
---
--- 		number	  getID( ) 						Gets the object identificator.
---		boolean	  setID( number nID ) 			Sets the object identificator.
---		string 	  getName( ) 					Returns object's name.
---		boolean   setName( string Name ) 		Sets object's name.
 
 -- set font constants:
 enum {

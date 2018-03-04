@@ -1,26 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/object.lua
--- // Purpose:     Object class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2014/08/24
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Object:new ( string sObjectName, number nObjectID )
---
---  	_objName    	The object name
---		_objID       	The object identificator
---
---
--- Class methods:
---
--- 		number	  getID( ) 						Gets the object identificator.
---		boolean	  setID( number nID ) 			Sets the object identificator.
---		boolean   setName( string Name ) 		Sets object's name.
---		string 	  __tostring()					Metamethod.
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/object.lua
+-- // Purpose:   Object class
+-- // Created:   2014/08/24
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- define the class:
 local Object = class 'Object' : global ( false )

@@ -1,13 +1,11 @@
--- /////////////////////////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/classes/init.lua
--- // Purpose:     Initialize framework classes
--- // Author:      Dario Cano [dcanohdev@gmail.com]
--- // Created:     2017/11/12
--- // Copyright:   (c) 2014 -2017 Dario Cano
--- // License:     MIT License/X11 license
--- /////////////////////////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/init.lua
+-- // Purpose:   Initialize framework classes
+-- // Created:   2017/11/12
+-- // Copyright: (c) 2017-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
----
 --- lide.core:
 lide.classes           = lide.classes or {}
 lide.classes.object    = require 'lide.classes.object'

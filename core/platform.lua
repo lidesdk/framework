@@ -2,8 +2,8 @@
 -- // Name:      lide/core/platform.lua
 -- // Purpose:   Define and initialize platform specific values
 -- // Created:   2017/11/23
--- // Copyright: (c) 2014-2017 Hernan Dario Cano [dcanohdev@gmail.com]
--- // License:   lide license
+-- // Copyright: (c) 2017-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
 
 lide.platform = lide.platform

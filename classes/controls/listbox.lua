@@ -1,12 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        controls/Listbox.lua
--- // Purpose:     Listbox class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Modified by: 
--- // Created:     07/19/2014
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/listbox.lua
+-- // Purpose:   Listbox class
+-- // Created:   07/19/2014
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 --To implement:
 --%wxchkver_2_8 int HitTest(const wxPoint& point) const; 

@@ -1,20 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/classes/controls/label.lua
--- // Purpose:     Label class
--- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
--- // Created:     2014/07/07
--- // Copyright:   (c) 2014  Hernan Dario Cano
--- // License:     GNU GENERAL PUBLIC LICENSE
--- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Label:new { 
---  	string Name  ,		The control name.
---		object Parent,		The control parent.
---		string Text  , 		The button text.
---	}
--- 
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/label.lua
+-- // Purpose:   Label class
+-- // Created:   2014/07/07
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev@gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- define constants:
 

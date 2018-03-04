@@ -1,17 +1,16 @@
 #!/usr/bin/env lua5.1
 
--- /////////////////////////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/tests/lide_error_test.lua
--- // Purpose:     lide.error tests file
--- // Author:      Hernan Dario Cano [dcanohdev [at] gmail.com]
--- // Created:     2017/04/07
--- // Copyright:   (c) 2017 Hernan Dario Cano
--- // License:     Lide license
--- /////////////////////////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/tests/lide_error_test.lua
+-- // Purpose:   lide.error tests file
+-- // Created:   2017/04/07
+-- // Copyright: (c) 2017-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
-package.path = ';lua/?.lua;' .. package.path
+lide  = require 'core.init'
 
-lide  = require 'lide.core.init'
+io.stdout:write "Running lide.core.oop 1.0 tests: "
 
 assert(lide.core.lua.type(lide.error) == 'table'   , 'Module lide.error was not loaded.')
 assert(lide.core.lua.type(try)        == 'function', 'try function does not exists.')

@@ -1,11 +1,10 @@
 -- /////////////////////////////////////////////////////////////////////////////
--- // Name:        controls/tree.lua
--- // Purpose:     Tree class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     07/20/2014
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/tree.lua
+-- // Purpose:   Tree class
+-- // Created:   07/20/2014
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- import libraries
 local check = lide.core.base.check

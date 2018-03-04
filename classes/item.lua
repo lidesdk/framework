@@ -1,12 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/classes/item.lua
--- // Purpose:     Item class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Modified by: 
--- // Created:     20/03/2016
--- // Copyright:   (c) 2014-2016 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/item.lua
+-- // Purpose:   Item class
+-- // Created:   20/03/2016
+-- // Copyright: (c) 2017-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- import functions:
 local isString  = lide.core.base.isstring

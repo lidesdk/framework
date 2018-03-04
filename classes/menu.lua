@@ -1,21 +1,11 @@
--- /////////////////////////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/classes/widgets/menu.lua
--- // Purpose:     Menu Class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2014/07/23
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Textbox:new { 
---  	string Name  ,		The control name.
---		object Parent,		The control parent.
---		string Text  , 		The Textbox text.
---	}
--- 
---
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/widgets/menu.lua
+-- // Purpose:   Menu Class
+-- // Created:   2014/07/23
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
+
 -- import functions:
 local isString  = lide.core.base.isstring
 local isNumber  = lide.core.base.isnumber

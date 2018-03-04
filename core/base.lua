@@ -1,11 +1,10 @@
--- ///////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/core/base.lua
--- // Purpose:     define functions required by framework instances
--- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
--- // Created:     2016/01/03
--- // Copyright:   (c) 2017 Hernan Dario Cano
--- // License:     GNU GENERAL PUBLIC LICENSE
--- ///////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/core/base.lua
+-- // Purpose:   define functions required by framework instances
+-- // Created:   2016/01/03
+-- // Copyright: (c) 2016-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 lide.app = lide.app or { };
 
