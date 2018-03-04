@@ -1,10 +1,11 @@
-version: 0.0.1.{build}-test
+version: 0.1.{build}-dev
 
 shallow_clone: true
 
 environment:
   LUAROCKS_VER: 2.4.1
   LUA_VER: 5.1.4
+  CURRENT_BRANCH: develop
 
 platform:
   - x86
@@ -31,7 +32,7 @@ install:
 
 build_script:
   - luarocks install luafilesystem
-  - luarocks install https://raw.githubusercontent.com/lidesdk/framework/develop/lide-0.1-0.rockspec
+  - git clone https://github.com/lidesdk/framework.git %CD% && git checkout $CURRENT_BRANCH
 
 test_script:
 - echo "Testing..."
