@@ -37,6 +37,6 @@ test_script:
 - echo "Testing..."
 - set LIDE_PATH=%CD%
 - dir .
-- lua tests/lide_core_oop_tests.lua
-- lua tests/lide_base_file_tests.lua
-- lua tests/lide_core_error_tests.lua
+- lua tests/lide_core_oop_test.lua
+- lua tests/lide_base_file_test.lua
+- lua tests/lide_error_test.lua

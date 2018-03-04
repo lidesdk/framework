@@ -12,4 +12,4 @@ dependencies:
 test:
   override:
     # executing tests:
-    - lua5.1 tests/lide_core_oop_tests.lua
+    - lua5.1 tests/lide_core_oop_test.lua
