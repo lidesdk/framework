@@ -36,7 +36,7 @@ build_script:
   - mkdir C:\lide
 
   # Clone git repository and submodules:
-  - git clone https://github.com/lidesdk/shell.git --recursive C:\lide\shell && cd C:\lide\shell && git checkout develop
+  - git clone https://github.com/lidesdk/shell.git --recursive C:\lide\shell && cd C:\lide\shell && git checkout develop && cd C:\lide\shell\libraries\lide && git checkout develop
 
   # Create environment variable named LIDE_PATH:
   - set LIDE_PATH=C:\lide\shell
