@@ -19,4 +19,4 @@ assert(pruebasfile, 'It\'s not possible to open file.')
 assert(pruebasfile:write(content))
 assert(content == pruebasfile:read('*a'))
 
-io.stdout:write '[OK]'
+io.stdout:write '[OK]\n'

@@ -10,7 +10,7 @@
 
 lide  = require 'core.init'
 
-io.stdout:write "Running lide.core.oop 1.0 tests: "
+io.stdout:write "Running lide.core.error 1.0 tests: "
 
 assert(lide.core.lua.type(lide.error) == 'table'   , 'Module lide.error was not loaded.')
 assert(lide.core.lua.type(try)        == 'function', 'try function does not exists.')
@@ -51,3 +51,5 @@ assert (lide.error.is_string)
 assert (try)
 assert (catch)
 assert (finally)
+
+io.stdout:write '[OK]\n'

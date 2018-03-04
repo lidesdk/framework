@@ -89,4 +89,4 @@ assert(newInstance.prop == 'type12', 'lide.core.oop: error public values cant be
 assert(newInstance.value == nil, 'lide.core.oop: error protected values are exposed!')
 assert(newInstance._value == nil, 'lide.core.oop: error private values are exposed!')
 
-io.stdout:write '[OK]'
+io.stdout:write '[OK]\n'
