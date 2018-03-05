@@ -9,12 +9,12 @@ controls in Windows.
 
 
 ========================================================= ==================================================================================
- git branch: ``develop``                                   build status
+ git branch: ``master``	last stable: ``0.1``            build status
 ========================================================= ==================================================================================
- Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b/branch/develop?svg=true
-                                                               :target: https://ci.appveyor.com/project/dcanoh/framework/branch/develop
- Tests executed in **Ubuntu 14.04** Trusty x64 machine      .. image:: https://circleci.com/gh/lidesdk/framework/tree/develop.svg?style=svg
-                                                               :target: https://circleci.com/gh/lidesdk/framework/tree/develop
+ Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b/branch/master?svg=true
+                                                               :target: https://ci.appveyor.com/project/dcanoh/framework/branch/master
+ Tests executed in **Ubuntu 14.04** Trusty x64 machine      .. image:: https://circleci.com/gh/lidesdk/framework/tree/master.svg?style=svg
+                                                               :target: https://circleci.com/gh/lidesdk/framework/tree/master
 ========================================================= ==================================================================================
 
 Installation
@@ -29,17 +29,7 @@ First install lide shell from github:
 	$ git clone https://github.com/lidesdk/shell.git --recursive
 
 * If you don't have git installed on your system you can download the
-  last version of lide shell installer: `from here <https://github.com/lidesdk/shell/releases>`_.
-
-
-Luarocks Installation
-=====================
-
-If you have luarocks installed in your machine:
-
-.. code-block:: bash
-	$ luarocks install luafilesystem
-	$ luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.1.rockspec --local
+  last stable version of lide shell installer: `from here <https://github.com/lidesdk/shell/releases>`_.
 
 
 How to use it
@@ -96,7 +86,7 @@ Help & Documentation
 If you want to know more please read our official framework's 
 documentation:
 
-`- Lide Framework readthedocs <http://lide-framework.readthedocs.io/en/0.1>`_
+`- Lide Framework 0.1 on Read the docs <http://lide-framework.readthedocs.io/en/0.1>`_
 
 
 Credits and Authors
@@ -106,7 +96,7 @@ Lide was founded in 2014 by Hernán D. Cano (`@dcanoh <https://github.com/dcanoh
 and Jesús H. Cano (`@jhernancanom <https://github.com/jhernancanom>`_ ) 
 for private purposes, today is accessible to the public.
 
-Lide is currently active and developing, today is maintained by (`@dcanoh <https://github.com/dcanoh>`_).
+Lide is currently active and mastering, today is maintained by (`@dcanoh <https://github.com/dcanoh>`_).
 
 
 License
