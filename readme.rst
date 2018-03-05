@@ -32,11 +32,14 @@ have installed the correct versions of each library.
 	$ git clone https://github.com/lidesdk/shell.git --recursive
 	$ export LIDE_PATH=~/$PWD
 
-- `Please follow the instructions for Windows.<https://github.com/lidesdk/shell/tree/master#windows-installation>`_
-- `Or follow the instructions for GNU/Linux...<https://github.com/lidesdk/shell/tree/release-0.1#gnulinux-installation>`_
+Manual installation
+-------------------
+- `Please follow the instructions for Windows. <https://github.com/lidesdk/shell/tree/master#windows-installation>`_
+- `Or follow the instructions for GNU/Linux... <https://github.com/lidesdk/shell/tree/release-0.1#gnulinux-installation>`_
 
-
-* If you don't have git installed on your system you can download the
+Auto Installer
+--------------
+* If you prefer automatic install on your system you can download the
   last stable version of lide shell installer: `from here <https://github.com/lidesdk/shell/releases>`_.
 
 
