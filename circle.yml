@@ -22,8 +22,6 @@ dependencies:
     - export PATH=$LIDE_PATH:$PATH
     - chmod +x ~/lide/shell/lide.sh
 
-
-
 test:
   override:
     # executing tests:
