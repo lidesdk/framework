@@ -35,7 +35,7 @@ have installed the correct versions of each library.
 Manual installation
 -------------------
 - `Please follow the instructions for Windows. <https://github.com/lidesdk/shell/tree/master#windows-installation>`_
-- `Or follow the instructions for GNU/Linux... <https://github.com/lidesdk/shell/tree/release-0.1#gnulinux-installation>`_
+- `Or follow the instructions for GNU/Linux... <https://github.com/lidesdk/shell/tree/master#gnulinux-installation>`_
 
 Auto Installer
 --------------
@@ -80,7 +80,7 @@ inside it at position (10, 30), clicking inside the button a message
 
 .. code-block:: bash
 	
-	$ lua5.1 -l lide.init main.lua
+	$ lide main.lua
 
 This is all you need to start building applications, **should be noted
 that these instructions work** similarly to Windows or GNU/Linux.
