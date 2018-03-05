@@ -4,16 +4,14 @@
 
 dependencies:
   pre:
-
     # install lua interpreter and luarocks
     - sudo apt-get install lua5.1 luarocks
 
-    # install lide dependencies with luarocks
-    - sudo luarocks install luafilesystem
-
-    # install lide using latest rockspeck: los tests se ejecutaran con esta version:
-    #- sudo luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.0-1.rockspec
-
+    # las siguientes  librerias del repositorio stable:
+    # xml necesita libstdc++6 (- sudo apt-get install libstdc++6)
+    # zip necesita libzzip-0.so.13
+    - sudo cp $PWD/clibs/linux/x64/pcaf_libstdc++.so.6 /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+    - sudo cp $PWD/clibs/linux/x64/pcaf_libzzip-0.so.13 /usr/lib/x86_64-linux-gnu/libzzip-0.so.13
 
 test:
   override:
@@ -22,6 +20,9 @@ test:
 
     # Clone git repository and submodules:
     - git clone https://github.com/lidesdk/shell.git --recursive ~/lide/shell && cd ~/lide/shell && git checkout $CIRCLE_BRANCH && cd ~/lide/shell/libraries/lide && git checkout $CIRCLE_BRANCH
+    
+    # authorize x64 lua interpreter:
+    - chmod +x ~/lide/shell/bin/linux/x64/lua
 
     # Create environment variable named LIDE_PATH:
     # - export PATH=$LIDE_PATH:$PATH
@@ -29,3 +30,5 @@ test:
 
     # executing tests:
     - ~/lide/shell/lide.sh tests/lide_core_oop_test.lua
+    - ~/lide/shell/lide.sh tests/lide_base_file_test.lua
+    - ~/lide/shell/lide.sh tests/lide_error_test.lua
