@@ -13,7 +13,6 @@ class = lide.class
 
 require 'lide.base.init'
 
---> lide.core.file is deprecated by lide.file
 lide.file = lide.core.file
 
 ------------------------------------------
