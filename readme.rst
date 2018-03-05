@@ -30,7 +30,7 @@ have installed the correct versions of each library.
 
 	$ mkdir lide && cd lide
 	$ git clone https://github.com/lidesdk/shell.git --recursive
-	$ export LIDE_PATH=~/$PWD
+	$ export LIDE_PATH=$PWD
 
 Manual installation
 -------------------
@@ -99,7 +99,7 @@ documentation:
 Credits and Authors
 ===================
 
-Lide was founded in 2014 by Hernán D. Cano (`@dcanoh <https://github.com/dcanoh>`_) 
+Lide was founded in 2014 by Hernán Darío Cano (`@dcanoh <https://github.com/dcanoh>`_) 
 and Jesús H. Cano (`@jhernancanom <https://github.com/jhernancanom>`_ ) 
 for private purposes, today is accessible to the public.
 
