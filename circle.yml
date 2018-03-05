@@ -14,6 +14,9 @@ dependencies:
     # install lide using latest rockspeck: los tests se ejecutaran con esta version:
     #- sudo luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.0-1.rockspec
 
+
+test:
+  override:
     # Create lide install directory and go to it (~/lide):
     - mkdir ~/lide
 
@@ -24,7 +27,5 @@ dependencies:
     # - export PATH=$LIDE_PATH:$PATH
     - chmod +x ~/lide/shell/lide.sh
 
-test:
-  override:
     # executing tests:
     - ~/lide/shell/lide.sh tests/lide_core_oop_test.lua
