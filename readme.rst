@@ -9,7 +9,7 @@ controls in Windows.
 
 
 ========================================================= ==================================================================================
- git branch: ``master``	last stable: ``0.1``            build status
+  git branch: ``master``                                    last stable: ``0.1``
 ========================================================= ==================================================================================
  Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b/branch/master?svg=true
                                                                :target: https://ci.appveyor.com/project/dcanoh/framework/branch/master
@@ -22,28 +22,31 @@ Installation
 
 First install lide shell from github:
 
-.. note::
- 	Lide shell is a command line interpreter that makes sure that you 
- 	have installed the correct versions of each library.
+**Note:**
+Lide shell is a command line interpreter that makes sure that you 
+have installed the correct versions of each library.
 
 .. code-block:: bash
 
-	$ mkdir lide
-	$ cd lide
+	$ mkdir lide && cd lide
 	$ git clone https://github.com/lidesdk/shell.git --recursive
+	$ export LIDE_PATH=$PWD
 
-* If you don't have git installed on your system you can download the
+Manual installation
+-------------------
+- `Please follow the instructions for Windows. <https://github.com/lidesdk/shell/tree/master#windows-installation>`_
+- `Or follow the instructions for GNU/Linux... <https://github.com/lidesdk/shell/tree/master#gnulinux-installation>`_
+
+Auto Installer
+--------------
+* If you prefer automatic install on your system you can download the
   last stable version of lide shell installer: `from here <https://github.com/lidesdk/shell/releases>`_.
 
 
 How to use it
 =============
 
-* Create a file ``main.lua`` into the folder ``lide_app``.
-
-.. code-block:: bash
-	$ mkdir lide_app && cd lide_app
-	$ nano main.lua
+* Create a file ``main.lua``.
 
 .. code-block:: lua
 	
@@ -77,7 +80,7 @@ inside it at position (10, 30), clicking inside the button a message
 
 .. code-block:: bash
 	
-	$ lua5.1 -l lide.init main.lua
+	$ lide main.lua
 
 This is all you need to start building applications, **should be noted
 that these instructions work** similarly to Windows or GNU/Linux.
@@ -96,7 +99,7 @@ documentation:
 Credits and Authors
 ===================
 
-Lide was founded in 2014 by Hernán D. Cano (`@dcanoh <https://github.com/dcanoh>`_) 
+Lide was founded in 2014 by Hernán Darío Cano (`@dcanoh <https://github.com/dcanoh>`_) 
 and Jesús H. Cano (`@jhernancanom <https://github.com/jhernancanom>`_ ) 
 for private purposes, today is accessible to the public.
 
