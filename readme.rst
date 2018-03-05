@@ -22,7 +22,8 @@ Installation
 
 First install lide shell from github:
 
-.. note::
+**note:**
+
  	Lide shell is a command line interpreter that makes sure that you 
  	have installed the correct versions of each library.
 
