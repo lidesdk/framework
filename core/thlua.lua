@@ -1,10 +1,10 @@
--- thlua.lua (thedary's Lua functions)
--- Dario Cano - thedary.tumblr.com
--- License? Bitch Please...
-
---------------------------------------
---	 			TABLE 				--
---------------------------------------
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/core/platform.lua
+-- // Purpose:   Define and initialize platform specific values
+-- // Created:   2017/11/23
+-- // Copyright: (c) 2017-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- table.count
 -- 	Funciona exactamente igual que el operador '#' tuvimos que crear esta funcion porque necesitabamos 

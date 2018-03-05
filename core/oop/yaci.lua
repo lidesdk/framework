@@ -1,5 +1,5 @@
 -- ///////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/core/oop.lua
+-- // Name:        lide/core/oop/yaci.lua
 -- // Purpose:     OOP Model for Lide
 -- // Author:      Julien Patte [julien.patte AT gmail DOT com]
 -- // Created:     25/02/2007

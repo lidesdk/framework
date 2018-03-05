@@ -1,29 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        controls/button.lua
--- // Purpose:     Button class
--- // Version:     0.0.0.1
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     07/07/2014
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Button:new { 
---  	string Name  ,		The control name.
---		object Parent,		The control parent.
---		string Text  , 		The button text.
---	}
--- 
---
--- Class methods:
---
--- 		userdata  getwxObj() 								Gets the wxWidgets object.
---		string	  getWidgetType()	 						Returns the widget type identificator.
---		boolean	  setWidgetType()	 						Sets the widget type identificator.
---		number	  getPosX() 								Returns the position related to X.
-
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      controls/button.lua
+-- // Purpose:   Button class release 1.0
+-- // Created:   07/07/2014
+-- // Copyright:   (c) 2017 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:     GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- import libraries
 local check = lide.core.base.check
@@ -76,6 +57,34 @@ function Button:Button ( fields )
 		'onClick' --> Buton Class' onClick
 	}
 
+end
+
+function Button:getText( bMnemonic )
+	if bMnemonic == nil then bMnemonic = true end; isBoolean(bMnemonic)
+	
+	local Text if (bMnemonic == true) then
+		-- return the control's label containing mnemonics ("&" characters):
+		return self.wxObj:GetLabel()
+	else
+		-- return the control's label without mnemonics:
+		return self.wxObj:GetLabelText()
+	end
+end
+
+function Button:setText ( sNewText, bMnemonic )
+	if bMnemonic == nil then bMnemonic = true end; isBoolean(bMnemonic)
+
+	if (bMnemonic == true) then
+		-- return the control's label containing mnemonics ("&" characters):
+		self.wxObj:SetLabel(isString(sNewText));
+	else
+		-- return the control's label without mnemonics:
+		self.wxObj:SetLabelText(isString(sNewText));
+	end
+
+	self.Text = self.wxObj:GetLabelText();
+
+	return (self.Text == self.wxObj:GetLabelText())
 end
 
 return Button

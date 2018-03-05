@@ -8,9 +8,8 @@ integration of your applications with GTK+ on Linux and really native
 controls in Windows.
 
 
-
 ========================================================= ==================================================================================
- git branch: ``master``                                     build status
+  git branch: ``master``                                    last stable: ``0.1``
 ========================================================= ==================================================================================
  Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b/branch/master?svg=true
                                                                :target: https://ci.appveyor.com/project/dcanoh/framework/branch/master
@@ -21,58 +20,33 @@ controls in Windows.
 Installation
 ============
 
-* Make sure you have the lua5.1 interpreter and dependencies installed 
-on your machine.
+First install lide shell from github:
 
-============  ========================================================
- Platform      Installation
-============  ========================================================
- Windows   	   Download `LuaForWindows_v5.1.4-33.exe <http://files.luaforge.net/releases/luaforwindows/luaforwindows/5.1.4-33/LuaForWindows_v5.1.4-33.exe>`_.
- Ubuntu        ``$ sudo apt-get install lua5.1 libwxgtk2.8``
- Archlinux	   ``# pacman -S lua5.1 wxgtk2.8``
-============  ========================================================
-
-
-Windows Installation
-********************
+**Note:**
+Lide shell is a command line interpreter that makes sure that you 
+have installed the correct versions of each library.
 
 .. code-block:: bash
 
-	$ mkdir lide_app
-	$ cd lide_app
-	$ git clone https://github.com/LideSDK/framework.git lide
+	$ mkdir lide && cd lide
+	$ git clone https://github.com/lidesdk/shell.git --recursive
+	$ export LIDE_PATH=$PWD
 
+Manual installation
+-------------------
+- `Please follow the instructions for Windows. <https://github.com/lidesdk/shell/tree/master#windows-installation>`_
+- `Or follow the instructions for GNU/Linux... <https://github.com/lidesdk/shell/tree/master#gnulinux-installation>`_
 
-Luarocks Installation
-*********************
+Auto Installer
+--------------
+* If you prefer automatic install on your system you can download the
+  last stable version of lide shell installer: `from here <https://github.com/lidesdk/shell/releases>`_.
 
-If you have luarocks installed in your machine:
-
-.. code-block:: bash
-	
-	$ luarocks install https://raw.githubusercontent.com/LideSDK/framework/master/lide-0.0-1.rockspec --local
-
-
-GNU/Linux Installation
-**********************
-
-.. code-block:: bash
-
-	$ mkdir lide_app
-	$ cd lide_app
-	$ git clone https://github.com/LideSDK/framework.git lide
-	$ sudo cp ./lide/bin/x86/libwxlua_lua51-wx28gtk2u-2.8.12.3.so /usr/lib/libwxlua_lua51-wx28gtk2u-2.8.12.3.so
-	$ sudo cp ./lide/bin/x86/wx.so /usr/lib/lua/5.1/wx.so
- 
 
 How to use it
 =============
 
-* Create a file ``main.lua`` into the folder ``lide_app``.
-
-.. code-block:: bash
-	
-	$ nano main.lua
+* Create a file ``main.lua``.
 
 .. code-block:: lua
 	
@@ -106,7 +80,7 @@ inside it at position (10, 30), clicking inside the button a message
 
 .. code-block:: bash
 	
-	$ lua5.1 -l lide.init main.lua
+	$ lide main.lua
 
 This is all you need to start building applications, **should be noted
 that these instructions work** similarly to Windows or GNU/Linux.
@@ -119,20 +93,20 @@ Help & Documentation
 If you want to know more please read our official framework's 
 documentation:
 
-`- Lide Framework readthedocs <http://lide-framework.rtfd.io>`_
+`- Lide Framework 0.1 on Read the docs <http://lide-framework.readthedocs.io/en/0.1>`_
 
 
 Credits and Authors
 ===================
 
-Lide was founded in 2014 by Hernán D. Cano (`@dcanoh <https://github.com/dcanoh>`_) 
+Lide was founded in 2014 by Hernán Darío Cano (`@dcanoh <https://github.com/dcanoh>`_) 
 and Jesús H. Cano (`@jhernancanom <https://github.com/jhernancanom>`_ ) 
 for private purposes, today is accessible to the public.
 
-Lide is currently active and developing, today is maintained by (`@dcanoh <https://github.com/dcanoh>`_).
+Lide is currently active and mastering, today is maintained by (`@dcanoh <https://github.com/dcanoh>`_).
 
 
 License
-===================
+=======
 
-Lide is licensed under (`The GNU General Public License <https://github.com/lidesdk/commandline/blob/master/LICENSE>`_). Copyright © 2014 Hernán Dario Cano.
+Lide is licensed under (`The GNU General Public License <https://github.com/lidesdk/commandline/blob/master/LICENSE>`_). Copyright © 2018 Hernán Dario Cano.

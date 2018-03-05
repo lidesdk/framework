@@ -1,12 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        controls/image.lua
--- // Purpose:     Image class
--- // Author:      Hernán Cano [jhernancanom@gmail.com]
--- // Modified by: Dario Cano 07/19/2014 (Agregue los flags y el segundo constructor)
--- // Created:     2014-07-08
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      controls/image.lua
+-- // Purpose:   Image class
+-- // Created:   2014-07-08
+-- // Copyright: (c) 2014-2018 Jesus Hernan Cano [jhernancanom@gmail.com], Hernan Dario Cano [dcanohdev@gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- set image constants: (defined in control class)
 -- BORDER_SIMPLE = wx.wxSIMPLE_BORDER

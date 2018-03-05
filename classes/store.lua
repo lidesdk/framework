@@ -1,12 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/classes/store.lua
--- // Purpose:     Store class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Modified by: 
--- // Created:     20/03/2016
--- // Copyright:   (c) 2014-2016 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/store.lua
+-- // Purpose:   Store class
+-- // Created:   2016/03/20
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 --- import libraries
 local check = lide.core.base.check

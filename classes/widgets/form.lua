@@ -1,12 +1,10 @@
-
--- ///////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/widgets/form.lua
--- // Purpose:     Class Form definition
--- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
--- // Created:     2016/02/15
--- // Copyright:   (c) 2016 Hernan Dario Cano
--- // License:     GNU GENERAL PUBLIC LICENSE
--- ///////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/widgets/form.lua
+-- // Purpose:   Class Form definition
+-- // Created:   2016/02/15
+-- // Copyright: (c) 2016-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 
 -- import required classes:

@@ -1,20 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        objects/panel.lua
--- // Purpose:     Panel class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2014/09/08
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Panel:new { 
---  	string Name  ,		The panel name.
---		object Parent,		The panel parent.
---	}
---
---
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/widgets/panel.lua
+-- // Purpose:   Panel class
+-- // Created:   2014/09/08
+-- // Copyright: (c) 2016-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- import libraries
 local check = lide.core.base.check

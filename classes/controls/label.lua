@@ -1,20 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/classes/controls/label.lua
--- // Purpose:     Label class
--- // Author:      Hernan Dario Cano [dcanohdev@gmail.com]
--- // Created:     2014/07/07
--- // Copyright:   (c) 2014  Hernan Dario Cano
--- // License:     GNU GENERAL PUBLIC LICENSE
--- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Label:new { 
---  	string Name  ,		The control name.
---		object Parent,		The control parent.
---		string Text  , 		The button text.
---	}
--- 
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/label.lua
+-- // Purpose:   Label class
+-- // Created:   2014/07/07
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev@gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- define constants:
 
@@ -94,6 +84,34 @@ function Label:Label ( fields )
 		'onMotion', 'onLeftDown', 'onLeftUp',
 		'onLeftDoubleClick', 
 	}
+end
+
+function Label:getText( bMnemonic )
+	if bMnemonic == nil then bMnemonic = true end; isBoolean(bMnemonic)
+	
+	local Text if (bMnemonic == true) then
+		-- return the control's label containing mnemonics ("&" characters):
+		return self.wxObj:GetLabel()
+	else
+		-- return the control's label without mnemonics:
+		return self.wxObj:GetLabelText()
+	end
+end
+
+function Label:setText ( sNewText, bMnemonic )
+	if bMnemonic == nil then bMnemonic = true end; isBoolean(bMnemonic)
+
+	if (bMnemonic == true) then
+		-- return the control's label containing mnemonics ("&" characters):
+		self.wxObj:SetLabel(isString(sNewText));
+	else
+		-- return the control's label without mnemonics:
+		self.wxObj:SetLabelText(isString(sNewText));
+	end
+
+	self.Text = self.wxObj:GetLabelText();
+
+	return (self.Text == self.wxObj:GetLabelText())
 end
 
 function Label:setWrap( nPixels )

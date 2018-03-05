@@ -1,12 +1,10 @@
 -- /////////////////////////////////////////////////////////////////////////////
--- // Name:        controls/gridtable.lua
--- // Purpose:     Grid Table class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Modified by:
--- // Created:     27/07/2014
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/gridtable.lua
+-- // Purpose:   Grid Table class
+-- // Created:   27/07/2014
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 local GridTable, Object
 

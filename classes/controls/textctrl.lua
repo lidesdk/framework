@@ -1,21 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/classes/controls/textctrl.lua
--- // Purpose:     TextCtrl class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Modified by:
--- // Created:     07/07/2014
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object TextCtrl:new { 
---  	string Name  ,		The control name.
---		object Parent,		The control parent.
---		string Text  , 		The button text.
---	}
--- 
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/textctrl.lua
+-- // Purpose:   TextCtrl class
+-- // Created:   2014/07/07
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- set TextCtrl constants:
 enum {

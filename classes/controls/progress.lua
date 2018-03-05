@@ -1,11 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/controls/progress.lua
--- // Purpose:     Progress class
--- // Author:      Hernán Cano [jhernancanom@gmail.com]
--- // Created:     2014-07-07
--- // Copyright:   (c) 2014 Hernán Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/progress.lua
+-- // Purpose:   Progress class
+-- // Created:   2014-07-07
+-- // Copyright: (c) 2014-2018 Jesus Hernan Cano [jhernancanom [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- Define local variables:
 local Progress
@@ -42,7 +41,6 @@ function Progress:Progress( fields )
 		MaxValue  = fields.MaxValue or 100,
 		Validator = (fields.Validator or wx.wxDefaultValidator),
 	}
-
 
 	-- call Control constructor
 	self.super : init ( fields.Name, fields.Parent, fields.PosX or self.DefaultPosition.X, fields.PosY or self.DefaultPosition.Y, fields.Width or self.DefaultSize.Width, fields.Height or self.DefaultSize.Height, fields.ID )
@@ -87,6 +85,10 @@ end
 
 function Progress:isVertical()
 	return self.wxObj:IsVertical()
+end
+
+function Progress:setValue ( ... )
+	-- body
 end
 
 return Progress

@@ -1,29 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/widgets/control.lua
--- // Purpose:     Control class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2014/07/07
--- // Copyright:   (c) 2014  Hernan Dario Cano
--- // License:     GNU GENERAL PUBLIC LICENSE
--- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Control:new ( string sControlName, object oParent, number nPosX, number nPosY, number nWidth, number nHeight, number nID )
---
---  	string sControlName    	The control's name
---		object oParent  		The control's parent
---		number nPosX			Position related to X
---		number nPosY			Position related to Y
---		number nWidth			Width of the widget
---		number nHeight			Height of the widget
---		number nID 				The object identificator
---
--- Class methods:
---
--- 		string   getText() 		Gets the control's text.
---		nil		 setText()		Sets the control's text.
---
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      classes/widgets/control.lua
+-- // Purpose:   Control class
+-- // Created:   2014/07/07
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 
 -- import local functions:
@@ -71,6 +52,11 @@ end
 Control:virtual 'setText'
 function Control:setText ( sNewText )
 	self.wxObj:SetLabel(  isString(sNewText)  )
+end
+
+Control:virtual 'setTextMarkup'
+function Control:setTextMarkup ( sTextMarkup )
+	self:getwxObj():SetLabelMarkup(isString(sTextMarkup));
 end
 
 -- Set the font to this control: sFontFamily is the name of font, nFontSize is the size in px,  

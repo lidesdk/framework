@@ -1,11 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/widgets/pane.lua
--- // Purpose:     Pane class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2014-08-19
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/widgets/pane.lua
+-- // Purpose:   Pane class
+-- // Created:   2014-08-19
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 local Pane = class 'Pane' : subclassof 'Widget'
 

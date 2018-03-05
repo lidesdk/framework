@@ -1,12 +1,10 @@
 -- ///////////////////////////////////////////////////////////////////
--- // Name:        init.lua
--- // Purpose:     Initialize framework
--- // Author:      Dario Cano [dcanohdev@gmail.com]
--- // Created:     2016/01/03
--- // Copyright:   (c) 2014 -2017 Dario Cano
--- // License:     GNU GENERAL PUBLIC LICENSE
+-- // Name:      lide/init.lua
+-- // Purpose:   Initialize framework
+-- // Created:   2016/01/03
+-- // Copyright: (c) 2016-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
---
 
 lide = require 'lide.core.init'
 app  = lide.app
@@ -15,7 +13,6 @@ class = lide.class
 
 require 'lide.base.init'
 
---> lide.core.file is deprecated by lide.file
 lide.file = lide.core.file
 
 ------------------------------------------

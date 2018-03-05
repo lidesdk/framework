@@ -1,21 +1,11 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        lide/classes/controls/textbox.lua
--- // Purpose:     Textbox class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2016/03/20
--- // Copyright:   (c) 2014-2016 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Textbox:new { 
---  	string Name  ,		The control name.
---		object Parent,		The control parent.
---		string Text  , 		The Textbox text.
---	}
--- 
---
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/textbox.lua
+-- // Purpose:   Textbox class
+-- // Created:   2016/03/20
+-- // Copyright: (c) 2016-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
+
 
 -- import local functions:
 local isString = lide.core.base.isstring

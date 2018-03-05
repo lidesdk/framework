@@ -1,22 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/timer.lua
--- // Purpose:     Timer class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2014/07/07
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////////////////////////
-
--- Class constructor:
---
---  object Timer:new ( number nID, fTimerHandler )
---
---  	nID      	 	Timer ID
---		fTimerHandler   Timer Handler
---
---
--- Class methods:
---
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/timer.lua
+-- // Purpose:   Timer class
+-- // Created:   2014/07/07
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 local Timer = class 'Timer' 
 
@@ -44,7 +32,7 @@ function Timer:start( Milliseconds , Oneshot )
 	if (Oneshot == nil) then
 		Oneshot = false
 	end
-	self.wxObj:Start(Milliseconds, Oneshot)	
+	return self.wxObj:Start(Milliseconds, Oneshot)	
 end
 
 function Timer:stop()

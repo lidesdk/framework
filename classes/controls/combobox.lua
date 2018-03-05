@@ -1,11 +1,10 @@
 -- /////////////////////////////////////////////////////////////////////////////
--- // Name:        controls/Combobox.lua
--- // Purpose:     Combobox class
--- // Author:      Hernán Cano [jhernancanom@gmail.com]
--- // Created:     2014-07-14
--- // Copyright:   (c) 2014 Hernán Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/combobox.lua
+-- // Purpose:   Combobox class
+-- // Created:   2014-07-14
+-- // Copyright: (c) 2014-2018 Jesus Hernan Cano [jhernancanom@gmail.com], Hernan Dario Cano [dcanohdev@gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- set Combobox constants:
 enum {

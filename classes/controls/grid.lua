@@ -1,11 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        classes/control/grid.lua
--- // Purpose:     Grid class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Created:     2014/07/22
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/control/grid.lua
+-- // Purpose:   Grid class
+-- // Created:   2014/07/22
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev@gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 --- Grid selection modes:
 --- deprecated by line:73 Grid:enum

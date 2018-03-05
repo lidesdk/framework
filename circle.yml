@@ -1,15 +1,34 @@
+# -- Variables CURRENT_BRANCH and LIDE_PATH are defined on CircleCI GUI: https://circleci.com/gh/lidesdk/framework/edit#env-vars
+# CURRENT_BRANCH = CIRCLE_BRANCH (default_branch)
+# LIDE_PATH=~/lide/shell
+
 dependencies:
   pre:
     # install lua interpreter and luarocks
     - sudo apt-get install lua5.1 luarocks
 
-    # install lide dependencies with luarocks
-    - sudo luarocks install luafilesystem
+    # Create lide install directory and go to it (~/lide):
+    - mkdir ~/lide
 
-    # install lide using latest rockspeck: los tests se ejecutaran con esta version:
-    - sudo luarocks install https://raw.githubusercontent.com/lidesdk/framework/master/lide-0.0-1.rockspec
+    # Clone git repository and submodules:
+    - git clone https://github.com/lidesdk/shell.git --recursive ~/lide/shell && cd ~/lide/shell && git checkout $CIRCLE_BRANCH && cd ~/lide/shell/libraries/lide && git checkout $CIRCLE_BRANCH
+
+    # las siguientes  librerias del repositorio stable:
+    # xml necesita libstdc++6 (- sudo apt-get install libstdc++6)
+    # zip necesita libzzip-0.so.13
+    - sudo cp $LIDE_PATH/clibs/linux/x64/pcaf_libstdc++.so.6 /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+    - sudo cp $LIDE_PATH/clibs/linux/x64/pcaf_libzzip-0.so.13 /usr/lib/x86_64-linux-gnu/libzzip-0.so.13
 
 test:
-  override:
+  override:    
+    # authorize x64 lua interpreter:
+    - chmod +x ~/lide/shell/bin/linux/x64/lua
+
+    # Create environment variable named LIDE_PATH:
+    # - export PATH=$LIDE_PATH:$PATH
+    - chmod +x ~/lide/shell/lide.sh
+
     # executing tests:
-    - lua5.1 tests/lide_core_oop_tests.lua
+    - ~/lide/shell/lide.sh tests/lide_core_oop_test.lua
+    - ~/lide/shell/lide.sh tests/lide_base_file_test.lua
+    - ~/lide/shell/lide.sh tests/lide_error_test.lua

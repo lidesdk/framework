@@ -1,20 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        objects/panel.lua
--- // Purpose:     Panel class
--- // Author:      Dario Cano [dcanohdev@gmail.com]
--- // Created:     2014/09/08
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
---
--- Class constructor:
---
---  object Toolbar:new { 
---  	string Name  ,		The panel name.
---		object Parent,		The panel parent.
---	}
---
---
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/toolbar.lua
+-- // Purpose:   Toolbar class
+-- // Created:   2014/09/08
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 -- %TODO: Toolbar:AddControl
 enum {

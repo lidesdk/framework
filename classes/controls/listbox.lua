@@ -1,12 +1,10 @@
--- /////////////////////////////////////////////////////////////////////////////
--- // Name:        controls/Listbox.lua
--- // Purpose:     Listbox class
--- // Author:      Dario Cano [thdkano@gmail.com]
--- // Modified by: 
--- // Created:     07/19/2014
--- // Copyright:   (c) 2014 Dario Cano
--- // License:     lide license
--- /////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
+-- // Name:      lide/classes/controls/listbox.lua
+-- // Purpose:   Listbox class
+-- // Created:   07/19/2014
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // License:   GNU GENERAL PUBLIC LICENSE
+-- ///////////////////////////////////////////////////////////////////
 
 --To implement:
 --%wxchkver_2_8 int HitTest(const wxPoint& point) const; 
@@ -35,6 +33,7 @@ local check = lide.core.base.check
 
 -- import local functions:
 local isObject = lide.core.base.isobject
+local isNumber = lide.core.base.isnumber
 
 -- import required classes
 local Control = lide.classes.widgets.control
@@ -102,7 +101,7 @@ function Listbox:Listbox ( fields )
 	}
 end
 
-function Listbox:InitListboxEvents( tEventNames )
+function Listbox:initListboxEvents( tEventNames )
 	--* See Widget:InitWidgetEvents() for more info... 
 	local function getLBValues( event )
 		local Item, IsSelection, ItemText
@@ -130,18 +129,18 @@ function Listbox:InitListboxEvents( tEventNames )
 end
 
 -- void InsertItems(const wxArrayString& items, int pos );
-function Listbox:InsertItems( Items, Position )
+function Listbox:insertItems( Items, Position )
 	self.wxObj:InsertItems(Items, Position)
 end
 
 -- void Deselect(int n ); 
-function Listbox:Deselect( Item )
+function Listbox:deselect( Item )
 	self.wxObj:Deselect(Item)
 end
 
 -- bool IsSelected(int n) const; 
-function Listbox:IsSelected( Item )
-	return self.wxObj:IsSelected( Item )
+function Listbox:isSelected( nItem )
+	return self.wxObj:IsSelected( isNumber(nItem) -1 )
 end
 
 -- // %override [Lua table of int selections] wxListbox::GetSelections( ); 
@@ -156,7 +155,7 @@ function Listbox:getSelection()
 end
 
 -- void SetFirstItem(int n ); 
-function Listbox:SetFirstItem( Item )
+function Listbox:setFirstItem( Item )
 	self.wxObj:SetFirstItem(Item)
 end
 
