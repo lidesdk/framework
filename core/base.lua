@@ -134,9 +134,9 @@ local base = {
 			lide.core.base.isnumber(nLastID)
 			return nLastID +1
 		else
-			local _MAXID = 6000 ^66
+			local _MAXID = 6000 * 777
 			lide.core.base.maxid = (lide.core.base.maxid or _MAXID) +1
-			return lide.core.base.maxid		
+			return tonumber(lide.core.base.maxid)
 		end
 	end,
 

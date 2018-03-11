@@ -55,7 +55,7 @@ function HTMLView:HTMLView( fields )
 	self.super : init ( fields.Name, fields.Parent, fields.PosX or self.DefaultPosition.X, fields.PosY or self.DefaultPosition.Y, fields.Width or self.DefaultSize.Width, fields.Height or self.DefaultSize.Height, fields.ID )
 	
 	--print('htmlview1' .. fields.Flags)	
-
+	print(self.ID)
 	-- create wxWidgets object and store it on self.wxObj:
 	self.wxObj = wx.wxLuaHtmlWindow( self.Parent:getwxObj(), self.ID, wx.wxPoint( self.PosX, self.PosY ), wx.wxSize( self.Width, self.Height ), self.Flags or self.DefaultFlags, self.Name)
 

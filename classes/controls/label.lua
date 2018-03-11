@@ -16,8 +16,9 @@ enum {
 local check = lide.core.base.check
 
 -- import local functions:
-local isString = lide.core.base.isstring
-local isNumber = lide.core.base.isnumber
+local isString  = lide.core.base.isstring
+local isNumber  = lide.core.base.isnumber
+local isBoolean = lide.core.base.isboolean
 
 -- import required classes
 local Control = lide.classes.widgets.control

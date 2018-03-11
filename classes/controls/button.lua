@@ -10,7 +10,9 @@
 local check = lide.core.base.check
 
 -- import local functions:
-local isObject = lide.core.base.isobject
+local isObject  = lide.core.base.isobject
+local isBoolean = lide.core.base.isboolean
+local isString  = lide.core.base.isstring
 
 -- import required classes
 local Control = lide.classes.widgets.control

@@ -74,6 +74,11 @@ function Font:Font ( ... )
 
 end
 
+function Font:setName ( sName )
+	self._objName = isString(sName)
+	self._objName = sName
+	if ( self._objName == sName ) then return true else return false end
+end
 
 -- define class methods
 

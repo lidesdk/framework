@@ -12,7 +12,7 @@ local Window = lide.classes.widgets.window
 local Panel  = lide.classes.widgets.panel
 
 -- define the class:
-local Form = class 'Form' : subclassof 'Window' : global (false)
+local Form = class 'Form' : subclassof 'Window' --: global (false)
 	--: global(false)
 
 
@@ -21,7 +21,7 @@ function Form:Form( fields )
 	
 	-- add Panel object to intercept onKey* events and place the controls:		
 	self.Panel = Panel:new { Parent = self,
-		Name   = self.Name .. '.Panel',
+		Name   = (self._objName) .. '.Panel',
 	}
 	
 	-- Panel fixes:

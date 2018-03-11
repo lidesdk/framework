@@ -40,7 +40,7 @@ function Panel:Panel ( fields )
 
 	-- create wxWidgets object and store it on self.wxObj:
 	-- wxPanel(wxWindow* parent, wxWindowID id, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxTAB_TRAVERSAL, const wxString& name = "wxPanel" );
-	self.wxObj = wx.wxPanel(self.Parent:getwxObj(), self.ID, wx.wxPoint( self.PosX, self.PosY ), wx.wxSize( self.Width, self.Height ), self.Flags or self.DefaultFlags, self.Name)
+	self.wxObj = wx.wxPanel(self.Parent:getwxObj(), self._objID, wx.wxPoint( self.PosX, self.PosY ), wx.wxSize( self.Width, self.Height ), self.Flags or self.DefaultFlags, self._objName)
 
 	-- initialize events:
 	self:initializeEvents {

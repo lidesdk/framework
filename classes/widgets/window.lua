@@ -75,7 +75,7 @@ function Window:Window ( fields )
 	self.super:init( fields.Name, 'window', fields.PosX or self.DefaultPosition.X, fields.PosY or self.DefaultPosition.Y, fields.Width or self.DefaultSize.Width, fields.Height or self.DefaultSize.Height, fields.ID, fields.Parent or self )
 
 	-- create wxWidgets object and save it on self.wxObj:
-	self.wxObj = wx.wxFrame(wx.NULL, self.ID, self.Title, wx.wxPoint( self.PosX, self.PosY ), wx.wxSize( self.Width, self.Height ), self.Flags)
+	self.wxObj = wx.wxFrame(wx.NULL, self._objID, self.Title, wx.wxPoint( self.PosX, self.PosY ), wx.wxSize( self.Width, self.Height ), self.Flags)
 	
 	-- declare self events into "__events" metatable:
 

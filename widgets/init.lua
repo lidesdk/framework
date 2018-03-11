@@ -15,10 +15,19 @@ lide.widgets = {}
 
 lide.classes.widgets   = {}
 lide.classes.controls  = {}
+
+lide.classes.event     = require 'lide.classes.event'
+lide.classes.item      = require 'lide.classes.item'
+lide.classes.store     = require 'lide.classes.store'
+lide.classes.date      = require 'lide.classes.date'
+
+
 lide.classes.widget    = require 'lide.classes.widget'
 lide.classes.menu      = require 'lide.classes.menu'
 lide.classes.boxsizer  = require 'lide.classes.boxsizer'
 lide.classes.gridtable = require 'lide.classes.gridtable'
+lide.classes.font      = require 'lide.classes.font'
+lide.classes.timer     = require 'lide.classes.timer'
 
 lide.classes.widgets.panel  = require 'lide.classes.widgets.panel'
 lide.classes.widgets.window = require 'lide.classes.widgets.window'

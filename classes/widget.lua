@@ -294,7 +294,7 @@ function Widget:initializeEvents ( toLoad )
 	for _, sEvtName in next, toLoad do
 		if tostring(sEvtName) and getmetatable(self).__events[sEvtName] then
 			
-			self[sEvtName] = Event:new ( self:getName() ..'.'..sEvtName, self, lide.core.base.voidf )
+			self[sEvtName] = lide.classes.event:new ( self:getName() ..'.'..sEvtName, self, lide.core.base.voidf )
 
 			if (getmetatable(self).__events[sEvtName].data == wx.wxEVT_SHOW) then				
 				self:getwxObj():Connect(wx.wxEVT_SHOW, function ( event )					

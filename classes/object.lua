@@ -11,7 +11,7 @@ local Object = class 'Object' : global ( false )
 
 
 function Object:Object ( sObjectName, nObjectID )
-	nObjectID = nObjectID or lide.core.base.newid ()
+	local nObjectID = nObjectID or lide.core.base.newid ()
 	
 	-- Check if the args are the required type:
 	assert(type(sObjectName) == 'string', 'Name of Object must be a string') ; assert(type(nObjectID) == 'number', 'ID of object must be numeric.')
@@ -20,7 +20,12 @@ function Object:Object ( sObjectName, nObjectID )
 	protected {
 		_objName = sObjectName,
 		_objID   = nObjectID,
+		
+		ID   = nObjectID,
+		Name = sObjectName,
 	}
+
+
 end
 
 
