@@ -11,7 +11,7 @@ controls in Windows.
 ========================================================= ==================================================================================
   git branch: ``master``                                    last stable: ``0.1``
 ========================================================= ==================================================================================
- Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/kqs9p85067nqtg5b/branch/master?svg=true
+ Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/tg8aq749c25jewg0/branch/master?svg=true
                                                                :target: https://ci.appveyor.com/project/dcanoh/framework/branch/master
  Tests executed in **Ubuntu 14.04** Trusty x64 machine      .. image:: https://circleci.com/gh/lidesdk/framework/tree/master.svg?style=svg
                                                                :target: https://circleci.com/gh/lidesdk/framework/tree/master
