@@ -53,11 +53,11 @@ if arg and arg[0] then
 end
 
 lide.app.folders = { sourcefolder = sf }
-
+ 
 require 'lide.core.thlua'
 
 lide.core.oop      = require 'lide.core.oop.init'   --> Object Oriented Model
-lide.error   	   = require 'lide.core.error.init'    	--> EH & Exceptions control
+lide.core.error    = require 'lide.core.error.init'    	--> EH & Exceptions control
 lide.core.base     = require 'lide.core.base'		--> Lide Core functions
 lide.core.platform = require 'lide.core.platform'   --> Operating System 
 
@@ -66,6 +66,8 @@ lide.platform = lide.core.platform;
 
 -- define base framework values:
 lide.enum  = lide.core.base.enum;
+
+lide.error = lide.core.error
 
 ----------------------------------------------------------------------
 -- Backward compatibility:

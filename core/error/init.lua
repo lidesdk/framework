@@ -173,6 +173,10 @@ StandardError : enum {
 	is_table = function ( value, errmsg )
 		return istype(value, 'table');
 	end,
+
+	try     = try,
+	catch   = catch,
+	finally = finally,
 }
 
 --====================================================================--
