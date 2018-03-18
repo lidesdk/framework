@@ -9,10 +9,6 @@
 io.stdout:setvbuf 'no'
 io.stderr:setvbuf 'no'
 
-if (not os.getenv('LIDE_PATH')) then
-    error 'LIDE_PATH is not defined now.'
-end
-
 lide = {
 	cons   = {}, 	--> This table saves all constants
 	errorf = {}, 	--> This table stores all error functions

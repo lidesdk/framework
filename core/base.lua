@@ -8,6 +8,8 @@
 
 lide.app = lide.app or { };
 
+lide.app.folders = { }
+
 function lide.app.getWorkDir( ... )
 	if lide.platform.getOSName() == 'linux' then
 		return io.popen 'echo $PWD' : read '*l'
@@ -15,10 +17,6 @@ function lide.app.getWorkDir( ... )
 		return io.popen 'CD' : read '*l'
 	end
 end
-
-lide.app.folders = { 
-	-- sourcefolder = os.getenv 'LIDE_PATH' 
-}
 
 local framework_call_level = 4
 
