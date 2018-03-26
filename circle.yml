@@ -11,7 +11,7 @@ dependencies:
     - mkdir ~/lide
 
     # Clone git repository and submodules:
-    - git clone https://github.com/lidesdk/shell.git --recursive ~/lide/shell && cd ~/lide/shell && git checkout $CIRCLE_BRANCH && cd ~/lide/shell/libraries/lide && git checkout $CIRCLE_BRANCH
+    - git clone https://github.com/lidesdk/shell.git --recursive ~/lide/shell && cd ~/lide/shell && git checkout master && cd ~/lide/shell/libraries/lide && git checkout $CIRCLE_BRANCH
 
     # las siguientes  librerias del repositorio stable:
     # xml necesita libstdc++6 (- sudo apt-get install libstdc++6)
