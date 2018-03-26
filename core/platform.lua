@@ -40,7 +40,7 @@ function lide.platform.get_osarch ()
 	end
 end
 
-function lide.platform.getOSVersion ()
+function lide.platform.get_osversion ()
 	if windows then
 		-- because lide uses wxlua binaries compiled with utf8 decode...
 		-- we should decode any string
@@ -53,7 +53,7 @@ function lide.platform.getOSVersion ()
 		
 		return ('%d.%d.%d'):format(t[1], t[2], t[3])
 	elseif linux then
-		error 'lide.platform.getOSVersion not supported in Linux'
+		error 'lide.platform.get_osversion not supported in Linux'
 	end
 end
 
@@ -72,8 +72,8 @@ lide.platform.normalize_path = normalize_path
 ---
 
 lide.platform.getOSName     = lide.platform.get_osname
-lide.platform.get_osversion  = lide.platform.getOSVersion
-lide.platform.getArch        = lide.platform.get_osarch
-lide.platform.getOS     = lide.platform.get_osname
+lide.platform.getOSVersion  = lide.platform.get_osversion
+lide.platform.getOSArch     = lide.platform.get_osarch
+lide.platform.getOS         = lide.platform.get_osname
 
 return lide.platform
