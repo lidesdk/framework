@@ -21,7 +21,7 @@ lide = {
 					lide.core.base.isnumber(nLastID)
 					return nLastID +1
 				else
-					local _MAXID = 777 ^ 333
+					local _MAXID = 999^9
 					lide.core.base.maxid = (lide.core.base.maxid or _MAXID) +1
 					return lide.core.base.maxid		
 				end
@@ -41,14 +41,14 @@ lide = {
 }
 
 -- if interpreter
-if arg and arg[0] then
-	local sf = arg[0]:sub(1, #arg[0] , #arg[0])
-	local n  = sf:reverse():find (package.config:sub(1,1), 1) or 0
-		  sf = sf:reverse():sub (n+1, # sf:reverse()) : reverse()
-	_sourcefolder = sf
-end
+--if arg and arg[0] then
+--	local sf = arg[0]:sub(1, #arg[0] , #arg[0])
+--	local n  = sf:reverse():find (package.config:sub(1,1), 1) or 0
+--		  sf = sf:reverse():sub (n+1, # sf:reverse()) : reverse()
+--	_sourcefolder = sf
+--end
 
-lide.app.folders = { sourcefolder = sf }
+--lide.app.folders = { sourcefolder = sf }
  
 require 'lide.core.thlua'
 
@@ -57,22 +57,24 @@ lide.core.error    = require 'lide.core.error.init'    	--> EH & Exceptions cont
 lide.core.base     = require 'lide.core.base'		--> Lide Core functions
 lide.core.platform = require 'lide.core.platform'   --> Operating System 
 
--- Register lide.platform:
+--
+-- register lide.platform:
+--
+
 lide.platform = lide.core.platform;
 
+--
 -- define base framework values:
+--
+
 lide.enum  = lide.core.base.enum;
+lide.error = lide.core.error;
 
-lide.error = lide.core.error
+--
+-- backward compatibility:
+--
 
-----------------------------------------------------------------------
--- Backward compatibility:
 enum  = lide.enum    -- !Deprecated enum by lide.enum 
 class = lide.class   -- !Deprecated class by lide.class
-
---- Will be deprecated please load modules by separate because
----  loading "lide.base.init" then "lide.core.init" is loaded too.
---require 'lide.base.init' -- !Deprecated (by feature/modular c8ca240)
-----------------------------------------------------------------------
 
 return lide, lide.app
