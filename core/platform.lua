@@ -70,10 +70,10 @@ lide.platform.normalize_path = normalize_path
 ---
 -- backward compatibility:
 ---
-
-lide.platform.getOSName     = lide.platform.get_osname
-lide.platform.getOSVersion  = lide.platform.get_osversion
-lide.platform.getOSArch     = lide.platform.get_osarch
-lide.platform.getOS         = lide.platform.get_osname
+lide.platform.getOSName     = lide.platform.get_osname    --from 0.1
+lide.platform.getOSVersion  = lide.platform.get_osversion --from 0.1
+lide.platform.getOSArch     = lide.platform.get_osarch --from 0.1
+lide.platform.getOS         = lide.platform.get_osname --from 0.1
+lide.platform.getArch       = lide.platform.get_osarch --from 0.1
 
 return lide.platform
