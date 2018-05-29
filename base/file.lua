@@ -8,6 +8,7 @@
 
 lide.file      = {}
 lide.core.file = lide.file -- backward compatibility
+lfs			   = lide.base.lib.lfs
 
 -- Convert path to running OS
 local function normalizePath ( path )
@@ -43,16 +44,17 @@ function lide.file.delete ( file_path )
 	if lide.platform.getOSName() == 'linux' then
 		_shell_command = 'rm -rf "%s"'
 	elseif lide.platform.getOSName() == 'windows' then
-		_shell_command = 'del /F /Q /S "%s"'
+		--_shell_command = 'del /F /Q /S "%s"'
+		os.remove(normalizePath(file_path))
 	end
 	
-	local exc, err = pcall(
-		io.popen, _shell_command:format(normalizePath(file_path), 'rb')
-	) 
+	--local exc, err = pcall(
+	--	io.popen, _shell_command:format(normalizePath(file_path), 'rb')
+	--) 
 
-	if not exc then
-		print ('error: '.. err)
-	end
+	--if not exc then
+		--print ('error: '.. err)
+	--end
 end
 
 function lide.file.open ( strFilePath )
