@@ -44,7 +44,8 @@ function Panel:Panel ( fields )
 
 	-- initialize events:
 	self:initializeEvents {
-	    'onEnter', 'onLeave', 'onMotion'
+	    'onEnter', 'onLeave', 'onMotion', 
+	    'onSize'
 
 		--'onRightUp' , 'onRightDown' , 'onRightDoubleClick' ,
 		--'onLeftUp'  , 'onLeftDown'  , 'onLeftDoubleClick'  ,

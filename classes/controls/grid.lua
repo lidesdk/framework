@@ -134,14 +134,10 @@ end
 
 
 function Grid:setTable( table, auto_size, takeOwnership, selmode )
-	if (takeOwnership == nil) then
-		takeOwnership = false
-	end
-	
-	--io.stdout:write (('%s\n'):format( tostring ( self.wxObj ) )) 
+	if (takeOwnership == nil) then takeOwnership = false;end
 
-	local ret --=  assert(self.wxObj:SetTable(table:getwxObj(), takeOwnership, selmode or self.SelectionMode))
-	local x, e = pcall(self.wxObj.SetTable, self.wxObj, table:getwxObj() )
+	local ret;
+	local x, e = pcall(self.wxObj.SetTable, self.wxObj, table:getwxObj(), takeOwnership, selmode or self.SelectionMode )
 	
 	if not x then
 		printf('error en grid: %s', e)

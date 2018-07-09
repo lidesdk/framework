@@ -290,7 +290,14 @@ function Widget:initializeEvents ( toLoad )
 		end
 	}
 	
-
+	--getmetatable(self) .__events['onShow'] = {
+	--	data = wx.wxEVT_SHOW,
+	--	args = function ( event )
+	--		local nKeyCode = event:GetKeyCode()
+	--		return nKeyCode
+	--	end
+	--}
+	--
 	for _, sEvtName in next, toLoad do
 		if tostring(sEvtName) and getmetatable(self).__events[sEvtName] then
 			
