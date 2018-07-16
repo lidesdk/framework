@@ -9,7 +9,7 @@ controls in Windows.
 
 
 ========================================================= ==================================================================================
-  git branch: ``master``                                    last stable: ``0.1``
+  git branch: ``master``                                    last stable: ``0.1.12``
 ========================================================= ==================================================================================
  Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/tg8aq749c25jewg0/branch/master?svg=true
                                                                :target: https://ci.appveyor.com/project/dcanoh/framework/branch/master
@@ -55,7 +55,7 @@ How to use it
 	local Form   = lide.classes.widgets.form
 	local Button = lide.classes.widgets.button
 
-	local MessageBox = lide.core.base.messagebox
+	local MessageBox = lide.widgets.messagebox
 
 	form1 = Form:new { Name = 'form1',
 		Title = 'Window Caption'
