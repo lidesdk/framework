@@ -9,7 +9,8 @@
 
 local wx = require 'wx'
 
-if not wx or not lide then error 'Could not load wxLua or lide' os.exit (8) end
+if not lide then lide = require 'lide.base.init' end
+if not wx then error 'Could not load wxLua or lide' os.exit (8) end
 
 lide.widgets = {}
 
@@ -63,8 +64,7 @@ lide.widgets = {
     form   = lide.classes.widgets.form,
     dialog = lide.classes.widgets.dialog,
     
-    -- lide.core.base.messagebox is deprecated by lide.widgets.messagebox 'msg'
-    messagebox = lide.messagebox;
+    messagebox = lide.widgets.messagebox;
 }
 
 return lide
