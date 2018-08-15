@@ -50,7 +50,29 @@ lide = {
 
 --lide.app.folders = { sourcefolder = sf }
  
+-- Load lua pure functions with thlua:
 require 'lide.core.thlua'
+
+--- Check lua interpreter:
+--
+local trequireds = { 'io.popen', 'xtype' }
+
+for _, required_name in pairs(trequireds) do
+	local value = required_name:delim '%.'	
+	if (#value == 2) then
+		local tbl, key  = value[1], value[2]
+		if not rawget(rawget(_G, tbl) or {}, key) then
+		   print (('[lide.core] interpreter does not support %s.'):format(required_name))
+   		   os.exit()			
+		end
+	elseif (#value == 1) then
+		local key  = required_name
+		if not rawget(_G, key) then
+			print (('[lide.core] interpreter does not support %s.'):format(required_name))
+   		    os.exit()			
+		end
+	end
+end
 
 lide.core.oop      = require 'lide.core.oop.init'   --> Object Oriented Model
 lide.core.error    = require 'lide.core.error.init'    	--> EH & Exceptions control
