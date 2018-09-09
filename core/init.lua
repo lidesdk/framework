@@ -55,7 +55,7 @@ require 'lide.core.thlua'
 
 --- Check lua interpreter:
 --
-local trequireds = { 'io.popen', 'xtype' }
+local trequireds = { 'io.popen', 'type' }
 
 for _, required_name in pairs(trequireds) do
 	local value = required_name:delim '%.'	

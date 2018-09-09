@@ -106,17 +106,19 @@ function Grid:Grid ( fields )
 	-- Set Flags:
 	self.SelectionMode = fields.SelectMode
 
-	-- Grid Events:
+	---- Grid Events:
 	--> self.Events.OnCellChanged = wx.wxEVT_GRID_CELL_CHANGE
 	--> self.Events.OnSelectCell = wx.wxEVT_GRID_SELECT_CELL
-	--self.Events.OnCellClick = wx.wxEVT_GRID_CELL_LEFT_CLICK
+	--> self.Events.OnCellClick = wx.wxEVT_GRID_CELL_LEFT_CLICK
 	
---[[
-
-	self:InitGridEvents {
-		"OnCellClick",
-		"OnCellDoubleClick"
-	}]]
+	getmetatable(self) .__events['onSelectCell'] = {
+		data = wx.wxEVT_GRID_SELECT_CELL,
+		args = lide.core.base.voidf
+	}
+	
+	self:initializeEvents {
+		'onSelectCell' --, 'onCellLeftClick'
+	}
 end
 
 ----------------------------------------------------------------
@@ -128,7 +130,7 @@ end
 -- bool SetTable( wxGridTableBase * table, bool takeOwnership = false, wxGrid::wxGridSelectionModes selmode = wxGrid::wxGridSelectCells ); 
 -- bool SetTable( wxGridTableBase * table, bool takeOwnership = false, wxGrid::wxGridSelectionModes selmode = wxGrid::wxGridSelectCells ); 
 
-function Grid:getTable( table, auto_size, takeOwnership, selmode )
+function Grid:getTable()
 	return self.wxObj:GetTable()
 end
 
@@ -360,7 +362,6 @@ end
 -- int GetDefaultColSize( ); 
 --< Column and Row Sizes
 ----------------------------------------------------------------
-
 
 function Grid:forceRefresh( )
 	self.wxObj:ForceRefresh()
