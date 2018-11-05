@@ -15,6 +15,6 @@ lide.classes.object    = require 'lide.classes.object'
 
 --- lide.file:
 --- depends: lide.lfs
-lide.classes.file      = require 'lide.classes.file'
+--lide.classes.file      = require 'lide.classes.file'
 
 return lide.classes

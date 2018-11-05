@@ -18,7 +18,7 @@ local Event    = lide.classes.event
 
 
 -- define the class:
-local Widget = class 'Widget' : subclassof 'Object' : global ( false )
+local Widget = class 'Widget' : subclassof (Object) 
 
 function Widget:Widget ( sWidgetName, sWidgetType, nPosX, nPosY, nWidth, nHeight, nID, oParent )
 	

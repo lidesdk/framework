@@ -26,6 +26,8 @@ lide = {
 					return lide.core.base.maxid		
 				end
 			end,
+
+			maxid = 1000,
 		},
 		lua    = { type = type, error = error, require = require },
 		file   = {},  --> stores all variables related to file handling
@@ -74,10 +76,11 @@ for _, required_name in pairs(trequireds) do
 	end
 end
 
-lide.core.oop      = require 'lide.core.oop.init'   --> Object Oriented Model
-lide.core.error    = require 'lide.core.error.init'    	--> EH & Exceptions control
-lide.core.base     = require 'lide.core.base'		--> Lide Core functions
-lide.core.platform = require 'lide.core.platform'   --> Operating System 
+lide.core.oop        = require 'lide.core.oop.init'   --> Object Oriented Model
+lide.core.error      = require 'lide.core.error.init'    	--> EH & Exceptions control
+lide.core.platform   = require 'lide.core.platform'   --> Operating System 
+lide.core.base       = require 'lide.core.base'		--> Lide Core functions
+lide.core.base.maxid = 1000;
 
 --
 -- register lide.platform:
@@ -98,5 +101,9 @@ lide.error = lide.core.error;
 
 enum  = lide.enum    -- !Deprecated enum by lide.enum 
 class = lide.class   -- !Deprecated class by lide.class
+
+lide.classes = require 'lide.classes.init'
+
+
 
 return lide, lide.app

@@ -16,12 +16,12 @@ require 'lide.base.init'
 lide.file = lide.core.file
 
 ------------------------------------------
-lide.core.base.maxid = 1000
+--lide.core.base.maxid = 1000-
 ------------------------------------------
 
 -- Import classes to the framework:
-lide.classes = require 'lide.classes.init'
+--lide.classes = require 'lide.classes.init'
 
-require 'lide.classes.widgets.init'
+require 'lide.widgets.init'
 
 return lide

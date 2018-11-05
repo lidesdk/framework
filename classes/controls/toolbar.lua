@@ -36,7 +36,7 @@ local Item    = lide.classes.item
 local Store   = lide.classes.store
 
 -- define class constructor
-local Toolbar = class 'Toolbar' : subclassof 'Control' : global (false)
+local Toolbar = class 'Toolbar' : subclassof (Control) -- : global (false)
 
 function Toolbar:Toolbar ( fields )
 	-- check for fields required by constructor:
@@ -67,22 +67,25 @@ function Toolbar:Toolbar ( fields )
 	--
 	-- create wxWidgets object and store it on self:getwxObj():
 	-- wxToolBar(wxWindow *parent, wxWindowID id, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxNO_BORDER | wxTB_HORIZONTAL, const wxString &name = "wxToolBar" ); 
-	--self:getwxObj() = wx.wxToolBar( self.Parent:getParent():getwxObj(), self.ID, 
-	--	wx.wxPoint( self.PosX, self.PosY ), 
-	--	wx.wxSize( self.Width, self.Height ), 
-	--	self.Flags or self.DefaultFlags, 
-	--	self.Name
+	--self.wxObj = wx.wxToolBar( self.Parent:getwxObj(), self.ID, 
+		--wx.wxPoint( self.PosX, self.PosY ), 
+		--wx.wxSize( self.Width, self.Height ), 
+		--self.Flags or self.DefaultFlags, 
+		--self.Name
 	--)
 	---------------------------------------------------------------------------------------------
 
 	-- registry toolbar specific events
 	
+	
+	
 	getmetatable(self) .__events['onToolClick'] = {
 		data = wx.wxEVT_COMMAND_TOOL_CLICKED,
+		--data = wx.wxEVT_COMMAND_MENU_SELECTED,
 		args = function ( event )
 			local ID 		= event:GetId()
 			local IsChecked = event:IsChecked()
-
+			
 			return	ID, IsChecked
 		end
 	}

@@ -18,7 +18,7 @@ local Font   = lide.classes.font
 local Widget = lide.classes.widget
 
 
-local Control = class 'Control' : subclassof 'Widget' : global ( false )
+local Control = class 'Control' : subclassof (Widget) --: global ( false )
 
 function Control:Control ( sControlName, oParent, nPosX, nPosY, nWidth, nHeight, nID )
 	
