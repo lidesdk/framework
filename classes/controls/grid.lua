@@ -1,19 +1,10 @@
 -- ///////////////////////////////////////////////////////////////////
 -- // Name:      lide/classes/control/grid.lua
--- // Purpose:   Grid class
+-- // Purpose:   Grid Class ver: 1.0.0 (2018/11/18)
 -- // Created:   2014/07/22
 -- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev@gmail.com]
 -- // License:   GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
-
---- Grid selection modes:
---- deprecated by line:73 Grid:enum
-enum {
-	GRID_SELMODE_CELLS   = wx.wxGrid.wxGridSelectCells,
-	GRID_SELMODE_ROWS    = wx.wxGrid.wxGridSelectRows,
-	GRID_SELMODE_COLUMNS = wx.wxGrid.wxGridSelectColumns,
-}
-
 
 -- import libraries
 local check = lide.core.base.check
@@ -25,11 +16,10 @@ local isString  = lide.core.base.isstring
 local isNumber  = lide.core.base.isnumber
 
 -- import required classes
-local Font   = lide.classes.font
-local Control = lide.classes.control
+local Font    = lide.classes.font
+local Control = lide.classes.widgets.control
 
-
-local Grid = class 'Grid' : subclassof 'Control' : global ( false )
+local Grid = class 'Grid' : subclassof (Control);
 
 Grid : enum {
 
@@ -77,7 +67,7 @@ function Grid:Grid ( fields )
 		DefaultSize     = { Width = -1, Height = -1 },
 
 		Flags = isNumber(fields.Flags) or -1,
-		SelectMode = fields.SelectMode or GRID_SELMODE_CELLS,
+		SelectMode = fields.SelectMode or wx.wxGrid.wxGridSelectRows,
 	}
 
 	self.super : init ( fields.Name, fields.Parent, fields.PosX or self.DefaultPosition.X, fields.PosY or self.DefaultPosition.Y, fields.Width or self.DefaultSize.Width, fields.Height or self.DefaultSize.Height, fields.ID )
@@ -109,14 +99,8 @@ function Grid:Grid ( fields )
 	-- Grid Events:
 	--> self.Events.OnCellChanged = wx.wxEVT_GRID_CELL_CHANGE
 	--> self.Events.OnSelectCell = wx.wxEVT_GRID_SELECT_CELL
-	--self.Events.OnCellClick = wx.wxEVT_GRID_CELL_LEFT_CLICK
+	--> self.Events.OnCellClick = wx.wxEVT_GRID_CELL_LEFT_CLICK
 	
---[[
-
-	self:InitGridEvents {
-		"OnCellClick",
-		"OnCellDoubleClick"
-	}]]
 	getmetatable(self) .__events['onSelectCell'] = {
 		data = wx.wxEVT_GRID_SELECT_CELL,
 		args = lide.core.base.voidf
@@ -136,11 +120,9 @@ end
 -- // %override so that takeOwnership releases the table from garbage collection by Lua 
 -- bool SetTable( wxGridTableBase * table, bool takeOwnership = false, wxGrid::wxGridSelectionModes selmode = wxGrid::wxGridSelectCells ); 
 -- bool SetTable( wxGridTableBase * table, bool takeOwnership = false, wxGrid::wxGridSelectionModes selmode = wxGrid::wxGridSelectCells ); 
-
 function Grid:getTable( table, auto_size, takeOwnership, selmode )
 	return self.wxObj:GetTable()
 end
-
 
 function Grid:setTable( table, auto_size, takeOwnership, selmode )
 	if (takeOwnership == nil) then takeOwnership = false;end

@@ -6,6 +6,8 @@
 -- // License:   GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
 
+local isString  = lide.core.base.isstring
+
 -- define the class:
 local Object = class 'Object' : global ( false )
 
@@ -51,13 +53,13 @@ end
 -- default lua objects are read only named.
 -- is possible to implement setName on lower level classes using:
 
-	--Object:virtual 'setName'
-	--function Object:setName ( sName )
-	--	self._objName = isString(sName)
-	--	self._objName = sName
+	Object:virtual 'setName'
+	function Object:setName ( sName )
+		self._objName = lide.core.base.isstring(sName)
+		self._objName = sName
 
-	--	if ( self._objName == sName ) then return true else return false end
-	--end
+		if ( self._objName == sName ) then return true else return false end
+	end
 
 --- define class meta-methods
 ---

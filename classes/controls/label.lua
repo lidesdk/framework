@@ -23,7 +23,7 @@ local isBoolean = lide.core.base.isboolean
 -- import required classes
 local Control = lide.classes.widgets.control
 
-local Label = class 'Label' : subclassof 'Control' : global(false)
+local Label = class 'Label' : subclassof (Control)
 local Font  = lide.classes.font
 
 -- set local variables:

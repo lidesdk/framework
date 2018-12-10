@@ -6,7 +6,6 @@
 -- // License:     Lide framework license
 -- ///////////////////////////////////////////////////////////////////
 
-
 local wx = require 'wx'
 
 if not lide then lide = require 'lide.base.init' end
@@ -21,7 +20,6 @@ lide.classes.event     = require 'lide.classes.event'
 lide.classes.item      = require 'lide.classes.item'
 lide.classes.store     = require 'lide.classes.store'
 lide.classes.date      = require 'lide.classes.date'
-
 
 lide.classes.widget    = require 'lide.classes.widget'
 lide.classes.menu      = require 'lide.classes.menu'
@@ -49,6 +47,7 @@ lide.classes.controls.image    = require 'lide.classes.controls.image'
 lide.classes.controls.listbox  = require 'lide.classes.controls.listbox'
 lide.classes.controls.tree     = require 'lide.classes.controls.tree'
 lide.classes.controls.calendar = require 'lide.classes.controls.calendar'
+lide.classes.controls.checkbox = require 'lide.classes.controls.checkbox'
 
 lide.classes.widgets.controls = lide.classes.controls
 
@@ -56,6 +55,15 @@ lide.classes.widgets.controls = lide.classes.controls
 function lide.widgets.messagebox ( message, caption, style, pos_x, pos_y, parent)
     return wx.wxMessageBox(message or "", caption or "Message", style or wx.wxOK + wx.wxCENTRE, parent or wx.NULL, pos_x or -1, pos_y or -1 )   
 end
+
+enum {
+	ICON_EXCLAMATION = wx.wxICON_EXCLAMATION,
+	ICON_INFORMATION = wx.wxICON_INFORMATION,
+	YES_NO			 = wx.wxYES_NO,
+	YES 			 = wx.wxYES,
+	NO 				 = wx.wxNO,
+	NO_DEFAULT 		 = wx.wxNO_DEFAULT
+}
 
 lide.core.base.messagebox = lide.widgets.messagebox
 

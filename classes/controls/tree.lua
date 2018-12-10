@@ -1,8 +1,8 @@
--- /////////////////////////////////////////////////////////////////////////////
+-- ///////////////////////////////////////////////////////////////////
 -- // Name:      lide/classes/controls/tree.lua
--- // Purpose:   Tree class
--- // Created:   07/20/2014
--- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
+-- // Purpose:   Tree Class ver: 1.0.0 (2018/11/18)
+-- // Created:   2014/07/20
+-- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev@gmail.com]
 -- // License:   GNU GENERAL PUBLIC LICENSE
 -- ///////////////////////////////////////////////////////////////////
 
@@ -22,7 +22,7 @@ TR_TWIST_BUTTONS 		 	= wx.wxTR_TWIST_BUTTONS
 TR_LINES_AT_ROOT 		 	= wx.wxTR_LINES_AT_ROOT
 TR_DEFAULT_STYLE 		 	= wx.wxTR_DEFAULT_STYLE
 TR_FULL_ROW_HIGHLIGHT 	    = wx.wxTR_FULL_ROW_HIGHLIGHT
-TR_HAS_VARIABLE_ROW_HEIGHT  = wx.wxTR_HAS_VARIABLE_ROW_HEIGH
+TR_HAS_VARIABLE_ROW_HEIGHT  = wx.wxTR_HAS_VARIABLE_ROW_HEIGHT
 
 -- define class TreeItem:
 local TreeItem = class "TreeItem"
@@ -343,10 +343,15 @@ end
 
 -- void EditLabel(const wxTreeItemId& item ); 
 -- %win void EndEditLabel(const wxTreeItemId& item, bool discardChanges = false ); 
-function Tree:editItemText( ItemID )
+function Tree:startEditItemText( ItemID )
 	self.wxObj:EditLabel (self.Items[ItemID]['wxObj'])
 end
 
+-- %win void EndEditLabel(const wxTreeItemId& item, bool discardChanges = false ); 
+function Tree:endEditItemText( ItemID, bDiscardChanges )
+	if bDiscardChanges == nil then bDiscardChanges = false; end
+	self.wxObj:EndEditLabel (self.Items[ItemID]['wxObj'], bDiscardChanges )
+end
 
 -- void Collapse(const wxTreeItemId& item ); 
 function Tree:collapse( ItemID )

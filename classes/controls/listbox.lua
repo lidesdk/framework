@@ -1,6 +1,6 @@
 -- ///////////////////////////////////////////////////////////////////
 -- // Name:      lide/classes/controls/listbox.lua
--- // Purpose:   Listbox class
+-- // Purpose:   Listbox class 1.1
 -- // Created:   07/19/2014
 -- // Copyright: (c) 2014-2018 Hernan Dario Cano [dcanohdev [at] gmail.com]
 -- // License:   GNU GENERAL PUBLIC LICENSE
@@ -17,9 +17,8 @@ local LB_EXTENDED  = wx.wxLB_EXTENDED
 local LB_HSCROLL   = wx.wxLB_HSCROLL
 local LB_ALWAYS_SB = wx.wxLB_ALWAYS_SB
 local LB_NEEDED_SB = wx.wxLB_NEEDED_SB
-local LB_SORT  	 = wx.wxLB_SORT
+local LB_SORT  	   = wx.wxLB_SORT
 local LB_OWNERDRAW = wx.wxLB_OWNERDRAW 
-
 
 -- define class:
 --local Listbox = ItemContainer:subclass "Listbox"
@@ -186,8 +185,11 @@ function Listbox:getChoices( )
 end
 
 function Listbox:getString( nItem )
-	return self.wxObj:GetString(nItem-1)
+	return self.wxObj:GetString(nItem-1);
 end
 
+function Listbox:getItemString( nItem )
+	return self:getString(nItem);
+end
 
 return Listbox

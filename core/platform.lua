@@ -41,8 +41,14 @@ function lide.platform.get_osarch ()
 	end
 end
 
-function lide.platform.get_osversion ()
-	if windows then
+function lide.platform.get_osversion ( rt_type )
+	local _osname = lide.platform.get_osname():lower()
+
+	if rt_type == 'string' then
+		return io.popen 'wmic os get Caption':read ('*a'):delim'\n'[2];
+	end
+
+	if ('windows' == _osname) then
 		-- because lide uses wxlua binaries compiled with utf8 decode...
 		-- we should decode any string
 		local winver = io.popen 'ver' : read '*a'

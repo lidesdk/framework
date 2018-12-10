@@ -46,6 +46,11 @@ function Widget:getwxObj()
 	return self.wxObj
 end
 
+Widget:virtual 'getBind'
+function Widget:getBind()
+	return self.wxObj
+end
+
 Widget:virtual 'getParent'
 
 function Widget:getParent( )
