@@ -1,5 +1,5 @@
-Lide Shell
-==========
+Lide Framework
+==============
 
 Lide Framework is a library that allows you to create multiplatform 
 graphical interfaces from Lua language.
@@ -9,7 +9,7 @@ controls in Windows.
 
 
 ========================================================= ==================================================================================
-  git branch: ``master``                                    last stable: ``0.1.12``
+  git branch: ``master``                                    last stable: ``0.2.0``
 ========================================================= ==================================================================================
  Tests executed in **Windows 10** x64 and x86 machines      .. image:: https://ci.appveyor.com/api/projects/status/tg8aq749c25jewg0/branch/master?svg=true
                                                                :target: https://ci.appveyor.com/project/dcanoh/framework/branch/master
@@ -28,14 +28,9 @@ have installed the correct versions of each library.
 
 .. code-block:: bash
 
-	$ mkdir lide && cd lide
-	$ git clone https://github.com/lidesdk/shell.git --recursive
-	$ export LIDE_PATH=$PWD
-
-Manual installation
--------------------
-- `Please follow the instructions for Windows. <https://github.com/lidesdk/shell/tree/master#windows-installation>`_
-- `Or follow the instructions for GNU/Linux... <https://github.com/lidesdk/shell/tree/master#gnulinux-installation>`_
+	$ mkdir lua-libaries && cd lua-libaries
+	$ git clone https://github.com/lidesdk/framework.git lide
+	$ lua -l lide.base.init
 
 Auto Installer
 --------------
@@ -93,7 +88,7 @@ Help & Documentation
 If you want to know more please read our official framework's 
 documentation:
 
-`- Lide Framework 0.1 on Read the docs <http://lide-framework.readthedocs.io/en/0.1>`_
+`- Lide Framework 0.2 on Read the docs <http://lide-framework.readthedocs.io/en/0.2>`_
 
 
 Credits and Authors
@@ -109,4 +104,4 @@ Lide is currently active and mastering, today is maintained by (`@dcanoh <https:
 License
 =======
 
-Lide is licensed under (`The GNU General Public License <https://github.com/lidesdk/commandline/blob/master/LICENSE>`_). Copyright © 2018 Hernán Dario Cano.
+Lide is licensed under (`The GNU General Public License <https://github.com/lidesdk/shell/blob/master/LICENSE>`_). Copyright © 2018 Hernán Dario Cano.
