@@ -27,7 +27,9 @@ function lide.platform.get_osarch ()
 	local _osname = lide.platform.get_osname():lower()
 
 	if (_osname == 'windows') then
-		return tostring(os.getenv 'PROCESSOR_ARCHITECTURE' : gsub ('AMD64', 'x64')):sub(1,3);
+		return tostring(
+			os.getenv 'PROCESSOR_ARCHITECTURE' 
+			: gsub ('AMD64', 'x64')):sub(1,3);
 	elseif (_osname == 'linux') then
 		--- 
 		-- Linux support contains: "x86", "x64" and "arm" architectures:
